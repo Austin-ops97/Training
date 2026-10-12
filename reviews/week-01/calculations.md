@@ -70,6 +70,14 @@ EIA Table 6.07.A, annual 2025, preliminary:
 
 These are national averages, not a Viper Power dispatch plan.
 
+### July row on the same sheet (taught, then quizzed)
+
+Table 6.07.A, still preliminary:
+
+- July 2026 gas turbines: **0.233** (23.3 percent).
+- July 2026 combined cycle: **0.723** (72.3 percent).
+- July 2025 gas turbines: **0.249** (24.9 percent). That earlier July is not the July 2026 figure.
+
 ### Exercise d4e1 (graded)
 
 Hypothetical unit. Not Viper Power. Rating 100 MW. Energy 120,000 MWh. Non-leap year.

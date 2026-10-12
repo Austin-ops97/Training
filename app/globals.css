@@ -132,7 +132,7 @@ p { margin: 0.6rem 0; }
 .callout.flag { border-color: var(--flag); background: var(--flag-soft); }
 .callout.pm { border-color: var(--pine); background: var(--pine-soft); }
 .callout.advanced { border-color: #5c5480; background: #f4f2f8; }
-.formula { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif; background: #f7f4ee; border-radius: 8px; padding: 0.7rem 0.8rem; }
+.formula { font-family: inherit; background: #f7f4ee; border-radius: 8px; padding: 0.7rem 0.8rem; }
 .formula strong { display: block; }
 
 .video-frame { margin: 0.8rem 0 0.2rem; }
@@ -190,7 +190,20 @@ input[type="number"] {
 .progress-track span { display: block; height: 100%; background: var(--pine); }
 footer.site { color: var(--ink-soft); padding: 2rem 1.25rem 3rem; max-width: var(--max); margin: 0 auto; font-size: 0.9rem; }
 
+.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.55rem; margin: 0.6rem 0; }
+.terms div { background: var(--pine-soft); border-radius: 10px; padding: 0.55rem 0.7rem; }
+.terms dt { font-weight: 700; }
+.terms dd { margin: 0.15rem 0 0; color: var(--ink-soft); }
+.diagram { margin: 0.6rem 0; }
+.diagram svg { width: 100%; height: auto; display: block; background: #f7f4ee; border-radius: 12px; }
+.lesson-fold, .sources { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.6rem 0.8rem; margin: 0.6rem 0 0.9rem; }
+.lesson-fold summary, .sources summary { cursor: pointer; font-weight: 700; }
+.phone-only { display: none; }
+.desktop-only { display: block; }
+
 @media (max-width: 800px) {
+  .phone-only { display: block; }
+  .desktop-only { display: none; }
   .lesson-layout { grid-template-columns: 1fr; }
   .rail { position: static; }
   .site-header { flex-direction: column; align-items: flex-start; }

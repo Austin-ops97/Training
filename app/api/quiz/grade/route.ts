@@ -4,12 +4,17 @@ import { gradeExercise, gradeQuestions } from "@/lib/grade";
 import { getLessonById } from "@/lib/course";
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as {
+  let body: {
     lessonId?: string;
-    questions?: Record<string, number>;
+    questions?: Record<string, string>;
     exercise?: { id?: string; value?: number };
   };
-  if (!body.lessonId || !answerKey[body.lessonId] || !getLessonById(body.lessonId)) {
+  try {
+    body = (await request.json()) as typeof body;
+  } catch {
+    return NextResponse.json({ error: "The request was not valid JSON." }, { status: 400 });
+  }
+  if (!body || typeof body !== "object" || !body.lessonId || !answerKey[body.lessonId] || !getLessonById(body.lessonId)) {
     return NextResponse.json({ error: "Unknown lesson." }, { status: 404 });
   }
   const key = answerKey[body.lessonId];

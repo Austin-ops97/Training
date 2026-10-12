@@ -1,6 +1,6 @@
 export type Level = 1 | 2 | 3;
 
-export type Block =
+type BlockShape =
   | { type: "p"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
@@ -11,7 +11,11 @@ export type Block =
       text: string;
     }
   | { type: "formula"; label: string; expression: string; note: string }
-  | { type: "steps"; title: string; items: string[] };
+  | { type: "steps"; title: string; items: string[] }
+  | { type: "diagram"; diagram: "grid" | "rankine" | "brayton" | "viper" }
+  | { type: "terms"; items: { term: string; meaning: string }[] };
+
+export type Block = BlockShape & { afterVideo?: boolean };
 
 export type SectionKind =
   | "intro"
@@ -35,11 +39,21 @@ export type Section = {
   exerciseId?: string;
 };
 
+export type PublicChoice = {
+  id: string;
+  text: string;
+};
+
 export type PublicQuestion = {
   id: string;
   prompt: string;
-  choices: string[];
+  choices: PublicChoice[];
   level: Level;
+};
+
+export type SourceNote = {
+  title: string;
+  detail: string;
 };
 
 export type PublicExercise = {
@@ -75,10 +89,13 @@ export type Lesson = {
   questions: PublicQuestion[];
   quizIds: string[];
   exercises: PublicExercise[];
+  /** Attribution sits here, not in the teaching paragraphs. */
+  sources: SourceNote[];
 };
 
 export type AnswerItem = {
-  correctIndex: number;
+  /** Stable id of the correct choice. Grading does not use screen position. */
+  correctChoiceId: string;
   explanation: string;
 };
 

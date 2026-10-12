@@ -9,7 +9,7 @@ export type LessonKey = {
   exercises: Record<string, ExerciseAnswer>;
 };
 
-const q = (correctIndex: number, explanation: string): AnswerItem => ({ correctIndex, explanation });
+const q = (correctChoiceId: string, explanation: string): AnswerItem => ({ correctChoiceId, explanation });
 
 export const answerKey: Record<string, LessonKey> = {
   w1d1: {
@@ -18,138 +18,130 @@ export const answerKey: Record<string, LessonKey> = {
         expected: 1062,
         tolerance: 0,
         explanation:
-          "6 × 59 MW = 354 MW. 354 MW × 3 h = 1,062 MWh. The 59 MW figure is the exercise input from the course outline. Inventory discrepancy D11 records about 65 MW ISO per unit and about 330 MW net at 95°F. Do not report 1,062 MWh as a measured plant total.",
+          "6 × 59 MW = 354 MW. 354 MW × 3 h = 1,062 MWh. The 59 MW figure is the given for this problem, not a plant nameplate. Other plant documents use about 65 MW per unit at standard conditions and about 330 MW net at 95°F. Do not report 1,062 MWh as a measured plant total.",
       },
     },
     questions: {
-      d1c1: q(0, "50 MW held for 2 hours is 50 × 2 = 100 MWh. The power is still 50 MW."),
+      d1c1: q("d1c1a", "50 MW held for 2 hours is 50 × 2 = 100 MWh. The power is still 50 MW."),
       d1c2: q(
-        2,
-        "A transformer needs a changing magnetic field. Steady direct current does not keep inducing voltage in the second coil. Crash Course states this, and it is why the grid is alternating current.",
+        "d1c2b",
+        "A transformer needs a changing magnetic field. Steady direct current does not keep inducing voltage in the second coil. That is why the grid is alternating current.",
       ),
-      d1c3: q(
-        3,
-        "Say the basis. 59 MW is the given in today's problem. D11's documented approximates are about 65 MW ISO per unit and about 330 MW net at 95°F.",
-      ),
-      d1q1: q(3, "Power is the rate (MW). Energy is the rate times time (MWh)."),
+      d1q1: q("d1q1c", "Power is the rate, in MW. Energy is that rate times time, in MWh. The invoice needs the unit before it needs a signature."),
       d1q2: q(
-        1,
-        "Practical Engineering and EIA both teach that production and use happen together. There is no large electrical storage in the wires, so a mismatch moves frequency immediately.",
+        "d1q2d",
+        "Production and use happen together. There is no large store of electrical energy in the wires, so a mismatch moves frequency immediately.",
       ),
-      d1q3: q(2, "60 Hz means 60 reversals each second. Both Day 1 videos state the North American figure."),
+      d1q3: q("d1q3a", "60 Hz means the alternating current reverses 60 times each second. It is not a voltage, a heat rate, or a headcount of machines."),
       d1q4: q(
-        3,
-        "Higher voltage means lower current for the same power. Heating loss follows current squared, so raising voltage cuts line loss. The transformer does not store the energy and it does not set the frequency.",
+        "d1q4b",
+        "Higher voltage means lower current for the same power. Heating follows the square of the current, so raising voltage cuts line loss. The transformer does not store the energy and it does not set the frequency.",
       ),
-      d1q5: q(1, "6 × 59 = 354 MW. 354 × 3 h = 1,062 MWh. The unit of the answer is energy, not power."),
+      d1q5: q(
+        "d1q5c",
+        "6 × 59 = 354 MW. 354 × 3 h = 1,062 MWh. The 59 MW figure is the problem's given, not a confirmed nameplate. The plant's own bases are a hot-day net figure and a standard-condition figure per unit.",
+      ),
       d1q6: q(
-        2,
-        "The inventory does not quote 59 MW. D11 quotes about 65 MW ISO per unit and about 330 MW net at 95°F. Keep 59 MW labeled as the exercise input.",
+        "d1q6d",
+        "Most of Texas is on ERCOT, its own interconnection, with limited ties to the Eastern grid. Oklahoma is on that Eastern grid. ERCOT does not own the plants, and the lesson does not say interstate sales are banned or that Oklahoma runs at 50 Hz.",
       ),
       d1q7: q(
-        3,
-        "EIA's delivery page names the Eastern Interconnection, the Western Interconnection, and ERCOT, which covers most of Texas.",
-      ),
-      d1q8: q(
-        1,
-        "EIA says ERCOT is unique because the balancing authority, the interconnection, and the regional transmission organization are the same entity and the same physical system. ERCOT does not own every generator. The Day 5 video says it does not own the assets.",
-      ),
-      d1q9: q(
-        2,
-        "The prime mover spins the generator. EIA notes that photovoltaic plants do not use a turbine.",
-      ),
-      d1q10: q(
-        3,
+        "d1q7a",
         "If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed.",
       ),
-      d1q11: q(
-        1,
-        "Current = power / voltage. Double voltage, half current. Loss follows current squared, so loss falls to one quarter. Crash Course states that relationship. Do not memorize the video's example voltages as plant ratings.",
+      d1q8: q(
+        "d1q8b",
+        "Current is power divided by voltage. Double the voltage and the current is cut in half. Loss follows current squared, so loss falls to one quarter. The example voltages in the film are not this plant's voltages.",
       ),
-      d1q12: q(2, "354 MW for one hour is 354 MWh. Multiplying by 60 would invent a minutes error."),
+      d1q9: q(
+        "d1q9c",
+        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage.",
+      ),
+      d1q10: q(
+        "d1q10d",
+        "The prime mover spins the generator. A photovoltaic plant has no turbine. The transformer changes voltage. It does not spin the shaft.",
+      ),
     },
   },
   w1d2: {
     exercises: {},
     questions: {
       d2c1: q(
-        2,
-        "The condenser rejects the heat the cycle does not turn into work. The generator delivers electricity. It is not the heat sink for the steam.",
+        "d2c1a",
+        "The condenser rejects the heat the cycle cannot turn into work. If it cannot do that, the Rankine loop stops even when the boiler is healthy.",
       ),
       d2c2: q(
-        3,
-        "The ENGIE clip says fission, not a flame, makes the heat, and that on those pressurized-water units the reactor water and the turbine steam are separate circuits.",
+        "d2c2b",
+        "Fission replaces the flame. On the pressurized-water units in the film, reactor water and turbine steam stay apart, and a third circuit cools the condenser. The temperatures and the rod time belong to those units.",
       ),
-      d2q1: q(1, "Steam plants use the Rankine cycle. Gas turbines use Brayton. That split is the Friday question."),
-      d2q2: q(2, "Heat in, expand, reject heat, pump the liquid back. The condenser is the rejection step."),
+      d2q1: q("d2q1c", "Rankine is boil, expand, condense, and pump. Brayton is the gas-turbine cycle from tomorrow."),
+      d2q2: q(
+        "d2q2d",
+        "Heat enters at the boiler or at a nuclear steam generator. The condenser throws the leftover heat away. The pump only returns liquid water.",
+      ),
       d2q3: q(
-        3,
-        "Both can drive a steam turbine and a generator. The nuclear clip's first point is that the heat source is the difference.",
+        "d2q3a",
+        "Both plants end as a steam turbine driving a generator. The heat source is a fire in one case and fission in the other.",
       ),
-      d2q4: q(
-        1,
-        "Exhaust steam must become water again so the cycle can continue, and the rejected heat has to go somewhere. That is the condenser's job.",
-      ),
-      d2q5: q(
-        2,
-        "The saVRee narration says untreated water causes corrosion and deposits, so makeup water is treated and deaerated before it is boiler feedwater.",
-      ),
+      d2q4: q("d2q4b", "The condenser turns exhaust steam back into water so the pump can send it around again."),
+      d2q5: q("d2q5c", "Raw water in a high-pressure boiler leads to corrosion and deposits. Treatment is there to protect the metal."),
       d2q6: q(
-        3,
-        "If the plant cannot reject heat, it cannot keep the Rankine cycle in service. Cooling work is megawatt work.",
+        "d2q6d",
+        "If the plant cannot reject heat, it cannot keep making steam power. A cooling-tower outage on a Rankine unit is a megawatt outage.",
       ),
       d2q7: q(
-        1,
-        "Table 6.07.B annual 2025 nuclear capacity factor is 0.910, and the sheet marks 2025 as preliminary. 0.910 is 91.0 percent. 14.1 percent is the gas-turbine figure on Table 6.07.A. 35.3 percent is hydro on 6.07.B.",
+        "d2q7a",
+        "The national 2025 nuclear capacity factor is 0.910, which is 91.0 percent, and it is marked preliminary. Hydro on the same sheet is 35.3 percent. Neither figure is an efficiency, and neither is Viper Power.",
       ),
       d2q8: q(
-        2,
-        "Quote the table, the year, and the word preliminary. It is a national utility-scale statistic, not Viper Power and not an efficiency.",
+        "d2q8b",
+        "Preliminary means a later workbook can revise the figure. It does not turn a national capacity factor into this plant's efficiency.",
       ),
-      d2q9: q(3, "Enerdynamics' fourth step is cooling the exhaust steam so it can be pumped back to the boiler."),
+      d2q9: q("d2q9c", "The last step before the pump is to cool the exhaust steam back into liquid water."),
       d2q10: q(
-        1,
-        "C01.1.1 describes gas turbines on natural gas. Today's steam equipment is comparison material.",
-      ),
-      d2q11: q(
-        2,
-        "Take the separation of circuits. Leave the Belgian temperatures and the 1.3 second figure on those units. Boiling-water reactors are a different arrangement.",
+        "d2q10d",
+        "Viper Power's Week 1 description is gas turbines on pipeline gas. It is not a Rankine plant, so boiler and cooling-tower scope does not belong on this outage unless a current plant document adds it.",
       ),
     },
   },
   w1d3: {
     exercises: {},
     questions: {
-      d3c1: q(3, "GE Vernova's clip: compressor, then combustor, then turbine, then the generator."),
+      d3c1: q("d3c1a", "Compressor, combustor, turbine, then a hot stack. That is the simple-cycle gas path."),
       d3c2: q(
-        1,
-        "DTE says the HRSG captures exhaust heat that would otherwise leave the stack and makes steam for a steam turbine without additional fuel for that steam.",
+        "d3c2b",
+        "The heat-recovery steam generator boils water with exhaust heat. The extra steam megawatts do not require a second fuel stream.",
       ),
-      d3q1: q(2, "The gas-turbine cycle is the Brayton cycle. Rankine is the steam cycle."),
-      d3q2: q(3, "Compressor, combustor, turbine. The generator is driven by the turbine. It is not one of the three gas-path sections."),
+      d3q1: q("d3q1c", "A simple-cycle gas turbine follows the Brayton path: compress, burn, expand. Rankine is the steam cycle."),
+      d3q2: q("d3q2d", "The three gas-path sections are the compressor, the combustor, and the turbine."),
       d3q3: q(
-        1,
-        "The extra electricity comes from recovered exhaust heat, not from deleting the compressor.",
+        "d3q3a",
+        "A heat-recovery steam generator makes steam from exhaust that would otherwise leave the stack, and a steam turbine turns that steam into more electricity.",
       ),
-      d3q4: q(2, "EPA: electricity and useful thermal energy from the same fuel, at high efficiency."),
+      d3q4: q("d3q4b", "Combined heat and power adds useful thermal energy: process heat, steam, hot water, or chilled water."),
       d3q5: q(
-        3,
-        "EPA states CHP can exceed 80 percent, compared with 50 percent for typical separate generation plus an on-site boiler. That is not a Viper Power test result.",
+        "d3q5c",
+        "The published comparison is that combined heat and power can exceed 80 percent, against about 50 percent for typical separate electricity plus an on-site boiler. It is not a Viper Power test and not a capacity factor.",
       ),
       d3q6: q(
-        1,
-        "Simple-cycle, gas only, six frames. The 7HA, the town-heating story, and the 12-engine animation are other plants.",
+        "d3q6d",
+        "Viper Power is the simple-cycle row. Exhaust heat leaves the stack. The Week 1 description has no steam bottoming cycle.",
       ),
-      d3q7: q(2, "The weight belongs to the machine in that video. Do not copy another utility's 7HA data onto these units."),
-      d3q8: q(3, "Net or gross, and at what ambient temperature. Hot air cuts gas-turbine output."),
+      d3q7: q(
+        "d3q7a",
+        "The 300-ton machine is someone else's combined-cycle unit. It is on the page so you can see a heat-recovery steam generator. The weight and the frame stay with that unit.",
+      ),
+      d3q8: q(
+        "d3q8b",
+        "Ask net or gross, and ask the outdoor condition. About 330 MW net at 95°F and about 65 MW per unit at standard conditions are different bases.",
+      ),
       d3q9: q(
-        1,
-        "EIA's generation page, 2022 data: combined cycle about 33.8 percent of utility-scale generation, single-cycle combustion turbines about 3.6 percent. That is a share of generation, not a capacity factor.",
+        "d3q9c",
+        "In 2022, combined-cycle plants produced about 33.8 percent of US utility-scale generation, and single-cycle combustion turbines about 3.6 percent. That is a share of energy, not a capacity factor.",
       ),
-      d3q10: q(2, "EPA lists a combustion turbine or reciprocating engine with heat recovery as one of the two common CHP configurations."),
-      d3q11: q(
-        3,
-        "Ask whether that combined-cycle plant can run the gas turbine alone, and at what output. Viper Power has no steam bottoming cycle in the Week 1 description.",
+      d3q10: q(
+        "d3q10d",
+        "A reciprocating engine with heat recovery is one combined-heat configuration. It is a different row from this simple-cycle peaker.",
       ),
     },
   },
@@ -159,46 +151,54 @@ export const answerKey: Record<string, LessonKey> = {
         expected: 13.7,
         tolerance: 0.05,
         explanation:
-          "Hypothetical, not Viper Power. Hours in a non-leap year: 365 × 24 = 8,760. Maximum energy = 100 MW × 8,760 h = 876,000 MWh. Capacity factor = 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.",
+          "The unit is hypothetical, not Viper Power. Maximum energy is 100 MW × 8,760 h = 876,000 MWh. 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.",
       },
     },
     questions: {
-      d4c1: q(1, "EIA and the solar video: photovoltaic cells have no turbine. Electrons are the moving parts."),
-      d4c2: q(2, "The 10 MW and 24 MWh figures are Ecotricity's British project. They are not an ERCOT rating and not a 7B rating."),
+      d4c1: q(
+        "d4c1a",
+        "A solar photovoltaic plant has no turbine. Light frees electrons, and there is no output at night.",
+      ),
+      d4c2: q(
+        "d4c2b",
+        "The 10 MW and 24 MWh project is a British example from the storage film. Those sizes are not an ERCOT rating and not a Viper Power rating.",
+      ),
       d4q1: q(
-        3,
-        "Capacity factor = actual MWh / (rated MW × hours in the period). It is not a heat rate and not a voltage.",
+        "d4q1c",
+        "Capacity factor is actual energy divided by the energy the plant could have made by running at rated capacity for every hour in the period.",
       ),
       d4q2: q(
-        1,
-        "Table 6.07.A annual 2025, preliminary: combined cycle 0.584 = 58.4 percent, gas turbines 0.141 = 14.1 percent.",
+        "d4q2d",
+        "Annual 2025, preliminary: combined cycle 0.584, which is 58.4 percent, and gas turbines 0.141, which is 14.1 percent.",
       ),
       d4q3: q(
-        2,
-        "Higher fuel use per megawatt-hour means the unit is in the money in fewer hours. Physics does not cap it at a few hours, and a low factor is not proof the unit is broken.",
+        "d4q3a",
+        "A simple-cycle turbine uses more fuel per megawatt-hour, so it is dispatched when power is scarce. The low factor is that pattern, not a ban on running.",
       ),
       d4q4: q(
-        3,
-        "July 2026 gas-turbine capacity factor on the same sheet is 0.249 = 24.9 percent, preliminary. Summer runs harder than the annual average and still far below baseload.",
+        "d4q4b",
+        "July 2026 gas-turbine capacity factor is 0.233, which is 23.3 percent, preliminary. 0.249 is the July 2025 gas-turbine factor. Combined cycle in July 2026 is 0.723. Summer runs harder than the annual average and still far below baseload. Preliminary values can be revised in a later workbook.",
       ),
-      d4q5: q(1, "National utility-scale fossil statistics. Not this plant, and not ERCOT-only."),
-      d4q6: q(2, "A photon frees an electron in the cell. There is no shaft, and there is no output at night."),
+      d4q5: q(
+        "d4q5c",
+        "The national factors are not Viper Power's capacity factor. This week does not include the plant's own factor, so the memo keeps the national label.",
+      ),
+      d4q6: q("d4q6d", "Solar photovoltaic has no turbine and no output at night. The cells do not store the next day's peak."),
       d4q7: q(
-        3,
-        "The wind video states Betz's limit at 59.3 percent. The 15 to 20 percent line is from the solar video and is not a current rating to memorize.",
+        "d4q7a",
+        "The Betz limit in the wind film is 59.3 percent of the wind's kinetic energy. It is a capture limit, not a capacity factor and not a price.",
       ),
       d4q8: q(
-        1,
-        "The storage video's useful claim is speed and shifting energy in time. It does not say batteries beat a combined cycle on fuel, and this course does not assign an ERCOT ancillary-service award.",
+        "d4q8b",
+        "The storage film says a battery can react faster than a rotating machine. An empty battery has nothing left for the next hour.",
       ),
-      d4q9: q(2, "120,000 / (100 × 8,760) = 120,000 / 876,000 = 13.7 percent."),
+      d4q9: q(
+        "d4q9c",
+        "100 × 8,760 = 876,000 MWh maximum. 120,000 / 876,000 = 13.7 percent. The unit is hypothetical.",
+      ),
       d4q10: q(
-        3,
-        "Student Energy: a dam can release stored water. Run-of-river follows the river. The same video says dam failure can be catastrophic, so the last option is backwards.",
-      ),
-      d4q11: q(
-        1,
-        "Value sits in a short list of hours. Annual capacity factor alone does not say the plant failed, and it does not say the plant ran all year.",
+        "d4q10d",
+        "Baseload runs most hours, intermediate runs many hours, and a peaker runs in the scarce hours. Dispatchable means the hours can be chosen. An inverter-based resource connects through an inverter and has no synchronous shaft.",
       ),
     },
   },
@@ -208,57 +208,46 @@ export const answerKey: Record<string, LessonKey> = {
         expected: 15.4,
         tolerance: 0.05,
         explanation:
-          "6 × 65 = 390 MW. 390 − 330 = 60 MW. 60 / 390 = 0.153846, which is 15.4 percent to one decimal. These are inventory approximates on different bases (D11): about 65 MW ISO per unit, and about 330 MW net at 95°F for the plant. 390 MW is not a documented plant nameplate, and 15.4 percent is not a measured test derate.",
+          "6 × 65 = 390 MW. 390 − 330 = 60 MW. 60 / 390 = 0.153846, which is 15.4 percent to one decimal. These are approximates on different bases: about 65 MW per unit at standard conditions, and about 330 MW net at 95°F for the plant. 390 MW is not a documented plant nameplate, and 15.4 percent is not a measured test derate.",
       },
     },
     questions: {
       d5c1: q(
-        2,
-        "D11 puts about 65 MW ISO per unit (2024 test) next to about 330 MW net at 95°F (SOP 029), and also notes a prior-owner figure of about 360 MW. The 59 MW figure is an exercise input. The 220 MW and 10 MW figures belong to other companies' videos.",
+        "d5c1a",
+        "The pair to show is about 65 MW per unit at standard conditions, from the 2024 test, and about 330 MW net at 95°F. A prior-owner sheet says about 360 MW. The 59 MW figure is an exercise input. The 220 MW figure belongs to someone else's animation.",
       ),
-      d5q1: q(1, "MW is instantaneous power. MWh is power times hours."),
-      d5q2: q(2, "Almost no electrical energy is stored in the grid, so imbalance moves frequency immediately."),
-      d5q3: q(3, "Brayton is the gas turbine. Rankine is the steam plant."),
+      d5q1: q("d5q1b", "MW is the rate of power. MWh is that rate held over hours."),
+      d5q2: q("d5q2c", "The grid stores almost no electrical energy. A mismatch moves frequency at once."),
+      d5q3: q("d5q3d", "Brayton for the gas turbine. Rankine for the steam plant. Viper Power is the Brayton machine."),
       d5q4: q(
-        1,
-        "The HRSG recovers exhaust heat as steam for another turbine. Same fuel, more megawatts. The condenser still rejects heat on the steam side. The gain is the exhaust that a simple cycle would have thrown up the stack.",
+        "d5q4a",
+        "A heat-recovery steam generator turns exhaust into steam for a second turbine. The plant description you are defending has none.",
       ),
-      d5q5: q(2, "EPA: electricity and useful heat or steam from one fuel input."),
+      d5q5: q("d5q5b", "Combined heat and power is electricity plus useful heat or steam from one fuel."),
       d5q6: q(
-        3,
-        "More fuel per megawatt-hour means fewer hours clear. EIA's national gas-turbine capacity factor is the public picture of that pattern.",
+        "d5q6c",
+        "The machine costs more fuel per megawatt-hour, so it runs when the system is willing to pay for that. The factor is not a ban on operating.",
       ),
       d5q7: q(
-        1,
-        "Faster than a rotating machine, and able to move energy to a later hour. Do not invent which ERCOT product they win.",
+        "d5q7d",
+        "A battery can move energy across hours and can move faster than a rotating machine. Empty storage cannot cover the next hour, and the product it may offer is a question for the scheduling entity.",
       ),
-      d5q8: q(
-        2,
-        "S105 records 13.8 kV on the CT6 generator nameplate. S136 records 138 kV on the switchyard voltage-transformer sheet. The Crash Course voltages are teaching examples.",
-      ),
+      d5q8: q("d5q8b", "The generator nameplate figure used this week is 13.8 kV. The switchyard figure is 138 kV."),
       d5q9: q(
-        3,
-        "C01.1.1: six GE MS7001B (7B/E) units, pipeline natural gas only. D12 says 7B, 7E, and 7B/E all appear, so confirm the hardware.",
+        "d5q9a",
+        "Six GE MS7001B units, gas only, with 7B, 7E, and 7B/E all appearing in the documents, so the hardware is still a confirmation item. Three step-up transformers serve six units, two generators each.",
       ),
       d5q10: q(
-        1,
-        "Hot air is less dense, so compressor mass flow falls. Net output also subtracts auxiliaries. D11's two approximates are different bases, not a single nameplate.",
+        "d5q10c",
+        "Hot inlet air is less dense, so compressor mass flow and output fall. Net also subtracts auxiliaries. The 65 MW and 330 MW approximates are different bases.",
       ),
       d5q11: q(
-        2,
-        "C05.2.4 identifies a transmission service provider interface and SOP 017 covers 138 kV backfeed. The one-line is a documented gap, so switching authority is a confirmation item, not a guess.",
+        "d5q11d",
+        "The 138 kV yard is the transmission service provider interface, and the notes include a backfeed practice. Who switches is a confirmation item because the one-line is not in this course pack.",
       ),
       d5q12: q(
-        3,
-        "ERCOT Nodal Protocols, 28 August 2026, Section 2. The QSE page adds bids, offers, the current operating plan, ancillary services, and settlement. The short ERCOT video does not define the term.",
-      ),
-      d5q13: q(
-        1,
-        "C05.2.1: three-winding 138/13.8/13.8 kV GSUs, two generators each, so one transformer outage takes two units. The plant one-line is missing from the library.",
-      ),
-      d5q14: q(
-        2,
-        "Frame designation (D12) and which capacity basis is in use (D11) are confirmation items. The other three statements are taught from EIA, the cycle lessons, or ERCOT's about page.",
+        "d5q12a",
+        "A Qualified Scheduling Entity is a market participant qualified under Protocol Section 16 to communicate with ERCOT for resource entities and load-serving entities and to settle with ERCOT.",
       ),
     },
   },

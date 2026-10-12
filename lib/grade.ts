@@ -2,9 +2,9 @@ import type { AnswerItem, ExerciseAnswer } from "@/lib/types";
 
 export type GradeResult = {
   id: string;
-  selected: number;
+  selected: string;
   correct: boolean;
-  correctIndex: number;
+  correctChoiceId: string;
   explanation: string;
 };
 
@@ -18,21 +18,21 @@ export type ExerciseGrade = {
 
 export function gradeQuestions(
   key: Record<string, AnswerItem>,
-  responses: Record<string, number>,
+  responses: Record<string, string>,
 ): { results: GradeResult[]; correct: number; answered: number } {
   const results: GradeResult[] = [];
   let correct = 0;
   for (const [id, selected] of Object.entries(responses)) {
     const item = key[id];
     if (!item) continue;
-    if (!Number.isInteger(selected)) continue;
-    const isCorrect = selected === item.correctIndex;
+    if (typeof selected !== "string" || selected.length === 0) continue;
+    const isCorrect = selected === item.correctChoiceId;
     if (isCorrect) correct += 1;
     results.push({
       id,
       selected,
       correct: isCorrect,
-      correctIndex: item.correctIndex,
+      correctChoiceId: item.correctChoiceId,
       explanation: item.explanation,
     });
   }

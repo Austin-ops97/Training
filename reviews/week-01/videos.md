@@ -9,19 +9,19 @@ Every video is an iframe inside its lesson section. The player source is `https:
 | Code | Title | Channel | YouTube id | Listed duration | Start | End | Required | Placed in | Embed URL |
 | --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | V01 | How Does the Power Grid Work? | Practical Engineering | `v1BMWczn7JM` | 10:25 | 0 | 625 | yes | Day 1 section `video-grid` (11 min) | `https://www.youtube.com/embed/v1BMWczn7JM?start=0&end=625&rel=0&modestbranding=1&playsinline=1` |
-| V02 | How Power Gets to Your Home: Crash Course Physics #35 | CrashCourse | `9kgzA0Vd8S8` | 8:33 | 0 | 513 | yes | Day 1 section `video-home` (9 min) | `https://www.youtube.com/embed/9kgzA0Vd8S8?start=0&end=513&rel=0&modestbranding=1&playsinline=1` |
+| V02 | How Power Gets to Your Home: Crash Course Physics #35 | CrashCourse | `9kgzA0Vd8S8` | 8:33 | 0 | 513 | yes | Day 1 section `video-home` (8 min) | `https://www.youtube.com/embed/9kgzA0Vd8S8?start=0&end=513&rel=0&modestbranding=1&playsinline=1` |
 | V03 | Coal-Fired Power Plants Explained | How They Work | saVRee | `eqn0VBVWS50` | 7:10 | 0 | 430 | yes | Day 2 section `video-coal` (8 min) | `https://www.youtube.com/embed/eqn0VBVWS50?start=0&end=430&rel=0&modestbranding=1&playsinline=1` |
 | V04 | How does a nuclear power plant work? | ENGIE Belgium | `jpDRfaWYk3I` | 4:08 | 0 | 248 | yes | Day 2 section `video-nuclear` (5 min) | `https://www.youtube.com/embed/jpDRfaWYk3I?start=0&end=248&rel=0&modestbranding=1&playsinline=1` |
-| V05 | The Steam Turbine | Enerdynamics | `V5cpJwiF0u4` | 1:07 | 0 | 67 | yes | Day 2 section `video-steam` (2 min) | `https://www.youtube.com/embed/V5cpJwiF0u4?start=0&end=67&rel=0&modestbranding=1&playsinline=1` |
+| V05 | The Steam Turbine | Enerdynamics | `V5cpJwiF0u4` | 1:07 | 0 | 67 | yes | Day 2 section `video-steam` (3 min) | `https://www.youtube.com/embed/V5cpJwiF0u4?start=0&end=67&rel=0&modestbranding=1&playsinline=1` |
 | V06 | How a gas turbine works | GE Vernova | GE Vernova | `2Jm5RVHLlcQ` | 2:04 | 0 | 124 | yes | Day 3 section `video-gt` (6 min) | `https://www.youtube.com/embed/2Jm5RVHLlcQ?start=0&end=124&rel=0&modestbranding=1&playsinline=1` |
 | V07 | How a Combined-Cycle, Natural-Gas Power Plant Works | DTE Energy | DTEEnergyCompany | `wKSaIkeYyF4` | 3:36 | 0 | 216 | yes | Day 3 section `video-gt` (6 min) | `https://www.youtube.com/embed/wKSaIkeYyF4?start=0&end=216&rel=0&modestbranding=1&playsinline=1` |
 | V08 | What is Combined Heat and Power (CHP)? | INNIO | `MXlfYXnlSgA` | 2:21 | 0 | 141 | yes | Day 3 section `video-chp` (6 min) | `https://www.youtube.com/embed/MXlfYXnlSgA?start=0&end=141&rel=0&modestbranding=1&playsinline=1` |
 | V09 | 220MW power plant featuring 12 Wärtsilä 18V50SG engines | Wärtsilä | Wärtsilä Corporation | `vxb6UGXGv40` | 2:16 | 0 | 136 | no | Day 3 section `video-chp` (6 min) | `https://www.youtube.com/embed/vxb6UGXGv40?start=0&end=136&rel=0&modestbranding=1&playsinline=1` |
-| V10 | Hydropower 101 | Student Energy | `q8HmRLCgDAI` | 3:13 | 0 | 193 | yes | Day 4 section `videos` (17 min) | `https://www.youtube.com/embed/q8HmRLCgDAI?start=0&end=193&rel=0&modestbranding=1&playsinline=1` |
-| V11 | How do wind turbines work? - Rebecca J. Barthelmie and Sara C. Pryor | TED-Ed | `xy9nj94xvKA` | 5:03 | 0 | 303 | yes | Day 4 section `videos` (17 min) | `https://www.youtube.com/embed/xy9nj94xvKA?start=0&end=303&rel=0&modestbranding=1&playsinline=1` |
-| V12 | How do solar panels work? - Richard Komp | TED-Ed | `xKxrkht7CpY` | 4:59 | 0 | 299 | yes | Day 4 section `videos` (17 min) | `https://www.youtube.com/embed/xKxrkht7CpY?start=0&end=299&rel=0&modestbranding=1&playsinline=1` |
-| V13 | Grid Scale Battery Storage Explained | Ecotricity | `UVAXkzCVd2s` | 2:46 | 0 | 166 | yes | Day 4 section `videos` (17 min) | `https://www.youtube.com/embed/UVAXkzCVd2s?start=0&end=166&rel=0&modestbranding=1&playsinline=1` |
-| V14 | How does ERCOT work? | ERCOTISO | `8aldmvik3aU` | 1:16 | 0 | 76 | yes | Day 5 section `video-ercot` (2 min) | `https://www.youtube.com/embed/8aldmvik3aU?start=0&end=76&rel=0&modestbranding=1&playsinline=1` |
+| V10 | Hydropower 101 | Student Energy | `q8HmRLCgDAI` | 3:13 | 0 | 193 | yes | Day 4 section `video-water` (9 min) | `https://www.youtube.com/embed/q8HmRLCgDAI?start=0&end=193&rel=0&modestbranding=1&playsinline=1` |
+| V11 | How do wind turbines work? - Rebecca J. Barthelmie and Sara C. Pryor | TED-Ed | `xy9nj94xvKA` | 5:03 | 0 | 303 | yes | Day 4 section `video-water` (9 min) | `https://www.youtube.com/embed/xy9nj94xvKA?start=0&end=303&rel=0&modestbranding=1&playsinline=1` |
+| V12 | How do solar panels work? - Richard Komp | TED-Ed | `xKxrkht7CpY` | 4:59 | 0 | 299 | yes | Day 4 section `video-quiet` (8 min) | `https://www.youtube.com/embed/xKxrkht7CpY?start=0&end=299&rel=0&modestbranding=1&playsinline=1` |
+| V13 | Grid Scale Battery Storage Explained | Ecotricity | `UVAXkzCVd2s` | 2:46 | 0 | 166 | yes | Day 4 section `video-quiet` (8 min) | `https://www.youtube.com/embed/UVAXkzCVd2s?start=0&end=166&rel=0&modestbranding=1&playsinline=1` |
+| V14 | How does ERCOT work? | ERCOTISO | `8aldmvik3aU` | 1:16 | 0 | 76 | yes | Day 5 section `video-ercot` (4 min) | `https://www.youtube.com/embed/8aldmvik3aU?start=0&end=76&rel=0&modestbranding=1&playsinline=1` |
 
 ## Reviewer notes
 
@@ -132,7 +132,7 @@ Transcript source for V01–V08 and V10–V14: public watch-page text reviewed 1
 - Listed duration 4:59. Player window 0–299 seconds.
 - Required: yes.
 - Objectives supported: see the section named in the table above.
-- Notes: Watch the full listed video for the photovoltaic cell: light frees electrons, and there is no turbine. Efficiency percentages in the clip are from the time it was made. Do not memorize them as 2026 ratings.
+- Notes: Watch the full listed video for the photovoltaic cell: light frees electrons, and there is no turbine. Efficiency percentages in the clip belong to the year it was made, not to a 2026 module rating.
 - Limitation: the `end` parameter is the listed full-video length. A tighter in-video timestamp was not available because timed captions were not retrieved.
 
 ### V13 — Grid Scale Battery Storage Explained

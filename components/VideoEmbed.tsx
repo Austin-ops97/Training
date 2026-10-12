@@ -15,8 +15,8 @@ export function VideoEmbed({ video }: { video: VideoSpec }) {
         />
       </div>
       <figcaption className="video-caption">
-        <strong>{video.code}</strong> {video.title} — {video.channel}. Listed duration {video.listedDuration}.{" "}
-        {video.required ? "Required." : "Not required: transcript was not retrieved."} {video.watchNote}
+        <strong>{video.code}</strong> {video.title} — {video.channel}
+        {video.required ? "" : ". Optional clip."}
       </figcaption>
     </figure>
   );

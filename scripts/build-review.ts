@@ -101,8 +101,8 @@ function assessmentDoc(): string {
       lines.push(question.prompt);
       lines.push("");
       question.choices.forEach((choice, index) => {
-        const mark = index === item.correctIndex ? " **(correct)**" : "";
-        lines.push(`${index}. ${choice}${mark}`);
+        const mark = choice.id === item.correctChoiceId ? " **(correct)**" : "";
+        lines.push(`${index}. ${choice.text}${mark}`);
       });
       lines.push("");
       lines.push(`Explanation: ${item.explanation}`);

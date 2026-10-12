@@ -2,17 +2,19 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { Lesson } from "@/lib/types";
+import type { Block, Lesson } from "@/lib/types";
 import { videos } from "@/content/week-01/videos";
 import { VideoEmbed } from "@/components/VideoEmbed";
+import { LessonDiagram } from "@/components/Diagrams";
+import { shuffleChoices } from "@/lib/choices";
 import { countCompleted, emptyProgress, markSectionComplete, type ProgressState } from "@/lib/progress";
 import { readProgress, writeProgress } from "@/components/WeekProgress";
 
 type QuestionResult = {
   id: string;
-  selected: number;
+  selected: string;
   correct: boolean;
-  correctIndex: number;
+  correctChoiceId: string;
   explanation: string;
 };
 
@@ -28,7 +30,7 @@ const levelClass = (level: 1 | 2 | 3) => (level === 1 ? "pill" : level === 2 ? "
 
 export function LessonExperience({ lesson }: { lesson: Lesson }) {
   const [progress, setProgress] = useState<ProgressState>(emptyProgress());
-  const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [results, setResults] = useState<Record<string, QuestionResult>>({});
   const [exerciseValues, setExerciseValues] = useState<Record<string, string>>({});
   const [exerciseResults, setExerciseResults] = useState<Record<string, ExerciseResult>>({});
@@ -48,7 +50,7 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
     writeProgress(next);
   }
 
-  async function grade(payload: { questions?: Record<string, number>; exercise?: { id: string; value: number } }) {
+  async function grade(payload: { questions?: Record<string, string>; exercise?: { id: string; value: number } }) {
     setBusy(true);
     setError("");
     try {
@@ -107,14 +109,24 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
       <p className="meta">
         {completed} of {sectionIds.length} sections marked complete · {lesson.sections.reduce((sum, section) => sum + section.minutes, 0)} minutes scheduled
       </p>
-      <h2>Objectives</h2>
-      <ul>
-        {lesson.objectives.map((objective) => (
-          <li key={objective}>{objective}</li>
-        ))}
-      </ul>
+      <div className="desktop-only">
+        <h2>Objectives</h2>
+        <ul>
+          {lesson.objectives.map((objective) => (
+            <li key={objective}>{objective}</li>
+          ))}
+        </ul>
+      </div>
+      <details className="lesson-fold phone-only">
+        <summary>Objectives</summary>
+        <ul>
+          {lesson.objectives.map((objective) => (
+            <li key={objective}>{objective}</li>
+          ))}
+        </ul>
+      </details>
       <div className="lesson-layout">
-        <nav className="rail" aria-label="Lesson sections">
+        <nav className="rail desktop-only" aria-label="Lesson sections">
           {lesson.sections.map((section) => (
             <a key={section.id} href={`#${section.id}`}>
               <span>{section.title}</span>
@@ -123,6 +135,17 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
           ))}
         </nav>
         <div>
+          <details className="lesson-fold phone-only">
+            <summary>Lesson outline</summary>
+            <nav className="rail" aria-label="Lesson sections">
+              {lesson.sections.map((section) => (
+                <a key={section.id} href={`#${section.id}`}>
+                  <span>{section.title}</span>
+                  <span className="mins">{section.minutes}m</span>
+                </a>
+              ))}
+            </nav>
+          </details>
           {lesson.sections.map((section) => (
             <section className="section" id={section.id} key={section.id}>
               <header>
@@ -132,54 +155,16 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
                   <span className="meta">{section.minutes} min</span>
                 </span>
               </header>
-              {section.blocks.map((block, index) => {
-                if (block.type === "p") return <p key={index}>{block.text}</p>;
-                if (block.type === "ul")
-                  return (
-                    <ul key={index}>
-                      {block.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  );
-                if (block.type === "ol")
-                  return (
-                    <ol key={index}>
-                      {block.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ol>
-                  );
-                if (block.type === "steps")
-                  return (
-                    <div key={index}>
-                      <strong>{block.title}</strong>
-                      <ol className="steps">
-                        {block.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ol>
-                    </div>
-                  );
-                if (block.type === "formula")
-                  return (
-                    <div className="formula" key={index}>
-                      <strong>{block.label}</strong>
-                      {block.expression}
-                      <p className="meta">{block.note}</p>
-                    </div>
-                  );
-                return (
-                  <aside className={`callout ${block.tone}`} key={index}>
-                    <strong>{block.title}</strong>
-                    <p>{block.text}</p>
-                  </aside>
-                );
-              })}
+              {section.blocks.filter((block) => !block.afterVideo).map((block, index) => (
+                <BlockView key={`b-${index}`} block={block} />
+              ))}
               {section.videoIds?.map((videoId) => {
                 const video = videos[videoId];
                 return video ? <VideoEmbed key={videoId} video={video} /> : null;
               })}
+              {section.blocks.filter((block) => block.afterVideo).map((block, index) => (
+                <BlockView key={`a-${index}`} block={block} />
+              ))}
               {section.questionIds && section.kind !== "quiz" && (
                 <QuestionList
                   ids={section.questionIds}
@@ -194,7 +179,7 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
                   type="button"
                   disabled={busy || section.questionIds.some((id) => answers[id] === undefined)}
                   onClick={() => {
-                    const payload: Record<string, number> = {};
+                    const payload: Record<string, string> = {};
                     for (const id of section.questionIds ?? []) payload[id] = answers[id];
                     void grade({ questions: payload });
                   }}
@@ -229,7 +214,7 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
                       type="button"
                       disabled={busy || lesson.quizIds.some((id) => answers[id] === undefined)}
                       onClick={() => {
-                        const payload: Record<string, number> = {};
+                        const payload: Record<string, string> = {};
                         for (const id of lesson.quizIds) payload[id] = answers[id];
                         void grade({ questions: payload });
                       }}
@@ -258,7 +243,74 @@ export function LessonExperience({ lesson }: { lesson: Lesson }) {
         </div>
       </div>
       {error && <p className="explain">{error}</p>}
+      <details className="sources">
+        <summary>Sources for this lesson</summary>
+        <ul>
+          {lesson.sources.map((source) => (
+            <li key={source.title}>
+              <strong>{source.title}.</strong> {source.detail}
+            </li>
+          ))}
+        </ul>
+      </details>
     </div>
+  );
+}
+
+function BlockView({ block }: { block: Block }) {
+  if (block.type === "p") return <p>{block.text}</p>;
+  if (block.type === "ul")
+    return (
+      <ul>
+        {block.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    );
+  if (block.type === "ol")
+    return (
+      <ol>
+        {block.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ol>
+    );
+  if (block.type === "steps")
+    return (
+      <div>
+        <strong>{block.title}</strong>
+        <ol className="steps">
+          {block.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ol>
+      </div>
+    );
+  if (block.type === "formula")
+    return (
+      <div className="formula">
+        <strong>{block.label}</strong>
+        {block.expression}
+        <p className="meta">{block.note}</p>
+      </div>
+    );
+  if (block.type === "diagram") return <LessonDiagram diagram={block.diagram} />;
+  if (block.type === "terms")
+    return (
+      <dl className="terms">
+        {block.items.map((item) => (
+          <div key={item.term}>
+            <dt>{item.term}</dt>
+            <dd>{item.meaning}</dd>
+          </div>
+        ))}
+      </dl>
+    );
+  return (
+    <aside className={`callout ${block.tone}`}>
+      <strong>{block.title}</strong>
+      <p>{block.text}</p>
+    </aside>
   );
 }
 
@@ -271,49 +323,76 @@ function QuestionList({
 }: {
   ids: string[];
   questions: Map<string, Lesson["questions"][number]>;
-  answers: Record<string, number>;
+  answers: Record<string, string>;
   results: Record<string, QuestionResult>;
-  onSelect: (id: string, value: number) => void;
+  onSelect: (id: string, value: string) => void;
 }) {
   return (
     <div>
       {ids.map((id, index) => {
         const question = questions.get(id);
         if (!question) return null;
-        const result = results[id];
         return (
-          <fieldset key={id} style={{ border: 0, padding: 0, margin: "0.8rem 0" }}>
-            <legend>
-              <span className={levelClass(question.level)}>Level {question.level}</span> {index + 1}. {question.prompt}
-            </legend>
-            <div className="choices">
-              {question.choices.map((choice, choiceIndex) => {
-                const revealed = Boolean(result);
-                const className = revealed
-                  ? choiceIndex === result.correctIndex
-                    ? "good"
-                    : choiceIndex === result.selected
-                      ? "bad"
-                      : ""
-                  : "";
-                return (
-                  <label key={choice} className={className}>
-                    <input
-                      type="radio"
-                      name={id}
-                      checked={answers[id] === choiceIndex}
-                      onChange={() => onSelect(id, choiceIndex)}
-                    />
-                    <span>{choice}</span>
-                  </label>
-                );
-              })}
-            </div>
-            {result && <p className="explain">{result.explanation}</p>}
-          </fieldset>
+          <QuestionField
+            key={id}
+            index={index}
+            question={question}
+            answer={answers[id]}
+            result={results[id]}
+            onSelect={(value) => onSelect(id, value)}
+          />
         );
       })}
     </div>
+  );
+}
+
+function QuestionField({
+  index,
+  question,
+  answer,
+  result,
+  onSelect,
+}: {
+  index: number;
+  question: Lesson["questions"][number];
+  answer?: string;
+  result?: QuestionResult;
+  onSelect: (value: string) => void;
+}) {
+  const [order, setOrder] = useState<string[] | null>(null);
+  const choiceKey = question.choices.map((choice) => `${choice.id}:${choice.text}`).join("|");
+  useEffect(() => {
+    const seed = Math.floor(Math.random() * 0x7fffffff) || 1;
+    setOrder(shuffleChoices(question.choices, seed).map((choice) => choice.id));
+  }, [question.id, choiceKey, question.choices]);
+  const shown = order
+    ? order.map((id) => question.choices.find((choice) => choice.id === id)).filter((choice) => choice !== undefined)
+    : question.choices;
+  return (
+    <fieldset style={{ border: 0, padding: 0, margin: "0.8rem 0" }}>
+      <legend>
+        <span className={levelClass(question.level)}>Level {question.level}</span> {index + 1}. {question.prompt}
+      </legend>
+      <div className="choices">
+        {shown.map((choice) => {
+          const className = !result
+            ? ""
+            : choice.id === result.correctChoiceId
+              ? "good"
+              : choice.id === result.selected
+                ? "bad"
+                : "";
+          return (
+            <label key={choice.id} className={className}>
+              <input type="radio" name={question.id} checked={answer === choice.id} onChange={() => onSelect(choice.id)} />
+              <span>{choice.text}</span>
+            </label>
+          );
+        })}
+      </div>
+      {result && <p className="explain">{result.explanation}</p>}
+    </fieldset>
   );
 }
 

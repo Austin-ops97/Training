@@ -4,9 +4,11 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { LessonExperience } from "@/components/LessonExperience";
+import { POST } from "@/app/api/quiz/grade/route";
 import { lessons } from "@/content/week-01";
 import { answerKey } from "@/content/week-01/answer-key";
 import { videos } from "@/content/week-01/videos";
+import { shuffleChoices } from "@/lib/choices";
 import { youtubeEmbedSrc } from "@/lib/embed";
 import { gradeExercise, gradeQuestions } from "@/lib/grade";
 import { lessonMinutes } from "@/lib/course";
@@ -27,21 +29,18 @@ function walk(dir: string, acc: string[] = []): string[] {
 const correctSnippets: Record<string, string> = {
   d1c1: "100 MWh",
   d1c2: "changing current",
-  d1c3: "not a confirmed Viper Power nameplate",
   d1q1: "MW is power at an instant",
   d1q2: "stores almost no electrical energy",
   d1q3: "60 times each second",
   d1q4: "raises voltage",
   d1q5: "1,062 MWh",
-  d1q6: "exercise input",
-  d1q7: "Eastern Interconnection",
-  d1q8: "balancing authority, the interconnection",
-  d1q9: "spins the generator",
-  d1q10: "Frequency falls",
-  d1q11: "one quarter",
-  d1q12: "354 MWh",
+  d1q6: "own interconnection, ERCOT",
+  d1q7: "Frequency falls",
+  d1q8: "one quarter",
+  d1q9: "governor changes fuel",
+  d1q10: "spins the generator",
   d2c1: "condenser",
-  d2c2: "fission",
+  d2c2: "Fission replaces the flame",
   d2q1: "Rankine",
   d2q2: "Heat in at the boiler",
   d2q3: "steam turbine driving a generator",
@@ -52,34 +51,31 @@ const correctSnippets: Record<string, string> = {
   d2q8: "preliminary",
   d2q9: "Cool the exhaust steam",
   d2q10: "not a Rankine plant",
-  d2q11: "Reactor cooling water and turbine steam are separate",
   d3c1: "Compressor, combustor, turbine",
   d3c2: "without burning more fuel",
   d3q1: "Brayton",
   d3q2: "Compressor, combustor, and turbine",
   d3q3: "heat-recovery steam generator",
-  d3q4: "useful thermal energy",
+  d3q4: "Useful thermal energy",
   d3q5: "exceed 80 percent",
   d3q6: "Simple-cycle gas turbines",
-  d3q7: "Do not copy it",
+  d3q7: "someone else's",
   d3q8: "Net or gross",
   d3q9: "33.8 percent",
   d3q10: "reciprocating engine",
-  d3q11: "simple cycle",
   d4c1: "solar photovoltaic",
-  d4c2: "Do not use it as an ERCOT",
+  d4c2: "not an ERCOT",
   d4q1: "Actual energy divided",
   d4q2: "Combined cycle 58.4 percent. Gas turbines 14.1 percent",
   d4q3: "dispatched when power is scarce",
-  d4q4: "24.9 percent",
+  d4q4: "23.3 percent",
   d4q5: "not Viper Power",
   d4q6: "no turbine",
   d4q7: "59.3 percent",
   d4q8: "faster than a rotating machine",
   d4q9: "13.7 percent",
-  d4q10: "dam stores water",
-  d4q11: "valuable hours are few",
-  d5c1: "65 MW ISO",
+  d4q10: "inverter-based resources",
+  d5c1: "65 MW",
   d5q1: "MW is the rate of power",
   d5q2: "stores almost no electrical energy",
   d5q3: "Brayton for the gas turbine",
@@ -92,8 +88,6 @@ const correctSnippets: Record<string, string> = {
   d5q10: "less dense",
   d5q11: "transmission service provider",
   d5q12: "Section 16",
-  d5q13: "two units",
-  d5q14: "7B, 7E, or 7B/E",
 };
 
 describe("Week 1 lessons", () => {
@@ -113,7 +107,7 @@ describe("Week 1 lessons", () => {
 
   it("gives every lesson at least 10 scored questions, all taught before the check", () => {
     for (const lesson of lessons) {
-      expect(lesson.quizIds.length).toBeGreaterThanOrEqual(10);
+      expect(lesson.quizIds.length).toBe(lesson.day === 5 ? 12 : 10);
       const quizSection = lesson.sections.find((section) => section.kind === "quiz");
       expect(quizSection).toBeTruthy();
       const quizIndex = lesson.sections.findIndex((section) => section.kind === "quiz");
@@ -124,7 +118,9 @@ describe("Week 1 lessons", () => {
         expect(question.choices).toHaveLength(4);
         const item = key.questions[question.id];
         expect(item, question.id).toBeTruthy();
-        expect(question.choices[item.correctIndex]).toContain(correctSnippets[question.id]);
+        const correct = question.choices.find((choice) => choice.id === item.correctChoiceId);
+        expect(correct, question.id).toBeTruthy();
+        expect(correct?.text).toContain(correctSnippets[question.id]);
       }
     }
   });
@@ -193,8 +189,8 @@ describe("Week 1 lessons", () => {
     expect(gradeExercise(answerKey.w1d4.exercises.d4e1, 13.7)?.correct).toBe(true);
     expect(gradeExercise(answerKey.w1d5.exercises.d5e1, 15.4)?.correct).toBe(true);
     const lesson = lessons[0];
-    const responses: Record<string, number> = {};
-    for (const id of lesson.quizIds) responses[id] = answerKey.w1d1.questions[id].correctIndex;
+    const responses: Record<string, string> = {};
+    for (const id of lesson.quizIds) responses[id] = answerKey.w1d1.questions[id].correctChoiceId;
     const graded = gradeQuestions(answerKey.w1d1.questions, responses);
     expect(graded.correct).toBe(lesson.quizIds.length);
     expect(graded.results[0].explanation.length).toBeGreaterThan(20);
@@ -205,6 +201,92 @@ describe("Week 1 lessons", () => {
     const twice = markSectionComplete(once, "w1d1", "intro");
     expect(twice.completedSections).toEqual(["w1d1:intro"]);
     expect(countCompleted(twice, "w1d1", ["intro", "quiz"])).toBe(1);
+  });
+
+  it("balances canonical answer positions and grades the choice id after a shuffle", () => {
+    const indexes: number[] = [];
+    for (const lesson of lessons) {
+      for (const question of lesson.questions) {
+        const item = answerKey[lesson.id].questions[question.id];
+        const index = question.choices.findIndex((choice) => choice.id === item.correctChoiceId);
+        expect(index, question.id).toBeGreaterThanOrEqual(0);
+        indexes.push(index);
+      }
+    }
+    const counts = [0, 1, 2, 3].map((slot) => indexes.filter((index) => index === slot).length);
+    expect(Math.max(...counts) - Math.min(...counts)).toBeLessThanOrEqual(2);
+    expect(counts.every((count) => count > 0)).toBe(true);
+    const period3 = indexes.every((index, position) => index === indexes[position % 3]);
+    expect(period3).toBe(false);
+    const oldCycle = indexes.every((index) => index === (indexes[0] + (indexes.indexOf(index) % 3)) % 4);
+    expect(oldCycle && !indexes.includes(0)).toBe(false);
+
+    const sample = [
+      { id: "a", text: "one" },
+      { id: "b", text: "two" },
+      { id: "c", text: "three" },
+      { id: "d", text: "four" },
+    ];
+    const positions = new Set<number>();
+    for (let seed = 1; seed < 80; seed += 1) {
+      positions.add(shuffleChoices(sample, seed).findIndex((choice) => choice.id === "a"));
+    }
+    expect([...positions].sort()).toEqual([0, 1, 2, 3]);
+
+    const moved = shuffleChoices(lessons[0].questions[0].choices, 7);
+    expect(moved.map((choice) => choice.id).join()).not.toBe(lessons[0].questions[0].choices.map((choice) => choice.id).join());
+    const selected = moved[0].id;
+    const graded = gradeQuestions(answerKey.w1d1.questions, { [lessons[0].questions[0].id]: selected });
+    expect(graded.results[0].correct).toBe(selected === answerKey.w1d1.questions[lessons[0].questions[0].id].correctChoiceId);
+  });
+
+  it("returns 400 for malformed quiz JSON and keeps July 2026 gas turbines at 23.3 percent", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/quiz/grade", {
+        method: "POST",
+        body: "{",
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+    expect(response.status).toBe(400);
+    const july = lessons[3].questions.find((question) => question.id === "d4q4");
+    const item = answerKey.w1d4.questions.d4q4;
+    const correct = july?.choices.find((choice) => choice.id === item.correctChoiceId);
+    expect(correct?.text).toContain("23.3");
+    expect(item.explanation).toContain("0.233");
+    expect(correct?.text).not.toContain("24.9");
+  });
+
+  it("keeps inventory codes, plumbing, and warning voice out of the learner text", () => {
+    const voiceFiles = walk(path.join(root, "content/week-01")).filter((file) => /day[1-5]\.ts$/.test(file) || file.endsWith("answer-key.ts"));
+    const banned = [
+      /C0\d/,
+      /\bD\d{2}\b/,
+      /\bS\d{3}\b/,
+      /SOP\s*\d+/,
+      /2018/,
+      /relocation/i,
+      /not stored in the page/i,
+      /from the server/i,
+      /Practical Engineering states/,
+      /Do not memorize/,
+      /Do not copy/,
+      /How does EIA/,
+      /What does EIA/,
+      /Listed length/,
+    ];
+    for (const file of voiceFiles) {
+      const text = readFileSync(file, "utf8");
+      for (const pattern of banned) expect(text.match(pattern), `${file} ${pattern}`).toBeNull();
+    }
+    const css = readFileSync(path.join(root, "app/globals.css"), "utf8");
+    expect(css).toMatch(/\.formula\s*\{[^}]*font-family:\s*inherit/);
+    const day1 = renderToStaticMarkup(createElement(LessonExperience, { lesson: lessons[0] }));
+    expect(day1).toContain("When someone says");
+    expect(day1).toContain("Lesson outline");
+    expect(day1).toContain("Sources for this lesson");
+    expect(day1).toContain("<svg");
+    expect(lessons.map((lesson) => lesson.sections.reduce((sum, section) => sum + section.minutes, 0))).toEqual([73, 62, 66, 70, 61]);
   });
 
   it("does not contain forbidden plant identifiers", () => {

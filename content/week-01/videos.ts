@@ -149,7 +149,7 @@ export const videos: Record<string, VideoSpec> = {
     endSeconds: 299,
     required: true,
     watchNote:
-      "Watch the full listed video for the photovoltaic cell: light frees electrons, and there is no turbine. Efficiency percentages in the clip are from the time it was made. Do not memorize them as 2026 ratings.",
+      "Watch the full listed video for the photovoltaic cell: light frees electrons, and there is no turbine. Efficiency percentages in the clip belong to the year it was made, not to a 2026 module rating.",
   },
   V13: {
     code: "V13",
