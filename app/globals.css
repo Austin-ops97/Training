@@ -43,6 +43,7 @@ p { margin: 0.6rem 0; }
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
   padding: 0.9rem 1.25rem;
   border-bottom: 1px solid var(--line);
   background: rgba(255, 253, 248, 0.92);
@@ -53,7 +54,7 @@ p { margin: 0.6rem 0; }
 .brand { text-decoration: none; color: var(--ink); }
 .brand strong { display: block; letter-spacing: 0.08em; font-size: 0.78rem; text-transform: uppercase; color: var(--copper); }
 .brand span { font-size: 0.95rem; }
-.header-links { display: flex; gap: 1rem; align-items: center; }
+.header-links { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 .header-links a { text-decoration: none; font-weight: 600; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 1.25rem; }

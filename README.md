@@ -1,8 +1,10 @@
 # Training
 
-Week 1 of **Power Plant Fundamentals for Project Managers**.
+Two separate courses.
 
-The audience is a project manager who needs technical literacy, not an operator qualification. Viper Power, an anonymized six-unit simple-cycle gas peaker in ERCOT, is the worked example.
+**Power Plant Fundamentals for Project Managers** has Week 1 published. The audience is a project manager who needs technical literacy, not an operator qualification. Viper Power, an anonymized six-unit simple-cycle gas peaker in ERCOT, is the worked example.
+
+**Peaking Power Plant Operator Fundamentals** has its curriculum outline at `/operator-fundamentals`. Lesson pages are not published yet. That course does not qualify anyone to operate a plant.
 
 ## Run
 

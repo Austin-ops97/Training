@@ -5,10 +5,11 @@ export function SiteHeader() {
     <header className="site-header">
       <Link className="brand" href="/">
         <strong>Training</strong>
-        <span>Power Plant Fundamentals for Project Managers</span>
+        <span>Courses</span>
       </Link>
-      <nav className="header-links" aria-label="Course">
-        <Link href="/week/1">Week 1</Link>
+      <nav className="header-links" aria-label="Courses">
+        <Link href="/week/1">Project managers</Link>
+        <Link href="/operator-fundamentals">Operator fundamentals</Link>
       </nav>
     </header>
   );
