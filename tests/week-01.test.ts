@@ -60,7 +60,7 @@ const correctSnippets: Record<string, string> = {
   d3q5: "exceed 80 percent",
   d3q6: "Simple-cycle gas turbines",
   d3q7: "someone else's",
-  d3q8: "Net or gross",
+  d3q8: "net or gross",
   d3q9: "33.8 percent",
   d3q10: "reciprocating engine",
   d4c1: "solar photovoltaic",
@@ -218,6 +218,8 @@ describe("Week 1 lessons", () => {
     expect(counts.every((count) => count > 0)).toBe(true);
     const period3 = indexes.every((index, position) => index === indexes[position % 3]);
     expect(period3).toBe(false);
+    const period4 = indexes.every((index, position) => index === position % 4);
+    expect(period4).toBe(false);
     const oldCycle = indexes.every((index) => index === (indexes[0] + (indexes.indexOf(index) % 3)) % 4);
     expect(oldCycle && !indexes.includes(0)).toBe(false);
 
@@ -238,6 +240,28 @@ describe("Week 1 lessons", () => {
     const selected = moved[0].id;
     const graded = gradeQuestions(answerKey.w1d1.questions, { [lessons[0].questions[0].id]: selected });
     expect(graded.results[0].correct).toBe(selected === answerKey.w1d1.questions[lessons[0].questions[0].id].correctChoiceId);
+  });
+
+  it("keeps the keyed choice from being the long option too often", () => {
+    let longest = 0;
+    let correctTotal = 0;
+    let distractorTotal = 0;
+    let count = 0;
+    for (const lesson of lessons) {
+      for (const question of lesson.questions) {
+        const item = answerKey[lesson.id].questions[question.id];
+        const index = question.choices.findIndex((choice) => choice.id === item.correctChoiceId);
+        const lengths = question.choices.map((choice) => choice.text.length);
+        const keyed = lengths[index];
+        const others = lengths.filter((_, slot) => slot !== index);
+        if (keyed > Math.max(...others)) longest += 1;
+        correctTotal += keyed;
+        distractorTotal += others.reduce((sum, length) => sum + length, 0) / others.length;
+        count += 1;
+      }
+    }
+    expect(longest / count).toBeLessThanOrEqual(0.35);
+    expect(correctTotal / count).toBeLessThanOrEqual((distractorTotal / count) * 1.15);
   });
 
   it("returns 400 for malformed quiz JSON and keeps July 2026 gas turbines at 23.3 percent", async () => {

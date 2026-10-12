@@ -12,7 +12,7 @@ type BlockShape =
     }
   | { type: "formula"; label: string; expression: string; note: string }
   | { type: "steps"; title: string; items: string[] }
-  | { type: "diagram"; diagram: "grid" | "rankine" | "brayton" | "viper" }
+  | { type: "diagram"; diagram: "grid" | "rankine" | "brayton" | "viper" | "duty" }
   | { type: "terms"; items: { term: string; meaning: string }[] };
 
 export type Block = BlockShape & { afterVideo?: boolean };

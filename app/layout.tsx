@@ -17,8 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <footer className="site">
-          Training site. Week 1 only. Viper Power is an anonymized worked example. Figures that the
-          library does not support are marked as flags inside the lessons.
+          Training site. Week 1 only. Viper Power is an anonymized worked example.
         </footer>
       </body>
     </html>

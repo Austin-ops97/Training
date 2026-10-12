@@ -63,3 +63,39 @@ The protocol files linked from the current index are headed August 1, 2026, not 
 ## W1-L7 — Optional engine clip
 
 Accepted. V09 stays embedded, optional, and unused as a quiz source. See `reviews/week-01/open-issues.md` item 2.
+
+## Re-audit at c7aba936
+
+### W1R2-M1 — Choice length
+
+Every knowledge-check and checkpoint item now states the correct idea in one sentence, with distractors of a similar length and a real misconception behind them. The throwaway Day 5 lines (the exciter as a scheduling entity, a battery charged from a condenser, and capacity factor as a voltage) are replaced. A test fails if the keyed choice is the longest option on more than 35 percent of items, or if the average keyed length is more than 15 percent above the average distractor length.
+
+Files: `content/week-01/day1.ts` through `day5.ts`, `content/week-01/answer-key.ts`, `reviews/week-01/assessments.md`, `tests/week-01.test.ts`.
+
+### W1R2-L1 — Source order
+
+Canonical positions are no longer an A-B-C-D cycle. The counts stay balanced, and the test rejects a strict period-4 sequence as well as a period-3 sequence. The page still shuffles after it loads.
+
+### W1R2-L2 — Day 5 count
+
+The Day 5 check now says it has two more questions than the other days.
+
+### W1R2-L3 — Day 4 diagram
+
+Day 4 has an SVG of a sample day: baseload across the hours, solar at midday, a peaker in the evening, and a battery charging then discharging. File: `components/Diagrams.tsx`.
+
+### W1R2-L4 — Leftover meta text
+
+The Day 1 "six questions" line is gone. The footer no longer says figures are marked as flags. The note that Dana, Priya, and Luis are hypothetical people is stated once, on the Week 1 page.
+
+### W1R2-L5 — Favicon
+
+`app/favicon.ico` is a 32×32 icon so `/favicon.ico` is no longer a missing file.
+
+### W1R2-L6 — npm audit
+
+Vitest 4.1.11 replaces 3.2.7. Critical and moderate findings from that upgrade path are gone. `npm audit` reports 5 high and 0 critical. `npm audit --omit=dev` reports 0. The five high findings are the ESLint `braces` chain and have no safe upgrade. See `reviews/week-01/open-issues.md` item 12.
+
+### W1R2-L7 — Plant details
+
+Not changed. The Day 5 page still names the frame, the control system, the 2024 test, the 15 May weatherization date, and the remote operations center, pending the owner's decision.

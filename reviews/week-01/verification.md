@@ -1,26 +1,24 @@
 # Verification commands
 
-Run from the repository root on 12 October 2026. Node v22.14.0. Next.js 15.5.27. Vitest 3.2.7.
+Run from the repository root on 12 October 2026. Node v22.14.0. Next.js 15.5.27. Vitest 4.1.11.
 
 ## `npm test`
 
-Exit code 0.
+Exit code 0. Vitest 4.1.11.
 
 ```
 > training@0.1.0 test
 > vitest run
 
- RUN  v3.2.7 /workspace
-
- ✓ tests/week-01.test.ts (10 tests) 85ms
+ RUN  v4.1.11 /workspace
 
  Test Files  1 passed (1)
-      Tests  10 passed (10)
-   Start at  09:12:55
-   Duration  451ms (transform 141ms, setup 0ms, collect 230ms, tests 85ms, environment 0ms, prepare 42ms)
+      Tests  11 passed (11)
+   Start at  09:40:58
+   Duration  564ms (transform 202ms, setup 0ms, import 325ms, tests 115ms, environment 0ms)
 ```
 
-The embed test renders each lesson to HTML and checks that every video is an iframe inside its section, with `start`, `end`, and `playsinline=1`, and that the page has no `youtube.com/watch` or `youtu.be` link. It also checks that a sentence which exists only in the answer key is absent from the rendered lesson. Added checks: canonical answer positions are balanced and are not a three-step cycle, a seeded shuffle spreads one choice across all four slots, grading uses the choice id, malformed JSON returns 400, the July 2026 gas-turbine choice says 23.3 percent and the explanation says 0.233, and learner text does not carry inventory codes or the removed warning phrases.
+The embed test renders each lesson to HTML and checks that every video is an iframe inside its section, with `start`, `end`, and `playsinline=1`, and that the page has no `youtube.com/watch` or `youtu.be` link. It also checks that a sentence which exists only in the answer key is absent from the rendered lesson. Choice positions are balanced and are not a 3-step or a strict 4-step cycle. A further test fails if the keyed choice is the longest option on more than 35 percent of items, or if its average length runs more than 15 percent above the distractors.
 
 ## `npm run lint`
 
@@ -44,14 +42,14 @@ Exit code 0.
    ▲ Next.js 15.5.27
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 1376ms
+ ✓ Compiled successfully in 1080ms
    Linting and checking validity of types ...
    Collecting page data ...
-   Generating static pages (0/5) ...
-   Generating static pages (1/5)
-   Generating static pages (2/5)
-   Generating static pages (3/5)
- ✓ Generating static pages (5/5)
+   Generating static pages (0/6) ...
+   Generating static pages (1/6)
+   Generating static pages (2/6)
+   Generating static pages (4/6)
+ ✓ Generating static pages (6/6)
    Finalizing page optimization ...
    Collecting build traces ...
 
@@ -60,7 +58,7 @@ Route (app)                                 Size  First Load JS
 ├ ○ /_not-found                            127 B         103 kB
 ├ ƒ /api/quiz/grade                        127 B         103 kB
 ├ ƒ /week/[weekId]                         716 B         107 kB
-└ ƒ /week/[weekId]/day/[day]             6.93 kB         113 kB
+└ ƒ /week/[weekId]/day/[day]             7.26 kB         113 kB
 + First Load JS shared by all             103 kB
   ├ chunks/255-ce8c7c75002f810b.js       46.5 kB
   ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
@@ -78,12 +76,12 @@ Route (app)                                 Size  First Load JS
 training@0.1.0
 ├─┬ next@15.5.27
 │ └── postcss@8.5.29 overridden
-└─┬ vitest@3.2.7
-  └─┬ vite@7.3.7
+└─┬ vitest@4.1.11
+  └─┬ vite@8.3.4
     └── postcss@8.5.29 deduped
 ```
 
-`npm audit` still reports other findings (1 moderate, 5 high, 2 critical). The PostCSS advisory is not among them. `npm audit fix --force` was not run.
+After Vitest 4.1.11, `npm audit` reports 5 high findings and no critical or moderate findings. `npm audit --omit=dev` reports 0. Those five highs are the dev-only `braces` / `micromatch` / `fast-glob` chain inside `eslint-config-next` 15.5.27. There is no patched `braces` release, and the suggested fix is a downgrade to `eslint-config-next` 14.2.35, which was not applied. See `open-issues.md` item 12. `npm audit fix --force` was not run.
 
 ## Embed URLs
 
@@ -91,7 +89,7 @@ On 12 October 2026, YouTube oEmbed returned HTTP 200 for all 14 ids, with titles
 
 ## Lesson HTML and grade API
 
-Checked 12 October 2026 with HTTP requests against `http://127.0.0.1:3456` after this revision's build.
+Checked 12 October 2026 with HTTP requests against `http://127.0.0.1:3921` after this revision's build. `/favicon.ico` returned HTTP 200, `content-type: image/x-icon`, 4,286 bytes, a 32×32 icon.
 
 | Path | Status | In-page embeds | Outbound watch link |
 | --- | ---: | ---: | --- |
@@ -104,15 +102,16 @@ Checked 12 October 2026 with HTTP requests against `http://127.0.0.1:3456` after
 | `/week/1/day/5` | 200 | 1 | no |
 | `/week/2` | 404 | 0 | no |
 
-Day 1 HTML contains the new opening ("It's your second week"), the sources panel, and "23.3 percent" is on Day 4. Day 1 HTML does not contain the answer-key sentence "Do not report 1,062".
+Day 1 HTML contains the opening ("It's your second week" / "When someone says"), the sources panel, and does not contain "six questions", "hypothetical people", or the answer-key sentence "Do not report 1,062". The Week page states the hypothetical-people note once. Day 4 HTML contains the duty diagram ("Baseload: on most hours") and "23.3 percent". Day 5 HTML says "two more than the other days" and still names the frame, the PLC-5, the 2024 test, the 15 May date, and the remote operations center.
 
-`POST /api/quiz/grade` now scores choice ids:
+`POST /api/quiz/grade` scores choice ids:
 
-- `w1d1` exercise `d1e1` value `1062` returned `correct: true`, expected `1062`.
-- `w1d1` question `d1c1` selected choice `d1c1a` returned `correct: true` and the 100 MWh explanation.
-- `w1d5` question `d5q8` selected choice `d5q8a` returned `correct: false`. The correct choice id was `d5q8b`.
+- `w1d1` question `d1c1` selected choice `d1c1c` returned `correct: true` and the 100 MWh explanation.
+- `w1d4` question `d4q4` selected choice `d4q4d` returned `correct: true`. The explanation contains 0.233 and says 0.249 is July 2025.
+- `w1d5` question `d5q12` selected choice `d5q12b` returned `correct: true`.
+- `w1d5` question `d5q8` selected choice `d5q8a` returned `correct: false`. The correct choice id was `d5q8c`.
 - A body of `{` returned HTTP 400 and `The request was not valid JSON.`
-- Unknown lesson id returned HTTP 404.
+- `/week/2` and `/week/1/day/6` returned HTTP 404.
 
 ## Browser pass — partial
 

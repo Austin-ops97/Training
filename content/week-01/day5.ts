@@ -59,10 +59,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "Dana asks which pair of figures you will put on the first slide, and what each one is.",
       choices: [
-        { id: "d5c1a", text: "About 65 MW per unit at standard conditions, and about 330 MW net at 95°F. A prior-owner sheet says about 360 MW. They are different bases." },
-        { id: "d5c1b", text: "59 MW and 1,062 MWh. Both are nameplate ratings from the same test." },
-        { id: "d5c1c", text: "220 MW and 12 engines. Both describe this yard." },
-        { id: "d5c1d", text: "13.8 kV and 60 Hz. Both are the plant's summer capacity." },
+        { id: "d5c1a", text: "59 MW and 1,062 MWh, treated as two nameplate ratings from the same test." },
+        { id: "d5c1b", text: "220 MW and twelve engines, treated as the machines standing in this yard today." },
+        { id: "d5c1c", text: "About 65 MW per unit at standard conditions, and about 330 MW net at 95°F." },
+        { id: "d5c1d", text: "13.8 kV and 60 Hz, treated as this plant's summer capacity figures." },
       ],
     },
     {
@@ -70,10 +70,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "The invoice from Monday is back. Priya still needs the units in one sentence.",
       choices: [
-        { id: "d5q1a", text: "MW and MWh are both voltages, measured an hour apart." },
-        { id: "d5q1b", text: "MW is the rate of power. MWh is that rate held over hours." },
+        { id: "d5q1a", text: "MW is the rate of power. MWh is that rate held over hours." },
+        { id: "d5q1b", text: "MW and MWh are both voltages, taken an hour apart." },
         { id: "d5q1c", text: "MWh is the rate, and MW is the energy left at the end of the day." },
-        { id: "d5q1d", text: "They differ only by the outdoor temperature." },
+        { id: "d5q1d", text: "They differ only by the outdoor temperature at the compressor inlet." },
       ],
     },
     {
@@ -81,10 +81,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "Luis says the 138 kV lines can hold the plant's energy overnight. What is the grid fact?",
       choices: [
-        { id: "d5q2a", text: "The lines store energy in proportion to their voltage." },
-        { id: "d5q2b", text: "Storage in the wires is fine for a few hours, then frequency resets." },
-        { id: "d5q2c", text: "The grid stores almost no electrical energy. An imbalance shows up immediately as frequency." },
-        { id: "d5q2d", text: "The step-up transformer is the battery for the yard." },
+        { id: "d5q2a", text: "The lines store electrical energy in proportion to their operating voltage." },
+        { id: "d5q2b", text: "The grid stores almost no electrical energy, so a mismatch moves frequency." },
+        { id: "d5q2c", text: "The wires hold a few hours of energy, and then the frequency resets itself." },
+        { id: "d5q2d", text: "The step-up transformer is the battery for energy that leaves the yard." },
       ],
     },
     {
@@ -92,10 +92,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "Someone in Dana's meeting calls the gas turbine a Rankine machine. Which correction is right?",
       choices: [
-        { id: "d5q3a", text: "Both cycles boil water. The only difference is the fuel truck." },
-        { id: "d5q3b", text: "Rankine is the gas turbine and Brayton is the condenser." },
-        { id: "d5q3c", text: "Neither cycle rejects heat. Both convert all of the fuel into electricity." },
-        { id: "d5q3d", text: "Brayton for the gas turbine: compress, burn, expand. Rankine for a steam plant: boil, expand, condense, pump." },
+        { id: "d5q3a", text: "Both cycles boil water. The only difference is which fuel truck arrives." },
+        { id: "d5q3b", text: "Rankine is the gas turbine, and Brayton is the condenser on the steam side." },
+        { id: "d5q3c", text: "Neither cycle rejects heat. Both turn all of the fuel into electricity." },
+        { id: "d5q3d", text: "Brayton for the gas turbine. Rankine for a steam plant, which this yard is not." },
       ],
     },
     {
@@ -103,10 +103,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "The vendor from Wednesday is in the meeting. What does a heat-recovery steam generator add?",
       choices: [
-        { id: "d5q4a", text: "A heat-recovery steam generator and a steam turbine, so exhaust heat becomes more megawatts. This plant's description does not include one." },
-        { id: "d5q4b", text: "A second gas compressor that burns a second fuel." },
-        { id: "d5q4c", text: "A cooling tower that replaces the generator." },
-        { id: "d5q4d", text: "An inverter that stores the exhaust." },
+        { id: "d5q4a", text: "A second gas compressor that burns a separate stream of fuel for the extra power." },
+        { id: "d5q4b", text: "A heat-recovery steam generator makes extra megawatts from exhaust heat." },
+        { id: "d5q4c", text: "A cooling tower installed in the yard in place of the electrical generator." },
+        { id: "d5q4d", text: "An inverter that stores the exhaust gas and releases it at the next peak." },
       ],
     },
     {
@@ -114,10 +114,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "Priya asks what combined heat and power is, in one line.",
       choices: [
-        { id: "d5q5a", text: "Two plants on one invoice, with the heat thrown away at both." },
-        { id: "d5q5b", text: "Electricity plus useful heat or steam from one fuel, for a host that wants the heat." },
-        { id: "d5q5c", text: "A peaker that runs only in winter so the stack stays cool." },
-        { id: "d5q5d", text: "A battery charged from a condenser." },
+        { id: "d5q5a", text: "Two plants billed on one invoice, with the leftover heat thrown away at both of them." },
+        { id: "d5q5b", text: "A peaker that runs only in winter so the exhaust leaving the stack stays cool." },
+        { id: "d5q5c", text: "Electricity plus useful heat or steam from one fuel, for a host that wants the heat." },
+        { id: "d5q5d", text: "Power from one plant and steam from a separate boiler, with no shared use of fuel." },
       ],
     },
     {
@@ -125,10 +125,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "Why does a simple-cycle peaker's national capacity factor stay low even though the machine can run?",
       choices: [
-        { id: "d5q6a", text: "Because the grid frequency forbids operation above a few hundred hours." },
-        { id: "d5q6b", text: "Because a peaker has no generator." },
-        { id: "d5q6c", text: "Because it costs more fuel per megawatt-hour, so it runs in the hours when that fuel is worth paying for." },
-        { id: "d5q6d", text: "Because capacity factor is the generator voltage." },
+        { id: "d5q6a", text: "It costs more fuel per megawatt-hour, so it runs when that fuel is worth paying for." },
+        { id: "d5q6b", text: "The grid frequency forbids operation past a few hundred hours in a normal year." },
+        { id: "d5q6c", text: "A peaker has no generator of its own, so it cannot stay synchronized for long." },
+        { id: "d5q6d", text: "A standing rule caps a peaker at a few hundred hours, whatever the system will pay." },
       ],
     },
     {
@@ -136,10 +136,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "A battery is offered as a substitute for the next short peak. What can you say from this week?",
       choices: [
-        { id: "d5q7a", text: "A battery is slower than a steam cycle, so it cannot cover a short peak." },
-        { id: "d5q7b", text: "A battery's size in a British example is the size this plant must install." },
-        { id: "d5q7c", text: "A battery replaces the scheduling entity, so the plant no longer needs one." },
-        { id: "d5q7d", text: "A battery can move energy across hours and can move faster than a rotating machine. An empty battery cannot cover the next hour. Which product it may offer is a scheduling-entity question." },
+        { id: "d5q7a", text: "A battery is slower than a steam cycle, so it cannot cover a short evening peak on its own." },
+        { id: "d5q7b", text: "The battery size in one British example is the size this plant is required to install." },
+        { id: "d5q7c", text: "A battery replaces the scheduling entity, so this plant no longer needs a separate one." },
+        { id: "d5q7d", text: "A battery can move faster than a rotating machine until its charge is gone." },
       ],
     },
     {
@@ -147,10 +147,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "What voltages do you write on the one-page diagram?",
       choices: [
-        { id: "d5q8a", text: "60 Hz at the generator and 50 Hz in the yard." },
-        { id: "d5q8b", text: "13.8 kV at the generator and 138 kV in the switchyard." },
-        { id: "d5q8c", text: "138 kV at the generator and 13.8 kV on the transmission side." },
-        { id: "d5q8d", text: "The example voltages from the Monday film, because they match every plant." },
+        { id: "d5q8a", text: "60 Hz measured at the generator and 50 Hz measured out in the switchyard." },
+        { id: "d5q8b", text: "138 kV at the generator and 13.8 kV on the transmission side of the yard." },
+        { id: "d5q8c", text: "13.8 kV measured at the generator and 138 kV measured in the switchyard." },
+        { id: "d5q8d", text: "The round example voltages from Monday's film, because they match every plant." },
       ],
     },
     {
@@ -158,10 +158,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "How do you describe the machines and the transformers in one breath?",
       choices: [
-        { id: "d5q9a", text: "Six GE MS7001B units on natural gas only. Documents also say 7B, 7E, and 7B/E, so the hardware is a confirmation item. Three step-up transformers, two generators each, so one transformer outage takes two units." },
-        { id: "d5q9b", text: "Twelve engines and one shared stack, as in the optional animation." },
-        { id: "d5q9c", text: "Six units, each with its own transformer, so a transformer outage trips one unit." },
-        { id: "d5q9d", text: "Six steam boilers sharing one condenser." },
+        { id: "d5q9a", text: "Twelve engines on one shared stack, as in the optional engine animation." },
+        { id: "d5q9b", text: "Six GE MS7001B gas turbines. Three transformers, two generators each." },
+        { id: "d5q9c", text: "Six turbines, each with its own transformer, so one transformer outage trips one unit." },
+        { id: "d5q9d", text: "Six turbines feeding one heat-recovery boiler that stays in service with them." },
       ],
     },
     {
@@ -169,10 +169,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "Why can a standard-condition megawatt and a hot-day net megawatt both be honest?",
       choices: [
-        { id: "d5q10a", text: "Because megawatts and megawatt-hours are the same unit." },
-        { id: "d5q10b", text: "Because the generator voltage changes from 13.8 kV to 60 Hz on a hot day." },
-        { id: "d5q10c", text: "Hot inlet air is less dense, so mass flow and output fall. Net also subtracts the plant's own use. About 65 MW per unit at standard conditions and about 330 MW net at 95°F are different bases." },
-        { id: "d5q10d", text: "Physics requires the two figures to match, so one of them is a typo." },
+        { id: "d5q10a", text: "Megawatts and megawatt-hours are the same unit, so both labels fit either test." },
+        { id: "d5q10b", text: "The standard-condition test already subtracts the hot-afternoon air effect." },
+        { id: "d5q10c", text: "The two figures are required to match, so one of the sheets has a typo." },
+        { id: "d5q10d", text: "Hot inlet air is less dense, so output falls, and net also subtracts plant use." },
       ],
     },
     {
@@ -180,10 +180,10 @@ export const day5: Lesson = {
       level: 2,
       prompt: "Who is on the far side of the 138 kV breakers, and what is still open?",
       choices: [
-        { id: "d5q11a", text: "The scheduling entity owns the breakers and switches them alone." },
-        { id: "d5q11b", text: "A condenser operator switches the yard from the cooling tower." },
-        { id: "d5q11c", text: "The plant exports at 13.8 kV with no transformer and no neighbor." },
-        { id: "d5q11d", text: "Plant documents call it a transmission service provider interface at 138 kV, with a backfeed practice. Confirm who performs the switching. The one-line is not in this course pack." },
+        { id: "d5q11a", text: "A transmission service provider interface, and who switches it is still unconfirmed." },
+        { id: "d5q11b", text: "The scheduling entity owns those breakers and is the only party that operates them." },
+        { id: "d5q11c", text: "The plant exports at generator voltage, with no transformer and no utility neighbor." },
+        { id: "d5q11d", text: "The remote operations center opens the yard breakers without anyone on site." },
       ],
     },
     {
@@ -191,10 +191,10 @@ export const day5: Lesson = {
       level: 1,
       prompt: "Dana asks who calls ERCOT. What is a Qualified Scheduling Entity?",
       choices: [
-        { id: "d5q12a", text: "A market participant qualified under Protocol Section 16 to communicate with ERCOT for resource entities and load-serving entities and to settle payments and charges with ERCOT." },
-        { id: "d5q12b", text: "The transmission owner who racks out a breaker." },
-        { id: "d5q12c", text: "The generator's exciter." },
-        { id: "d5q12d", text: "The regional entity that writes the reliability standards." },
+        { id: "d5q12a", text: "The transmission service provider that owns the breakers and switches them in the 138 kV yard." },
+        { id: "d5q12b", text: "A market participant qualified under Protocol Section 16 to speak for the plant and settle." },
+        { id: "d5q12c", text: "ERCOT itself, the organization that dispatches generation and balances the region." },
+        { id: "d5q12d", text: "The plant's remote operations center, placing the market calls without a scheduler." },
       ],
     },
   ],
@@ -212,7 +212,7 @@ export const day5: Lesson = {
         },
         {
           type: "p",
-          text: "Dana, Priya, and Luis are hypothetical people in this scenario, not site staff. The drone photo and the install photos are not in this course pack, so you will label a block diagram and list what the site still has to confirm. No owner name, no prior-site name, no permit number, and no drawing number goes on the page.",
+          text: "The drone photo and the install photos are not in this course pack, so you will label a block diagram and list what the site still has to confirm. No owner name, no prior-site name, no permit number, and no drawing number goes on the page.",
         },
       ],
     },
@@ -366,7 +366,7 @@ export const day5: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "Twelve questions, one more than the other days, because this check covers the week. You'll see why each answer is right or wrong when you submit.",
+          text: "Twelve questions, two more than the other days, because this check covers the week. You'll see why each answer is right or wrong when you submit.",
         },
       ],
     },

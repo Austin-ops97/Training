@@ -109,9 +109,46 @@ export function ViperDiagram() {
   );
 }
 
-export function LessonDiagram({ diagram }: { diagram: "grid" | "rankine" | "brayton" | "viper" }) {
+export function DutyDiagram() {
+  return (
+    <Frame title="A sample day: baseload stays on, solar rises at noon, and a peaker or a battery covers the evening" label="duty-title">
+      <text x="24" y="28" style={{ fill: "#3d4b5c", fontSize: 12 }}>
+        Morning
+      </text>
+      <text x="330" y="28" style={{ fill: "#3d4b5c", fontSize: 12 }}>
+        Noon
+      </text>
+      <text x="620" y="28" style={{ fill: "#3d4b5c", fontSize: 12 }}>
+        Evening
+      </text>
+      <rect x="24" y="48" width="672" height="28" rx="6" style={{ fill: "#e7efe9", stroke: "#1f4d45" }} />
+      <text x="36" y="67" style={{ fill: "#1b2430", fontSize: 13 }}>
+        Baseload: on most hours
+      </text>
+      <rect x="250" y="92" width="220" height="28" rx="6" style={{ fill: "#f3e6c8", stroke: "#9a4e24" }} />
+      <text x="262" y="111" style={{ fill: "#1b2430", fontSize: 13 }}>
+        Solar: midday, none at night
+      </text>
+      <rect x="500" y="136" width="180" height="28" rx="6" style={{ fill: "#f6ddd2", stroke: "#9a4e24" }} />
+      <text x="512" y="155" style={{ fill: "#1b2430", fontSize: 13 }}>
+        Peaker: scarce hours
+      </text>
+      <rect x="250" y="176" width="160" height="28" rx="6" style={{ fill: "#e4eaf3", stroke: "#1f4d45" }} />
+      <text x="258" y="195" style={{ fill: "#1b2430", fontSize: 12 }}>
+        Battery charges
+      </text>
+      <rect x="500" y="176" width="180" height="28" rx="6" style={{ fill: "#e4eaf3", stroke: "#1f4d45" }} />
+      <text x="512" y="195" style={{ fill: "#1b2430", fontSize: 12 }}>
+        Battery discharges
+      </text>
+    </Frame>
+  );
+}
+
+export function LessonDiagram({ diagram }: { diagram: "grid" | "rankine" | "brayton" | "viper" | "duty" }) {
   if (diagram === "grid") return <GridPath />;
   if (diagram === "rankine") return <RankineLoop />;
   if (diagram === "brayton") return <BraytonDiagram />;
+  if (diagram === "duty") return <DutyDiagram />;
   return <ViperDiagram />;
 }

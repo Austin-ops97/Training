@@ -56,10 +56,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "A unit holds 50 MW for 2 hours. How much energy did it deliver?",
       choices: [
-        { id: "d1c1a", text: "100 MWh" },
-        { id: "d1c1b", text: "50 MW, because energy uses the same unit as power" },
-        { id: "d1c1c", text: "25 MWh, because you divide power by hours" },
-        { id: "d1c1d", text: "50 kV, because a two-hour run is read in kilovolts" },
+        { id: "d1c1a", text: "25 MWh, because the two hours cut the 50 MW reading in half." },
+        { id: "d1c1b", text: "50 MW, because a timed run keeps the power unit on the page." },
+        { id: "d1c1c", text: "100 MWh, because 50 MW held for two hours is energy delivered." },
+        { id: "d1c1d", text: "50 kV, because a two-hour run is reported as electrical pressure." },
       ],
     },
     {
@@ -67,10 +67,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Why can a transformer change voltage on an AC line and not on a steady DC circuit?",
       choices: [
-        { id: "d1c2a", text: "A transformer stores the day's megawatt-hours and releases them as a higher voltage." },
-        { id: "d1c2b", text: "A transformer needs a changing current so the magnetic field in one coil can induce voltage in the other." },
-        { id: "d1c2c", text: "Steady direct current induces a higher voltage because the magnetic field never collapses." },
-        { id: "d1c2d", text: "Frequency and voltage are the same quantity, so either one can be stepped up." },
+        { id: "d1c2a", text: "It needs a changing current so one coil can induce voltage in the other." },
+        { id: "d1c2b", text: "It stores the day's megawatt-hours and later releases them as voltage." },
+        { id: "d1c2c", text: "Steady direct current induces more voltage because the field never falls." },
+        { id: "d1c2d", text: "Frequency and voltage are one quantity, so either one can be stepped up." },
       ],
     },
     {
@@ -78,10 +78,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Priya forwards an invoice that says the plant 'lost 60 on Tuesday.' What distinction do you settle before you approve it?",
       choices: [
-        { id: "d1q1a", text: "MW is energy over a day, and MWh is the voltage of the line." },
-        { id: "d1q1b", text: "They are two names for the same unit, so either one can go on the invoice." },
-        { id: "d1q1c", text: "MW is power at an instant. MWh is energy: that power held over hours." },
-        { id: "d1q1d", text: "MWh is the megawatt reading divided by 1,000, so 60 MW is 0.06 MWh." },
+        { id: "d1q1a", text: "MW is the energy collected over a day, and MWh is the line voltage." },
+        { id: "d1q1b", text: "They are two labels for one unit, so either one can sit on the invoice." },
+        { id: "d1q1c", text: "MWh is the megawatt reading divided by 1,000, so 60 MW is 0.06 MWh." },
+        { id: "d1q1d", text: "MW is power at an instant, and MWh is that power held over hours." },
       ],
     },
     {
@@ -89,10 +89,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "A contractor says the transmission lines can store Tuesday's generation and deliver it Wednesday morning. What do you tell Dana?",
       choices: [
-        { id: "d1q2a", text: "Transformers only pass power for one second, then they reset." },
-        { id: "d1q2b", text: "The gas pipeline stores the electrical energy until the plant is called." },
-        { id: "d1q2c", text: "Customers sign a contract that fixes the frequency once each morning." },
-        { id: "d1q2d", text: "The grid stores almost no electrical energy. An imbalance shows up immediately as a change in frequency." },
+        { id: "d1q2a", text: "Transformers pass power for one second and then reset until the next dispatch call." },
+        { id: "d1q2b", text: "The grid stores almost no electrical energy, so an imbalance shows up as frequency." },
+        { id: "d1q2c", text: "The gas pipeline holds the electrical energy until the plant is called to run." },
+        { id: "d1q2d", text: "Customer contracts fix the frequency each morning and hold that value all day." },
       ],
     },
     {
@@ -100,10 +100,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Luis asks what 60 Hz means on the North American grids in this lesson.",
       choices: [
-        { id: "d1q3a", text: "Alternating current reverses direction 60 times each second." },
-        { id: "d1q3b", text: "The plant heat rate is 60." },
-        { id: "d1q3c", text: "Transmission voltage is 60 kV." },
-        { id: "d1q3d", text: "The generator nameplate is a 60-volt machine." },
+        { id: "d1q3a", text: "The plant heat rate is 60, which is why these grids are described that way." },
+        { id: "d1q3b", text: "Transmission voltage is 60 kV on the North American lines used in this lesson." },
+        { id: "d1q3c", text: "The generator nameplate is a 60-volt machine once it is tied to these grids." },
+        { id: "d1q3d", text: "Alternating current reverses direction 60 times each second on these grids." },
       ],
     },
     {
@@ -111,22 +111,21 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Why does the plant raise voltage before a long transmission line?",
       choices: [
-        { id: "d1q4a", text: "The transformer converts the plant's alternating current into direct current for the line." },
-        { id: "d1q4b", text: "It raises voltage so the same power moves at a lower current, and line heating falls." },
-        { id: "d1q4c", text: "The transformer core stores the day's energy and releases it at the far end." },
+        { id: "d1q4a", text: "It raises voltage so the same power travels the line at a lower current." },
+        { id: "d1q4b", text: "It turns the plant's alternating current into direct current for the long line." },
+        { id: "d1q4c", text: "The core stores the day's energy and releases that energy at the far substation." },
         { id: "d1q4d", text: "It sets the grid frequency to 50 Hz so the line matches overseas equipment." },
       ],
     },
     {
       id: "d1q5",
       level: 2,
-      prompt:
-        "The training problem says six units at 59 MW for 3 hours. What do you put on the answer line, and what is the 59?",
+      prompt: "The training problem says six units at 59 MW for 3 hours. What belongs on the answer line?",
       choices: [
-        { id: "d1q5a", text: "177 MWh. Add 59 and 3, then multiply by six." },
-        { id: "d1q5b", text: "354 MW. Energy and power share a unit, so the hours do not change the label." },
-        { id: "d1q5c", text: "1,062 MWh. The 59 MW is the problem's given, not a confirmed Viper Power nameplate." },
-        { id: "d1q5d", text: "59 kV. The figure is the generator voltage, held for three hours." },
+        { id: "d1q5a", text: "177 MWh, from adding 59 and 3 and then multiplying by the six units." },
+        { id: "d1q5b", text: "354 MW, because the three hours do not change a power figure into energy." },
+        { id: "d1q5c", text: "1,062 MWh, from six units at 59 MW each, held for three hours." },
+        { id: "d1q5d", text: "59 kV, because that figure is the generator voltage held for three hours." },
       ],
     },
     {
@@ -134,10 +133,10 @@ export const day1: Lesson = {
       level: 2,
       prompt: "A developer wants to sell power from a new Viper Power unit into a utility in Oklahoma. Why is that harder than selling to a Texas utility?",
       choices: [
-        { id: "d1q6a", text: "Oklahoma uses 50 Hz, so the machines cannot synchronize." },
-        { id: "d1q6b", text: "ERCOT owns the Texas plants, so it can refuse an out-of-state sale." },
-        { id: "d1q6c", text: "Federal law bans interstate electricity sales." },
-        { id: "d1q6d", text: "Texas is mostly its own interconnection, ERCOT, with limited ties to the Eastern grid." },
+        { id: "d1q6a", text: "Oklahoma uses 50 Hz, so these machines cannot synchronize with that utility at all." },
+        { id: "d1q6b", text: "Texas is mostly its own interconnection, ERCOT, with limited ties to the east." },
+        { id: "d1q6c", text: "ERCOT owns the Texas plants and can refuse a sale that leaves the state." },
+        { id: "d1q6d", text: "Federal law bans an interstate electricity sale from a plant inside Texas." },
       ],
     },
     {
@@ -145,10 +144,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Load jumps and the online machines do not pick it up. What happens to frequency?",
       choices: [
-        { id: "d1q7a", text: "Frequency falls until generation is added or load is removed." },
-        { id: "d1q7b", text: "Frequency rises, because extra load speeds the shafts up." },
-        { id: "d1q7c", text: "Frequency stays at 60 Hz by definition. Only voltage can move." },
-        { id: "d1q7d", text: "The step-up transformer absorbs the extra load as stored energy." },
+        { id: "d1q7a", text: "Frequency falls until generation is added or some of the load is removed." },
+        { id: "d1q7b", text: "Frequency rises, because the extra load speeds the online shafts up." },
+        { id: "d1q7c", text: "Frequency stays at 60 Hz by definition, and only the voltage is free to move." },
+        { id: "d1q7d", text: "The step-up transformer absorbs the extra load and holds it as stored energy." },
       ],
     },
     {
@@ -156,10 +155,10 @@ export const day1: Lesson = {
       level: 2,
       prompt: "Same power, and the line voltage is doubled. Heating loss follows the square of the current. What happens to that loss?",
       choices: [
-        { id: "d1q8a", text: "Loss doubles, because voltage and heating move together." },
-        { id: "d1q8b", text: "Current is cut in half, so heating loss falls to one quarter." },
-        { id: "d1q8c", text: "Loss is unchanged, because the transformer cancels current." },
-        { id: "d1q8d", text: "Loss falls to one half, because current and heating are proportional." },
+        { id: "d1q8a", text: "The loss doubles, because voltage and conductor heating move together." },
+        { id: "d1q8b", text: "The loss stays put, because the transformer cancels current out on the line." },
+        { id: "d1q8c", text: "The loss falls by half, because current and heating stay in proportion." },
+        { id: "d1q8d", text: "The current is cut in half, so heating loss falls to one quarter." },
       ],
     },
     {
@@ -167,10 +166,10 @@ export const day1: Lesson = {
       level: 2,
       prompt: "During a test, frequency is low and voltage is low. Which device does which job?",
       choices: [
-        { id: "d1q9a", text: "The exciter adds fuel to raise frequency, and the governor changes field current to raise voltage." },
-        { id: "d1q9b", text: "Both devices move the transformer tap. Fuel flow and field current are not part of either job." },
-        { id: "d1q9c", text: "The governor changes fuel to hold shaft speed and frequency. The exciter changes field current to hold voltage." },
-        { id: "d1q9d", text: "The step-up transformer holds both, so neither device matters once the unit is online." },
+        { id: "d1q9a", text: "The exciter adds fuel to raise frequency, and the governor changes field current." },
+        { id: "d1q9b", text: "The governor changes fuel to hold shaft speed, and the exciter holds voltage." },
+        { id: "d1q9c", text: "Both devices move a transformer tap, and neither one touches fuel or field current." },
+        { id: "d1q9d", text: "The step-up transformer holds both frequency and voltage once the unit is online." },
       ],
     },
     {
@@ -178,10 +177,10 @@ export const day1: Lesson = {
       level: 1,
       prompt: "Priya asks what spins a gas-turbine generator, and whether a solar plant has the same shaft.",
       choices: [
-        { id: "d1q10a", text: "The transformer spins the generator. A solar plant uses a smaller transformer for the same job." },
-        { id: "d1q10b", text: "Grid frequency spins the shaft. A solar plant is spun by that same frequency." },
-        { id: "d1q10c", text: "The condenser spins the shaft on every plant, including a photovoltaic plant." },
-        { id: "d1q10d", text: "The prime mover spins the generator. A photovoltaic plant has no turbine shaft." },
+        { id: "d1q10a", text: "The transformer spins the generator, and a solar plant uses a smaller transformer for that job." },
+        { id: "d1q10b", text: "Grid frequency spins the shaft, and a solar plant is spun by that same frequency." },
+        { id: "d1q10c", text: "The prime mover spins the generator, and a photovoltaic plant has no turbine shaft." },
+        { id: "d1q10d", text: "The condenser spins the shaft on every plant, including a photovoltaic plant." },
       ],
     },
   ],
@@ -199,11 +198,7 @@ export const day1: Lesson = {
         },
         {
           type: "p",
-          text: "Dana runs the plant, Priya runs commercial, and Luis is the outage contractor. They are hypothetical people in this scenario, not site staff. You are the project manager. Today's problem is that invoice. The rest of the week hangs other problems on the same three people.",
-        },
-        {
-          type: "p",
-          text: "Every section answers the same six questions in one line: what the thing is, why it exists, how it fails, what a project manager does with it, which number has a basis, and what this plant is not.",
+          text: "Dana runs the plant, Priya runs commercial, and Luis is the outage contractor. You are the project manager. Today's problem is that invoice. The rest of the week hangs other problems on the same three people.",
         },
       ],
     },
