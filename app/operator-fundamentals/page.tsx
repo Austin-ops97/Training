@@ -103,6 +103,28 @@ export default function OperatorFundamentalsPage() {
               </ul>
               <h4>Key topics</h4>
               <p>{lesson.topics.join(" · ")}</p>
+              {lesson.treatments && lesson.treatments.length > 0 ? (
+                <>
+                  <h4>Component plan</h4>
+                  {lesson.treatments.map((treatment) => (
+                    <div key={treatment.component}>
+                      <p>
+                        <strong>{treatment.component}</strong>
+                      </p>
+                      <ol>
+                        <li>What it is. {treatment.what}</li>
+                        <li>Scientific principle. {treatment.principle}</li>
+                        <li>How it works. {treatment.how}</li>
+                        <li>Main components. {treatment.parts}</li>
+                        <li>Operating cycle. {treatment.cycle}</li>
+                        <li>Interactions. {treatment.interaction}</li>
+                        <li>Why the operator needs it. {treatment.operator}</li>
+                        <li>What goes wrong. {treatment.trouble}</li>
+                      </ol>
+                    </div>
+                  ))}
+                </>
+              ) : null}
               <h4>Sections</h4>
               <ol>
                 {lesson.sections.map((section) => (

@@ -6,7 +6,7 @@ Phase 1 is the outline and the course entry on the site. It does not include les
 
 The owner specification lists 12 modules. It also requires the science behind each major system before the equipment. Those foundation topics are an added module, taught first: atoms, charge and electricity, magnetism and induction, pressure, temperature and heat, energy and work, fluid flow, and combustion. The 12 specified modules are still present and still cover every bullet in the specification.
 
-The course therefore has 13 teaching modules and 46 lessons, plus a 30-question final assessment that is blueprinted and not written.
+The course therefore has 13 teaching modules and 54 lessons, plus a 30-question final assessment that is blueprinted and not written. Eight of those lessons are splits of topics that would not fit a credible lesson under 90 minutes.
 
 ## Teaching order
 
@@ -24,7 +24,11 @@ The lessons are not in the specification's numeric order. The order follows what
 
 The site's audited lesson is the shape used here: a 60-minute target, a hard cap of 90, short sections, checkpoints, and a knowledge check. The specification asks for at least five beginner questions. This outline plans 10, which is the site's standard and still satisfies that minimum. The items are not written in this phase.
 
-Every lesson in the data file is 75 or 83 minutes. The longer ones add one core section. Both lengths are under the cap.
+Section minutes are set per lesson from the topic load. Light lessons, such as atoms and pressure, are about 60 minutes. Denser lessons are longer, up to 90. A lesson that could not teach its topics in 90 minutes was split. The splits are valves; confined spaces and spills; breakers and protection; unloading and outages; status indications; trends and manual control; ignition through breaker closure; and ancillary services and capacity. Each lesson has its own section-minute row.
+
+## Component plans
+
+Every lesson that teaches a generator, gas turbine, compressor, pump, motor, valve, transformer, or breaker carries an eight-point plan in the outline data: what it is, the principle, how it works, the main parts, the cycle, the interactions, why the operator needs it, and what goes wrong. The last point names a failure mechanism and an observable symptom. It does not give a limit or a repair. The abnormal-conditions module then uses those mechanisms for recognition, reporting, and escalation across conditions.
 
 Each lesson record names the objectives, the example, the key terms, an SVG diagram, and a video candidate with a watch-for line and two takeaways. No video was selected or checked.
 

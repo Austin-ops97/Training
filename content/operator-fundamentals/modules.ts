@@ -108,9 +108,9 @@ export const operatorModules: OperatorModule[] = [
         use: "Simple-cycle and combined-cycle turbines as classes of plant.",
       },
       {
-        source: "U.S. Department of Energy",
-        url: "https://www.energy.gov/",
-        use: "A public gas-turbine explainer, to be chosen and opened in phase 2. No limit will be taken from an unopened page.",
+        source: "U.S. Department of Energy, How gas turbine power plants work",
+        url: "https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work",
+        use: "Public explainer of the compressor, combustor, and turbine. Phase 2 may quote only a sentence it has opened. Temperatures, speeds, and ratios on that page are not copied into this course as limits or as plant facts.",
       },
     ],
   },
@@ -133,9 +133,9 @@ export const operatorModules: OperatorModule[] = [
     specObjective: "Identify the operating states and why they matter.",
     references: [
       {
-        source: "NERC",
-        url: "https://www.nerc.com/",
-        use: "Glossary terms for availability, if a definition is quoted, only after the glossary entry is opened. Plant procedures still govern the local word.",
+        source: "NERC, Glossary of Terms",
+        url: "https://www.nerc.com/glossary-of-terms",
+        use: "Glossary terms for availability, if a definition is quoted, only after that glossary entry is opened. Plant procedures still govern the local word.",
       },
     ],
   },
@@ -191,9 +191,9 @@ export const operatorModules: OperatorModule[] = [
         use: "Public heat-rate idea. Not a plant heat rate.",
       },
       {
-        source: "NERC",
-        url: "https://www.nerc.com/",
-        use: "Reliability as a standards idea. Do not cite a standard number until the standard is opened.",
+        source: "NERC, Reliability Standards",
+        url: "https://www.nerc.com/standards/reliability-standards",
+        use: "Reliability as a standards idea. Do not cite a standard number until that standard is opened.",
       },
     ],
   },

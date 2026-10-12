@@ -27,7 +27,7 @@ These are the sources phase 2 should open before a claim is quoted. A URL here i
 ## Spec module 3 — How a gas turbine works
 
 - **EIA, how electricity is generated.** Simple-cycle and combined-cycle turbines as classes of plant. https://www.eia.gov/energyexplained/electricity/how-electricity-is-generated.php
-- **U.S. Department of Energy.** A public gas-turbine explainer, to be chosen and opened in phase 2. No limit will be taken from an unopened page. https://www.energy.gov/
+- **U.S. Department of Energy, How gas turbine power plants work.** Public explainer of the compressor, combustor, and turbine. Phase 2 may quote only a sentence it has opened. Temperatures, speeds, and ratios on that page are not copied into this course as limits or as plant facts. https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work
 
 ## Spec module 2 — Understanding the facility
 
@@ -35,7 +35,7 @@ These are the sources phase 2 should open before a claim is quoted. A URL here i
 
 ## Spec module 5 — Plant operating conditions
 
-- **NERC.** Glossary terms for availability, if a definition is quoted, only after the glossary entry is opened. Plant procedures still govern the local word. https://www.nerc.com/
+- **NERC, Glossary of Terms.** Glossary terms for availability, if a definition is quoted, only after that glossary entry is opened. Plant procedures still govern the local word. https://www.nerc.com/glossary-of-terms
 
 ## Spec module 8 — Instrumentation and control
 
@@ -51,7 +51,7 @@ These are the sources phase 2 should open before a claim is quoted. A URL here i
 - **ERCOT, about.** Labeled example of one region. Not a universal rulebook. https://www.ercot.com/about
 - **PJM.** Labeled example of a second region. Confirm any quoted sentence against the page. https://www.pjm.com/
 - **EIA, efficiency FAQ.** Public heat-rate idea. Not a plant heat rate. https://www.eia.gov/tools/faqs/faq.php?id=107&t=3
-- **NERC.** Reliability as a standards idea. Do not cite a standard number until the standard is opened. https://www.nerc.com/
+- **NERC, Reliability Standards.** Reliability as a standards idea. Do not cite a standard number until that standard is opened. https://www.nerc.com/standards/reliability-standards
 
 ## Spec module 7 — Operator responsibilities
 

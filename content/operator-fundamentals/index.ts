@@ -1,7 +1,9 @@
+import { ASPECTS } from "@/content/operator-fundamentals/coverage";
 import { lessonsA } from "@/content/operator-fundamentals/lessons-a";
 import { lessonsB } from "@/content/operator-fundamentals/lessons-b";
 import { finalAssessment, operatorModules } from "@/content/operator-fundamentals/modules";
 import type { OutlineLesson, OutlineSection } from "@/content/operator-fundamentals/schema";
+import { treatmentsByLesson } from "@/content/operator-fundamentals/treatments";
 
 export const operatorCourse = {
   id: "operator-fundamentals",
@@ -22,11 +24,23 @@ function minutesOf(sections: OutlineSection[]): number {
   return sections.reduce((sum, section) => sum + section.minutes, 0);
 }
 
-export const operatorLessons: NumberedLesson[] = [...lessonsA, ...lessonsB].map((lesson, index) => ({
-  ...lesson,
-  number: index + 1,
-  minutes: minutesOf(lesson.sections),
-}));
+function withTreatments(lesson: OutlineLesson): OutlineLesson {
+  const treatments = treatmentsByLesson[lesson.id] ?? [];
+  const parts = { ...lesson.parts };
+  for (const treatment of treatments) {
+    parts[treatment.component] = ASPECTS.map((aspect) => aspect.id);
+  }
+  return { ...lesson, treatments, parts };
+}
+
+export const operatorLessons: NumberedLesson[] = [...lessonsA, ...lessonsB].map((lesson, index) => {
+  const ready = withTreatments(lesson);
+  return {
+    ...ready,
+    number: index + 1,
+    minutes: minutesOf(ready.sections),
+  };
+});
 
 export function moduleById(id: string) {
   const found = operatorModules.find((item) => item.id === id);

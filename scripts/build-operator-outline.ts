@@ -62,6 +62,22 @@ function outlineDoc(): string {
       lines.push("");
       lines.push(`Key topics: ${lesson.topics.join("; ")}.`);
       lines.push("");
+      if (lesson.treatments && lesson.treatments.length > 0) {
+        lines.push("Component plan:");
+        lines.push("");
+        for (const treatment of lesson.treatments) {
+          lines.push(`- **${treatment.component}.**`);
+          lines.push(`  - What it is: ${treatment.what}`);
+          lines.push(`  - Scientific principle: ${treatment.principle}`);
+          lines.push(`  - How it works: ${treatment.how}`);
+          lines.push(`  - Main components: ${treatment.parts}`);
+          lines.push(`  - Operating cycle: ${treatment.cycle}`);
+          lines.push(`  - Interactions: ${treatment.interaction}`);
+          lines.push(`  - Why the operator needs it: ${treatment.operator}`);
+          lines.push(`  - What goes wrong: ${treatment.trouble}`);
+        }
+        lines.push("");
+      }
       lines.push("Sections:");
       lines.push("");
       for (const section of lesson.sections) lines.push(`- ${section.title} — ${section.minutes} min (${section.kind})`);

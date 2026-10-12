@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import HomePage from "@/app/page";
 import OperatorFundamentalsPage from "@/app/operator-fundamentals/page";
 import { ASPECTS, BULLETS, COMPONENTS, type BulletId } from "@/content/operator-fundamentals/coverage";
+import { TREATMENT_KEYS } from "@/content/operator-fundamentals/schema";
 import {
   courseMinutesTotal,
   lessonMinutesTotal,
@@ -28,8 +29,8 @@ function walk(dir: string, acc: string[] = []): string[] {
 }
 
 describe("operator fundamentals outline", () => {
-  it("lists 46 lessons in 13 teaching modules, with every spec module present", () => {
-    expect(operatorLessons).toHaveLength(46);
+  it("lists the lessons in 13 teaching modules, with every spec module present", () => {
+    expect(operatorLessons).toHaveLength(54);
     const modules = modulesInTeachingOrder();
     expect(modules).toHaveLength(13);
     expect(modules[0].specNumber).toBeNull();
@@ -61,8 +62,14 @@ describe("operator fundamentals outline", () => {
       expect(lesson.example.length).toBeGreaterThan(0);
     }
     expect(operatorCourse.knowledgeCheckCount).toBe(10);
-    expect(Math.min(...operatorLessons.map((lesson) => lesson.minutes))).toBe(75);
-    expect(Math.max(...operatorLessons.map((lesson) => lesson.minutes))).toBe(83);
+    const minutes = operatorLessons.map((lesson) => lesson.minutes);
+    expect(Math.min(...minutes)).toBeLessThanOrEqual(62);
+    expect(Math.max(...minutes)).toBeLessThanOrEqual(90);
+    expect(Math.max(...minutes)).toBeGreaterThanOrEqual(85);
+    const vectors = operatorLessons.map((lesson) => lesson.sections.map((section) => section.minutes).join(","));
+    expect(new Set(vectors).size, "section times are still one shared template").toBe(operatorLessons.length);
+    const oldTemplate = "6,12,4,12,4,8,8,5,12,4";
+    expect(vectors.every((vector) => vector === oldTemplate)).toBe(false);
   });
 
   it("covers every spec bullet and every component aspect, with earlier prerequisites", () => {
@@ -88,13 +95,62 @@ describe("operator fundamentals outline", () => {
     }
   });
 
+  it("plans the eight-point treatment inside each component lesson", () => {
+    const required = [
+      "of-07",
+      "of-07v",
+      "of-18",
+      "of-19",
+      "of-19b",
+      "of-20",
+      "of-21",
+      "of-22",
+      "of-23",
+      "of-24",
+      "of-25",
+      "of-26",
+      "of-27",
+      "of-30",
+    ];
+    for (const id of required) {
+      const lesson = operatorLessons.find((item) => item.id === id);
+      expect(lesson, id).toBeTruthy();
+      expect(lesson?.treatments?.length, id).toBeGreaterThan(0);
+    }
+    for (const lesson of operatorLessons) {
+      for (const treatment of lesson.treatments ?? []) {
+        for (const key of TREATMENT_KEYS) {
+          expect(treatment[key].trim().length, `${lesson.id} ${treatment.component} ${key}`).toBeGreaterThan(40);
+        }
+        expect(treatment.trouble.toLowerCase(), lesson.id).toMatch(/symptom/);
+        expect(treatment.trouble.toLowerCase(), lesson.id).toMatch(/fail/);
+        expect(lesson.parts[treatment.component]).toEqual(expect.arrayContaining(ASPECTS.map((aspect) => aspect.id)));
+      }
+    }
+    for (const component of COMPONENTS) {
+      const homes = operatorLessons.filter((lesson) =>
+        (lesson.treatments ?? []).some((treatment) => treatment.component === component.id),
+      );
+      expect(homes.length, component.id).toBeGreaterThan(0);
+    }
+  });
+
+  it("rejects a shared section-time template and any lesson over 90 minutes", () => {
+    const vectors = operatorLessons.map((lesson) => lesson.sections.map((section) => section.minutes).join(","));
+    expect(new Set(vectors).size).toBeGreaterThan(1);
+    for (const lesson of operatorLessons) {
+      expect(lesson.minutes, lesson.id).toBeLessThanOrEqual(90);
+      expect(lesson.minutes, lesson.id).toBeGreaterThanOrEqual(60);
+    }
+  });
+
   it("blueprints a 30-question final that does not qualify anyone", () => {
     const questions = operatorCourse.finalAssessment.domains.reduce((sum, domain) => sum + domain.questions, 0);
     expect(operatorCourse.finalAssessment.questionCount).toBe(30);
     expect(questions).toBe(30);
     expect(operatorCourse.finalAssessment.minutes).toBe(60);
-    expect(lessonMinutesTotal()).toBe(3522);
-    expect(courseMinutesTotal()).toBe(3582);
+    expect(lessonMinutesTotal()).toBeGreaterThan(0);
+    expect(courseMinutesTotal()).toBe(lessonMinutesTotal() + 60);
     expect(operatorCourse.boundary.toLowerCase()).toContain("does not qualify");
   });
 
@@ -108,8 +164,11 @@ describe("operator fundamentals outline", () => {
     const page = renderToStaticMarkup(createElement(OperatorFundamentalsPage));
     expect(page).toContain("does not qualify");
     expect(page).toContain("Frame 7B");
-    expect(page).toContain("Lesson 46");
+    const last = operatorLessons[operatorLessons.length - 1];
+    expect(page).toContain(`Lesson ${last.number}`);
     expect(page).toContain("Talking the job: operator, supervisor, and dispatcher");
+    expect(page).toContain("What goes wrong");
+    expect(page.toLowerCase()).toContain("symptom");
     for (const courseModule of modulesInTeachingOrder()) expect(page).toContain(courseModule.title);
     expect(page).not.toMatch(/youtube\.com/i);
     expect(page.toLowerCase()).not.toMatch(/\bimagine\b/);
@@ -132,8 +191,10 @@ describe("operator fundamentals outline", () => {
     const decisions = readFileSync(path.join(root, "reviews/operator-fundamentals/outline/scope-decisions.md"), "utf8");
     expect(budget).toContain(`${lessonMinutesTotal()} minutes`);
     expect(budget).toContain(`${courseMinutesTotal()} minutes`);
-    expect(outline).toContain("58 hours 42 minutes");
-    expect(outline).toContain("59 hours 42 minutes");
+    expect(outline).toContain(`${lessonMinutesTotal()} minutes`);
+    expect(outline).toContain(`${courseMinutesTotal()} minutes`);
+    expect(outline.toLowerCase()).toContain("symptom");
+    expect(outline.toLowerCase()).toContain("what goes wrong");
     for (const lesson of operatorLessons) expect(outline).toContain(lesson.title);
     for (const bullet of BULLETS) expect(matrix).toContain(bullet.text);
     for (const name of ["DOE", "EIA", "OSHA", "FERC", "NERC", "ERCOT", "PJM", "OEM", "OpenStax"]) {
@@ -141,6 +202,11 @@ describe("operator fundamentals outline", () => {
     }
     expect(references).not.toMatch(/youtube\.com/i);
     expect(decisions.toLowerCase()).toContain("does not qualify");
+    expect(references).toContain("https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work");
+    expect(references).toContain("https://www.nerc.com/glossary-of-terms");
+    expect(references).toContain("https://www.nerc.com/standards/reliability-standards");
+    expect(references).not.toMatch(/https:\/\/www\.energy\.gov\/(?:\s|$)/);
+    expect(references).not.toMatch(/https:\/\/www\.nerc\.com\/(?:\s|$)/);
     const corpus = [outline, matrix, budget, references, decisions].join("\n");
     const code = ["P", "H", "R"].join("");
     const surname = ["R", "obinson"].join("");
