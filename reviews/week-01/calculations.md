@@ -10,6 +10,30 @@ Sources for the definitions are OpenStax College Physics 2e (chapters 18–21) a
 
 I = Q / t = 180 C / 60 s = **3 A**.
 
+### Resistivity table and line resistance (taught, then graded as d1q2)
+
+OpenStax College Physics 2e Table 20.1 at 20°C: silver 1.59×10⁻⁸ Ω·m, copper 1.72×10⁻⁸ Ω·m, aluminum 2.65×10⁻⁸ Ω·m. Checked against that page on 12 October 2026.
+
+Illustrative aluminum conductor, not a Viper Power measurement. L = 1 km = 1,000 m. A = 500 mm² = 500 × 10⁻⁶ m² = 5.00×10⁻⁴ m².
+
+R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = **0.053 Ω**.
+
+Checks on the same inputs: copper gives (1.72×10⁻⁸ × 1,000) / 5.00×10⁻⁴ = **0.0344 Ω**. Inverting the formula gives 5.00×10⁻⁴ / (2.65×10⁻⁸ × 1,000) = **18.9 Ω** (18.867… rounded). Using 1 m instead of 1,000 m gives **5.3×10⁻⁵ Ω**.
+
+### Potential difference on the nameplate, d1q3 (graded)
+
+13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is **13,800 J/C**. It is a voltage, not a power.
+
+### Heating on the illustrative line, d1q4 (graded)
+
+Same line, I = 1,000 A, R = 0.053 Ω. This is one conductor, not a three-phase generator formula.
+
+1. V = I R = 1,000 A × 0.053 Ω = **53 V**.
+2. P = V I = 53 V × 1,000 A = **53,000 W**.
+3. P = I² R = (1,000 A)² × 0.053 Ω = **53,000 W** = **53 kW**.
+4. P = V² / R = (53 V)² / 0.053 Ω = 2,809 / 0.053 = **53,000 W**.
+5. H = I² R t = 53,000 W × 3,600 s = **190,800,000 J** = 1.908×10⁸ J over one hour.
+
 ### Ohm's law, d1q5 (graded)
 
 I = V / R = 12 V / 4 Ω = **3 A**.
@@ -53,15 +77,15 @@ Expected entry: `1062`. Tolerance: 0.
 
 Related check: 354 MW for one hour is **354 MWh**. Multiplying by 60 would treat hours as minutes.
 
-## Day 1 — line loss (level 1, taught, not a separate numeric grade)
+## Day 1 — line loss when voltage doubles (taught, graded as d1q10)
 
 For the same power, current = power / voltage. Heating in the line follows current squared.
 
 Double the voltage and the current is cut in half. (1/2)² = 1/4, so heating loss falls to **one quarter** if the resistance is unchanged.
 
-The Crash Course example voltages (about 12,000 V, about 240,000 V, 110 V) are illustrations. They are not Viper Power voltages. The inventory voltages used later are 13.8 kV (S105) and 138 kV (S136).
+The Crash Course example voltages are illustrations in the Day 2 video. They are not Viper Power voltages. The plant voltages used in the lessons are 13.8 kV at the generator and 138 kV on the switchyard side of the step-up transformers.
 
-## Day 1 — synchronous speed (level 3, taught, not graded)
+## Day 2 — synchronous speed (taught with the path, not a separate numeric grade)
 
 n (rpm) = 120 × frequency (Hz) / number of poles.
 

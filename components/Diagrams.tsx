@@ -111,24 +111,28 @@ export function ViperDiagram() {
 
 export function CircuitSymbols() {
   return (
-    <Frame title="Circuit symbols used in this lesson" label="symbols-title">
+    <>
+    <div className="desktop-only">
+    <Frame title="Circuit symbols used in this lesson. The long thin plate is positive." label="symbols-title">
       <text x="16" y="28" style={{ fill: "#3d4b5c", fontSize: 14 }}>
-        A line is a conductor. A break in that line is an open path.
+        A line is a conductor. On a cell, the long thin plate is +.
       </text>
       <g>
         <line x1="48" y1="78" x2="70" y2="78" stroke="#1f4d45" strokeWidth="2" />
-        <line x1="70" y1="66" x2="70" y2="90" stroke="#1f4d45" strokeWidth="3" />
-        <line x1="82" y1="70" x2="82" y2="86" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="70" y1="66" x2="70" y2="90" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="82" y1="70" x2="82" y2="86" stroke="#1f4d45" strokeWidth="4" />
         <line x1="82" y1="78" x2="104" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="64" y="60" style={{ fill: "#1b2430", fontSize: 13 }}>+</text>
         <text x="112" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Cell</text>
       </g>
       <g>
         <line x1="210" y1="78" x2="228" y2="78" stroke="#1f4d45" strokeWidth="2" />
-        <line x1="228" y1="66" x2="228" y2="90" stroke="#1f4d45" strokeWidth="3" />
-        <line x1="236" y1="70" x2="236" y2="86" stroke="#1f4d45" strokeWidth="2" />
-        <line x1="244" y1="66" x2="244" y2="90" stroke="#1f4d45" strokeWidth="3" />
-        <line x1="252" y1="70" x2="252" y2="86" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="228" y1="66" x2="228" y2="90" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="236" y1="70" x2="236" y2="86" stroke="#1f4d45" strokeWidth="4" />
+        <line x1="244" y1="66" x2="244" y2="90" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="252" y1="70" x2="252" y2="86" stroke="#1f4d45" strokeWidth="4" />
         <line x1="252" y1="78" x2="270" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="222" y="60" style={{ fill: "#1b2430", fontSize: 13 }}>+</text>
         <text x="278" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Battery</text>
       </g>
       <g>
@@ -175,22 +179,88 @@ export function CircuitSymbols() {
         <text x="646" y="180" style={{ fill: "#1b2430", fontSize: 14 }}>Voltmeter</text>
       </g>
     </Frame>
+    </div>
+    <div className="phone-only">
+      <figure className="diagram symbols-phone">
+        <svg viewBox="0 0 400 980" role="img" aria-labelledby="symbols-title-phone">
+          <title id="symbols-title-phone">Circuit symbols. The long thin plate is positive.</title>
+          <text x="16" y="36" style={{ fill: "#1b2430", fontSize: 22 }}>Cell, long thin plate is +</text>
+          <text x="36" y="70" style={{ fill: "#1b2430", fontSize: 22 }}>+</text>
+          <line x1="16" y1="90" x2="70" y2="90" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="70" y1="60" x2="70" y2="120" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="96" y1="70" x2="96" y2="110" stroke="#1f4d45" strokeWidth="8" />
+          <line x1="96" y1="90" x2="150" y2="90" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="160" style={{ fill: "#1b2430", fontSize: 22 }}>Battery, long thin plates are +</text>
+          <line x1="16" y1="210" x2="50" y2="210" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="50" y1="180" x2="50" y2="240" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="72" y1="190" x2="72" y2="230" stroke="#1f4d45" strokeWidth="8" />
+          <line x1="94" y1="180" x2="94" y2="240" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="116" y1="190" x2="116" y2="230" stroke="#1f4d45" strokeWidth="8" />
+          <line x1="116" y1="210" x2="160" y2="210" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="300" style={{ fill: "#1b2430", fontSize: 22 }}>Switch, open path</text>
+          <line x1="16" y1="350" x2="70" y2="350" stroke="#1f4d45" strokeWidth="3" />
+          <circle cx="70" cy="350" r="5" fill="#1f4d45" />
+          <line x1="70" y1="350" x2="130" y2="300" stroke="#1f4d45" strokeWidth="3" />
+          <circle cx="150" cy="350" r="5" fill="#1f4d45" />
+          <line x1="150" y1="350" x2="210" y2="350" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="420" style={{ fill: "#1b2430", fontSize: 22 }}>Lamp</text>
+          <line x1="16" y1="470" x2="70" y2="470" stroke="#1f4d45" strokeWidth="3" />
+          <circle cx="110" cy="470" r="32" fill="none" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="88" y1="448" x2="132" y2="492" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="132" y1="448" x2="88" y2="492" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="142" y1="470" x2="190" y2="470" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="560" style={{ fill: "#1b2430", fontSize: 22 }}>Resistor</text>
+          <line x1="16" y1="610" x2="50" y2="610" stroke="#1f4d45" strokeWidth="3" />
+          <polyline points="50,610 70,580 90,640 110,580 130,640 150,580 170,610" fill="none" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="170" y1="610" x2="210" y2="610" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="690" style={{ fill: "#1b2430", fontSize: 22 }}>Fuse</text>
+          <line x1="16" y1="740" x2="50" y2="740" stroke="#1f4d45" strokeWidth="3" />
+          <rect x="50" y="716" width="80" height="48" fill="none" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="62" y1="740" x2="118" y2="740" stroke="#1f4d45" strokeWidth="3" />
+          <line x1="130" y1="740" x2="180" y2="740" stroke="#1f4d45" strokeWidth="3" />
+          <text x="16" y="820" style={{ fill: "#1b2430", fontSize: 22 }}>Ammeter, in series</text>
+          <line x1="16" y1="870" x2="60" y2="870" stroke="#1f4d45" strokeWidth="3" />
+          <circle cx="100" cy="870" r="32" fill="none" stroke="#1f4d45" strokeWidth="3" />
+          <text x="88" y="878" style={{ fill: "#1b2430", fontSize: 22 }}>A</text>
+          <line x1="132" y1="870" x2="180" y2="870" stroke="#1f4d45" strokeWidth="3" />
+          <text x="200" y="820" style={{ fill: "#1b2430", fontSize: 22 }}>Voltmeter</text>
+          <line x1="200" y1="870" x2="244" y2="870" stroke="#1f4d45" strokeWidth="3" />
+          <circle cx="284" cy="870" r="32" fill="none" stroke="#1f4d45" strokeWidth="3" />
+          <text x="272" y="878" style={{ fill: "#1b2430", fontSize: 22 }}>V</text>
+          <line x1="316" y1="870" x2="360" y2="870" stroke="#1f4d45" strokeWidth="3" />
+        </svg>
+        <figcaption className="meta">Circuit symbols used in this lesson. The long thin plate is positive.</figcaption>
+      </figure>
+    </div>
+    </>
   );
 }
 
 export function OhmGraph() {
   return (
-    <Frame title="Ohm's law: voltage against current for one ohmic resistor" label="ohm-title">
-      <line x1="70" y1="30" x2="70" y2="180" stroke="#1f4d45" strokeWidth="2" />
-      <line x1="70" y1="180" x2="680" y2="180" stroke="#1f4d45" strokeWidth="2" />
-      <line x1="70" y1="180" x2="620" y2="50" stroke="#9a4e24" strokeWidth="3" />
-      <text x="78" y="28" style={{ fill: "#1b2430", fontSize: 14 }}>V</text>
-      <text x="640" y="174" style={{ fill: "#1b2430", fontSize: 14 }}>I</text>
-      <text x="250" y="100" style={{ fill: "#1b2430", fontSize: 16 }}>slope = R</text>
-      <text x="90" y="208" style={{ fill: "#3d4b5c", fontSize: 14 }}>
+    <figure className="diagram">
+      <svg viewBox="0 0 720 230" role="img" aria-labelledby="ohm-title">
+        <title id="ohm-title">Voltage against current for one ohmic resistor</title>
+        <line x1="80" y1="28" x2="80" y2="180" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="80" y1="180" x2="680" y2="180" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="80" y1="180" x2="620" y2="48" stroke="#9a4e24" strokeWidth="3" />
+        <line x1="74" y1="180" x2="86" y2="180" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="74" y1="147" x2="86" y2="147" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="74" y1="114" x2="86" y2="114" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="74" y1="81" x2="86" y2="81" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="80" y1="174" x2="80" y2="186" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="200" y1="174" x2="200" y2="186" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="320" y1="174" x2="320" y2="186" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="440" y1="174" x2="440" y2="186" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="560" y1="174" x2="560" y2="186" stroke="#1f4d45" strokeWidth="2" />
+        <text x="92" y="24" style={{ fill: "#1b2430", fontSize: 16 }}>V (volts)</text>
+        <text x="560" y="214" style={{ fill: "#1b2430", fontSize: 16 }}>I (amperes)</text>
+        <text x="250" y="100" style={{ fill: "#1b2430", fontSize: 16 }}>slope = R</text>
+      </svg>
+      <figcaption className="meta">
         A straight line through the origin means V and I stay in proportion. That is Ohm&apos;s law at one temperature.
-      </text>
-    </Frame>
+      </figcaption>
+    </figure>
   );
 }
 

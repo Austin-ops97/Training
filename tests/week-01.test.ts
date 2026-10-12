@@ -30,9 +30,9 @@ const correctSnippets: Record<string, string> = {
   d1c1: "3 A",
   d1c2: "100 MWh",
   d1q1: "elementary charge",
-  d1q2: "one thousandth of an ampere",
-  d1q3: "Work per unit charge",
-  d1q4: "continuous path",
+  d1q2: "0.053 Ω",
+  d1q3: "13,800 J/C",
+  d1q4: "53 kW",
   d1q5: "3 A, from voltage divided",
   d1q6: "series resistances add",
   d1q7: "Voltage is the same",
@@ -40,7 +40,7 @@ const correctSnippets: Record<string, string> = {
   d1q9: "3.6×10⁶ J",
   d1q10: "one quarter",
   d1q11: "60 times each second",
-  d1q12: "governor changes fuel",
+  d2q11: "governor changes fuel",
   d2c1: "condenser",
   d2c2: "Fission replaces the flame",
   d2q1: "Rankine",
@@ -109,7 +109,7 @@ describe("Week 1 lessons", () => {
 
   it("gives every lesson at least 10 scored questions, all taught before the check", () => {
     for (const lesson of lessons) {
-      const expectedQuiz = lesson.day === 1 || lesson.day === 5 ? 12 : 10;
+      const expectedQuiz = lesson.day === 5 ? 12 : lesson.day <= 2 ? 11 : 10;
       expect(lesson.quizIds.length).toBe(expectedQuiz);
       const quizSection = lesson.sections.find((section) => section.kind === "quiz");
       expect(quizSection).toBeTruthy();
@@ -203,9 +203,21 @@ describe("Week 1 lessons", () => {
     expect(Number((3412 / 7500).toFixed(3))).toBeCloseTo(0.455, 2);
     expect(Number((0.141 * 8760).toFixed(2))).toBe(1235.16);
     expect(Number((0.584 * 8760).toFixed(2))).toBe(5115.84);
+    expect(2.65e-8 * 1000 / 5e-4).toBeCloseTo(0.053, 10);
+    expect(1.72e-8 * 1000 / 5e-4).toBeCloseTo(0.0344, 10);
+    expect(5e-4 / (2.65e-8 * 1000)).toBeCloseTo(18.8679245283, 6);
+    expect(2.65e-8 * 1 / 5e-4).toBeCloseTo(5.3e-5, 12);
+    expect(1000 * 0.053).toBeCloseTo(53, 10);
+    expect(1000 ** 2 * 0.053).toBeCloseTo(53000, 6);
+    expect(53 ** 2 / 0.053).toBeCloseTo(53000, 6);
+    expect(53000 * 3600).toBe(190_800_000);
+    expect(13.8 * 1000).toBe(13800);
     const worked = [
       answerKey.w1d1.questions.d1c1.explanation,
       answerKey.w1d1.questions.d1c2.explanation,
+      answerKey.w1d1.questions.d1q2.explanation,
+      answerKey.w1d1.questions.d1q3.explanation,
+      answerKey.w1d1.questions.d1q4.explanation,
       answerKey.w1d1.questions.d1q5.explanation,
       answerKey.w1d1.questions.d1q6.explanation,
       answerKey.w1d1.questions.d1q9.explanation,
@@ -296,6 +308,26 @@ describe("Week 1 lessons", () => {
     }
     expect(longest / count).toBeLessThanOrEqual(0.35);
     expect(correctTotal / count).toBeLessThanOrEqual((distractorTotal / count) * 1.15);
+
+    let scoredLongest = 0;
+    let scoredCount = 0;
+    const scoredPositions = [0, 0, 0, 0];
+    for (const lesson of lessons) {
+      for (const id of lesson.quizIds) {
+        const question = lesson.questions.find((item) => item.id === id);
+        const key = answerKey[lesson.id].questions[id];
+        const index = question?.choices.findIndex((choice) => choice.id === key.correctChoiceId) ?? -1;
+        const lengths = question?.choices.map((choice) => choice.text.length) ?? [];
+        const keyed = lengths[index];
+        const others = lengths.filter((_, slot) => slot !== index);
+        if (keyed > Math.max(...others)) scoredLongest += 1;
+        scoredPositions[index] += 1;
+        scoredCount += 1;
+      }
+    }
+    expect(scoredCount).toBe(54);
+    expect(scoredLongest / scoredCount).toBeLessThanOrEqual(0.35);
+    expect(Math.max(...scoredPositions) - Math.min(...scoredPositions)).toBeLessThanOrEqual(2);
   });
 
   it("returns 400 for malformed quiz JSON and keeps July 2026 gas turbines at 23.3 percent", async () => {
@@ -344,7 +376,16 @@ describe("Week 1 lessons", () => {
     expect(day1).toContain("Lesson outline");
     expect(day1).toContain("Sources for this lesson");
     expect(day1).toContain("<svg");
-    expect(lessons.map((lesson) => lesson.sections.reduce((sum, section) => sum + section.minutes, 0))).toEqual([88, 62, 66, 70, 61]);
+    expect(lessons.map((lesson) => lesson.sections.reduce((sum, section) => sum + section.minutes, 0))).toEqual([84, 76, 66, 70, 61]);
+    expect(day1).toContain("symbols-phone");
+    expect(day1).toContain("V (volts)");
+    expect(day1).toContain("I (amperes)");
+    expect(day1).toContain("1.59×10");
+    expect(day1).toContain("0.053");
+    expect((day1.match(/not a plant nameplate/g) ?? []).length).toBe(1);
+    const day2 = renderToStaticMarkup(createElement(LessonExperience, { lesson: lessons[1] }));
+    expect(day2).toContain("governor changes fuel");
+    expect(day2).toContain("9kgzA0Vd8S8");
     expect(css).toContain(".duty-phone text");
     expect(css).toContain("font-size: 22px");
     const day4 = renderToStaticMarkup(createElement(LessonExperience, { lesson: lessons[3] }));

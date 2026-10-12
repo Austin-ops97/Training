@@ -78,7 +78,7 @@ Canonical positions are no longer an A-B-C-D cycle. The counts stay balanced, an
 
 ### W1R2-L2 — Day 5 count
 
-The Day 5 check now says it has two more questions than the other days.
+The Day 5 check says it has twelve questions because the check covers the week. It does not claim to have two more questions than every other day.
 
 ### W1R2-L3 — Day 4 diagram
 

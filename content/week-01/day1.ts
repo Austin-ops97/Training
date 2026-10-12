@@ -6,28 +6,28 @@ export const day1: Lesson = {
   day: 1,
   title: "Electricity, then how a plant puts it on the grid",
   summary:
-    "Charge, current, voltage, resistance, and power, and why a generator steps voltage up before a long line.",
+    "Charge, current, voltage, resistance, and power, with the arithmetic worked, and why raising voltage cuts line heating.",
   objectives: [
     "Define charge, current, potential difference, resistance, and power, and use the SI unit with each one.",
     "Use Ohm's law, the resistivity formula, and the series and parallel rules on a simple circuit.",
-    "Explain why I²R heating is why a plant raises voltage for transmission, and why a fuse or breaker opens the path.",
-    "Separate MW from MWh, and trace electricity from the generator through the step-up transformer to the customer.",
+    "Compute power and heating from P = VI, I²R, and V²/R, and say why a fuse or breaker opens the path.",
+    "Separate MW from MWh, and keep a plant figure attached to its unit and its basis.",
   ],
   exercises: [
     {
       id: "d1e1",
       prompt:
-        "Practice numbers, not a plant nameplate: six units, each given as 59 MW, for 3 hours. How many MWh is that? Plant documents use other bases. Day 5 lines those bases up.",
+        "Six units, each given as 59 MW, run for 3 hours. How many MWh is that? The 59 MW figure is a practice input, not a plant nameplate.",
       unit: "MWh",
       decimals: 0,
     },
   ],
-  quizIds: ["d1q1", "d1q2", "d1q3", "d1q4", "d1q5", "d1q6", "d1q7", "d1q8", "d1q9", "d1q10", "d1q11", "d1q12"],
+  quizIds: ["d1q1", "d1q2", "d1q3", "d1q4", "d1q5", "d1q6", "d1q7", "d1q8", "d1q9", "d1q10", "d1q11"],
   sources: [
     {
       title: "OpenStax College Physics 2e, electric charge, potential, current, resistance, and power",
       detail:
-        "https://openstax.org/books/college-physics-2e/pages/18-1-static-electricity-and-charge-conservation-of-charge , https://openstax.org/books/college-physics-2e/pages/19-1-electric-potential-energy-potential-difference , https://openstax.org/books/college-physics-2e/pages/20-1-current , https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits , https://openstax.org/books/college-physics-2e/pages/20-3-resistance-and-resistivity , https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy , and https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel . Reviewed 12 October 2026. Charge is conserved, and observed charges are integer multiples of the electron charge (the book uses 1.60×10⁻¹⁹ C). Current is I = ΔQ/Δt and 1 A = 1 C/s. R = ρL/A. Power in a resistor is P = IV = I²R = V²/R, and 1 kWh = 3.6×10⁶ J.",
+        "https://openstax.org/books/college-physics-2e/pages/18-1-static-electricity-and-charge-conservation-of-charge , https://openstax.org/books/college-physics-2e/pages/19-1-electric-potential-energy-potential-difference , https://openstax.org/books/college-physics-2e/pages/20-1-current , https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits , https://openstax.org/books/college-physics-2e/pages/20-3-resistance-and-resistivity , https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy , and https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel . Reviewed 12 October 2026. Charge is conserved, and observed charges are integer multiples of the electron charge (the book uses 1.60×10⁻¹⁹ C). Current is I = ΔQ/Δt and 1 A = 1 C/s. R = ρL/A. Table 20.1 at 20°C lists silver 1.59×10⁻⁸ Ω·m, copper 1.72×10⁻⁸ Ω·m, and aluminum 2.65×10⁻⁸ Ω·m. Power in a resistor is P = IV = I²R = V²/R, and 1 kWh = 3.6×10⁶ J.",
     },
     {
       title: "BIPM, SI Brochure, and the elementary charge",
@@ -40,24 +40,8 @@ export const day1: Lesson = {
         "In-lesson video. Generation, transmission, distribution, 60 Hz on the grids in that film, and why supply has to match demand continuously. The closing sponsor message is not part of the lesson.",
     },
     {
-      title: "Crash Course Physics #35, How Power Gets to Your Home",
-      detail:
-        "In-lesson video. Alternating current, why a transformer needs a changing current, and why raising voltage cuts heating in a long line. The voltages in the film are round teaching examples, not this plant's voltages.",
-    },
-    {
-      title: "U.S. Energy Information Administration, delivery to consumers",
-      detail:
-        "https://www.eia.gov/energyexplained/electricity/delivery-to-consumers.php reviewed 12 October 2026. Three interconnections in the Lower 48, ERCOT covering most of Texas, supply matched to demand, and reliability standards written by NERC and approved by FERC.",
-    },
-    {
-      title: "U.S. Energy Information Administration, how electricity is generated",
-      detail:
-        "https://www.eia.gov/energyexplained/electricity/how-electricity-is-generated.php (page updated 31 October 2023, data through 2022). A prime mover spins a generator. Photovoltaic plants have no turbine.",
-    },
-    {
       title: "Training problem",
-      detail:
-        "Six units at 59 MW for 3 hours is the arithmetic given for today's exercise. It is not a Viper Power nameplate. The plant bases are listed with Day 5.",
+      detail: "Exercise d1e1 uses the inputs written in the prompt: six units, 59 MW, and 3 hours.",
     },
   ],
   questions: [
@@ -96,35 +80,36 @@ export const day1: Lesson = {
     },
     {
       id: "d1q2",
-      level: 1,
-      prompt: "What are 1 mA and 1 µA?",
+      level: 2,
+      prompt:
+        "An illustrative aluminum conductor is 1 km long and has a cross-section of 500 mm². Use ρ = 2.65×10⁻⁸ Ω·m. What is R?",
       choices: [
-        { id: "d1q2a", text: "1 mA is a millionth of an ampere, and 1 µA is a thousandth." },
-        { id: "d1q2b", text: "1 mA is one thousandth of an ampere, and 1 µA is one millionth." },
-        { id: "d1q2c", text: "Both are voltages: one thousand volts and one million volts." },
-        { id: "d1q2d", text: "1 mA is one ampere, and 1 µA is one coulomb of charge." },
+        { id: "d1q2a", text: "0.0344 Ω, using copper's 1.72×10⁻⁸ Ω·m in place of aluminum." },
+        { id: "d1q2b", text: "0.053 Ω, from ρL/A with the area converted to square metres." },
+        { id: "d1q2c", text: "18.9 Ω, from turning the formula upside down as A divided by ρL." },
+        { id: "d1q2d", text: "5.3×10⁻⁵ Ω, from entering the length as 1 m instead of 1 km." },
       ],
     },
     {
       id: "d1q3",
-      level: 1,
-      prompt: "What is potential difference, and what measures it?",
+      level: 2,
+      prompt: "A generator nameplate reads 13.8 kV. How much work is that per coulomb of charge?",
       choices: [
-        { id: "d1q3a", text: "Work per unit charge, in volts, and a voltmeter measures it." },
-        { id: "d1q3b", text: "Charge per unit time, in amperes, and an ammeter measures it." },
-        { id: "d1q3c", text: "Resistance per unit length, in ohm-metres, from the material alone." },
-        { id: "d1q3d", text: "Heat per unit time, in joules, and a fuse measures that heat." },
+        { id: "d1q3a", text: "13,800 J/C, because 13.8 kV is 13,800 V and one volt is one joule per coulomb." },
+        { id: "d1q3b", text: "13.8 J/C, because the kilo prefix was left off before the nameplate was read." },
+        { id: "d1q3c", text: "13,800 W, because a generator nameplate voltage was read as electric power." },
+        { id: "d1q3d", text: "13.8 MW, because the kilo prefix on that voltage was taken as a power unit." },
       ],
     },
     {
       id: "d1q4",
-      level: 1,
-      prompt: "What is the difference between a closed circuit and an open circuit?",
+      level: 2,
+      prompt: "That same illustrative aluminum line has R = 0.053 Ω and carries 1,000 A. What is the heating power?",
       choices: [
-        { id: "d1q4a", text: "A closed circuit stores the day's energy, and an open circuit releases it." },
-        { id: "d1q4b", text: "A closed circuit is direct current, and an open circuit is alternating current." },
-        { id: "d1q4c", text: "A closed circuit is a continuous path. An open circuit is a broken path." },
-        { id: "d1q4d", text: "A closed circuit has zero resistance, and an open circuit has zero voltage." },
+        { id: "d1q4a", text: "53 V, which is current times resistance and is a voltage drop." },
+        { id: "d1q4b", text: "53,000 J, which is the heat released in one second, not the power." },
+        { id: "d1q4c", text: "53 kW, from I²R with current in amperes and resistance in ohms." },
+        { id: "d1q4d", text: "53 MW, from putting a mega prefix on a result that is in kilowatts." },
       ],
     },
     {
@@ -204,17 +189,6 @@ export const day1: Lesson = {
         { id: "d1q11d", text: "Direct current pulses 60 times a second, and a transformer steps it up." },
       ],
     },
-    {
-      id: "d1q12",
-      level: 2,
-      prompt: "On a synchronous generator, which device holds shaft speed, and which holds voltage?",
-      choices: [
-        { id: "d1q12a", text: "The exciter adds fuel to raise frequency, and the governor changes field current." },
-        { id: "d1q12b", text: "Both devices move a transformer tap, and neither one touches fuel or field current." },
-        { id: "d1q12c", text: "The governor changes fuel to hold shaft speed, and the exciter holds voltage." },
-        { id: "d1q12d", text: "The step-up transformer holds both frequency and voltage once the unit is online." },
-      ],
-    },
   ],
   sections: [
     {
@@ -226,11 +200,11 @@ export const day1: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "A power plant's product is electric charge pushed through a circuit. Before the machines, the words have to be sharp: charge, current, voltage, resistance, and power are different quantities, and mixing them loses the project.",
+          text: "A power plant's product is electric charge pushed through a circuit. Charge, current, voltage, resistance, and power are different quantities. Put the wrong unit on a figure and the rest of the calculation follows the wrong quantity.",
         },
         {
           type: "p",
-          text: "Today's job is those quantities, then the path from a generator to a customer. Viper Power is the plant the numbers belong to when a plant number is used. The arithmetic problems use their own given figures.",
+          text: "Today's job is those quantities, with the arithmetic worked in the sections. Viper Power supplies the plant figures, and each one stays attached to its unit and its basis. A practice problem uses the numbers written in the problem.",
         },
       ],
     },
@@ -276,7 +250,7 @@ export const day1: Lesson = {
     {
       id: "voltage-circuits",
       title: "Potential difference and the circuit",
-      minutes: 7,
+      minutes: 9,
       level: 1,
       kind: "core",
       blocks: [
@@ -292,12 +266,16 @@ export const day1: Lesson = {
         },
         {
           type: "p",
-          text: "A circuit is a path for current. A closed circuit is a continuous path, so current can flow. An open circuit is a broken path, so current stops. A switch, a fuse, or an open breaker is a deliberate opening. The components in a simple drawing are a source, conductors, a switch, and a load such as a lamp or a resistor.",
+          text: "A circuit is a path for current. A closed circuit is a continuous path, so current can flow. An open circuit is a broken path, so current stops. A switch, a fuse, or an open breaker is a deliberate opening. The components in a simple drawing are a source, conductors, a switch, and a load such as a lamp or a resistor. On the cell and the battery, the long thin plate is positive and the short thick plate is negative.",
         },
         { type: "diagram", diagram: "symbols" },
         {
           type: "p",
-          text: "Why it matters: at Viper Power, the generators produce 13.8 kV. That nameplate figure is a potential difference, not a megawatt. The switchyard side of the step-up transformers is 138 kV. Opening a breaker opens the path. The current does not keep flowing through an open contact.",
+          text: "Worked example, read from a nameplate. Viper Power's generators are marked 13.8 kV. That is 13,800 V. Because 1 V = 1 J/C, the nameplate means 13,800 J of work per coulomb: V = W / Q = 13,800 J / 1 C = 13,800 V. The nameplate is a voltage. It is not a power, and it is not a measured energy total for one particular coulomb that passed through the machine.",
+        },
+        {
+          type: "p",
+          text: "Why it matters: the switchyard side of the step-up transformers is 138 kV, another potential difference. Opening a breaker opens the path. The current does not keep flowing through an open contact.",
         },
       ],
     },
@@ -313,7 +291,7 @@ export const day1: Lesson = {
     {
       id: "ohm",
       title: "Ohm's law and resistance",
-      minutes: 8,
+      minutes: 12,
       level: 1,
       kind: "core",
       blocks: [
@@ -332,14 +310,28 @@ export const day1: Lesson = {
           type: "formula",
           label: "What sets the resistance",
           expression: "R = ρ L / A",
-          note: "ρ is resistivity in ohm-metres (Ω·m), L is length, and A is cross-sectional area. Resistivity belongs to the material. Resistance belongs to a particular piece of that material.",
+          note: "ρ is resistivity in ohm-metres (Ω·m), L is length in metres, and A is cross-sectional area in square metres. Resistivity belongs to the material. Resistance belongs to a particular piece of that material.",
+        },
+        {
+          type: "table",
+          caption: "Resistivity at 20°C, from OpenStax College Physics 2e Table 20.1",
+          headers: ["Metal", "Resistivity (Ω·m)"],
+          rows: [
+            ["Silver", "1.59×10⁻⁸"],
+            ["Copper", "1.72×10⁻⁸"],
+            ["Aluminum", "2.65×10⁻⁸"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Worked example. These figures are illustrative. They are not a measured Viper Power conductor. Take 1 km of aluminum at the table value, with a cross-section of 500 mm². Convert the area before you divide: 1 mm² = 10⁻⁶ m², so 500 mm² = 500 × 10⁻⁶ m² = 5.00×10⁻⁴ m². Then R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = 0.053 Ω.",
         },
         {
           type: "ul",
           items: [
-            "A longer conductor has more resistance. A thicker conductor has less. A material with a higher resistivity has more.",
-            "For a typical metal, resistance rises as temperature rises. A hot conductor is not the same resistor it was cold.",
-            "Transmission conductors are chosen and sized so ρ L / A stays small. Leftover resistance is where the line turns electrical energy into heat.",
+            "A longer conductor has more resistance. A thicker conductor has less. A material with a higher resistivity has more. Copper at the same length and area would be (1.72×10⁻⁸ × 1,000) / 5.00×10⁻⁴ = 0.0344 Ω.",
+            "For a typical metal, resistance rises as temperature rises. The table is at 20°C. A hot conductor is not the same resistor it was cold.",
+            "Transmission conductors are chosen and sized so ρ L / A stays small. The 0.053 Ω left in this example is where that line turns electrical energy into heat.",
           ],
         },
         {
@@ -378,7 +370,7 @@ export const day1: Lesson = {
     {
       id: "power-heat",
       title: "Power, energy, and heating",
-      minutes: 7,
+      minutes: 11,
       level: 1,
       kind: "core",
       blocks: [
@@ -390,7 +382,11 @@ export const day1: Lesson = {
           type: "formula",
           label: "Power and Joule heating",
           expression: "P = V I = I² R = V² / R    and    H = I² R t",
-          note: "P is in watts when V is in volts and I is in amperes. H is the heat energy in joules when R is in ohms and t is in seconds. 1 W = 1 J/s.",
+          note: "P is in watts when V is in volts and I is in amperes. H is the heat energy in joules when R is in ohms and t is in seconds. 1 W = 1 J/s. P = VI is general. P = I²R and P = V²/R belong to a resistor.",
+        },
+        {
+          type: "p",
+          text: "Worked example, same illustrative line, still not a plant measurement and not a three-phase generator formula. R = 0.053 Ω and I = 1,000 A. The voltage drop is V = I R = 1,000 A × 0.053 Ω = 53 V. The three power forms agree: P = V I = 53 V × 1,000 A = 53,000 W; P = I² R = (1,000 A)² × 0.053 Ω = 53,000 W; P = V² / R = (53 V)² / 0.053 Ω = 2,809 V² / 0.053 Ω = 53,000 W. That is 53 kW. Over 1 hour, H = I² R t = 53,000 W × 3,600 s = 190,800,000 J = 1.908×10⁸ J. Do not apply this single-conductor P = V I to a three-phase generator.",
         },
         {
           type: "formula",
@@ -448,52 +444,6 @@ export const day1: Lesson = {
       ],
     },
     {
-      id: "path",
-      title: "From the shaft to the customer",
-      minutes: 6,
-      level: 1,
-      kind: "core",
-      blocks: [
-        { type: "diagram", diagram: "grid" },
-        {
-          type: "p",
-          text: "A prime mover spins the generator. The generator pushes alternating current out at the plant's voltage. A step-up transformer raises that voltage for the long line, which cuts the current and cuts the I²R heating. Transmission carries it. A substation steps the voltage down. Distribution delivers it. A transformer needs a changing current. Steady direct current does not keep inducing voltage in the second coil. The film's example voltages are illustrations.",
-        },
-        {
-          type: "p",
-          text: "The Lower 48 has three major grids: the Eastern Interconnection, the Western Interconnection, and ERCOT, which covers most of Texas and has limited ties to the grids next door. Selling from a Texas plant into a utility on the Eastern grid is a different project from selling to a Texas utility. ERCOT directs the system. It does not own the plants.",
-        },
-        {
-          type: "p",
-          text: "If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed. On a synchronous machine, two devices split the work. The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. A two-pole machine at 60 Hz turns at 3,600 rpm, and a four-pole machine at 1,800 rpm. That relationship is the physics, not a setpoint for this plant.",
-        },
-      ],
-    },
-    {
-      id: "video-home",
-      title: "Visual — the transformer and the line",
-      minutes: 8,
-      level: 1,
-      kind: "visual",
-      videoIds: ["V02"],
-      blocks: [
-        {
-          type: "p",
-          text: "This 8-minute video is the generator and the transformer. While you watch, notice why a transformer needs a changing current, and why a higher voltage means a lower current for the same power. Treat the voltages as round examples.",
-        },
-        {
-          type: "ul",
-          afterVideo: true,
-          items: [
-            "A changing current in one coil induces voltage in the other. Steady direct current does not keep doing that.",
-            "Step up for the long line, step down near the customer.",
-            "Double the voltage, half the current, and I²R heating falls to a quarter if the resistance is unchanged.",
-            "Those example voltages are not Viper Power's 13.8 kV generator or 138 kV yard.",
-          ],
-        },
-      ],
-    },
-    {
       id: "apply",
       title: "The plant numbers, kept in their units",
       minutes: 4,
@@ -506,7 +456,7 @@ export const day1: Lesson = {
         },
         {
           type: "p",
-          text: "A figure with no unit is not ready to use. Ask whether it is MW or MWh, whether it is net or gross, and what outdoor condition or test condition goes with it. The next problem uses a teaching input so the multiplication can be practiced without borrowing one of those plant figures.",
+          text: "A figure with no unit is not ready to use. Ask whether it is MW or MWh, whether it is net or gross, and what outdoor condition or test condition goes with it.",
         },
       ],
     },
@@ -520,7 +470,7 @@ export const day1: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "Use the inputs in the problem only. Multiply, label the result in MWh, and leave the plant's own capacity figures for Friday.",
+          text: "Multiply the inputs in the problem, and label the result in MWh.",
         },
       ],
     },
@@ -533,7 +483,7 @@ export const day1: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "Twelve questions. The worked arithmetic is in the result after you submit.",
+          text: "Eleven questions. The worked arithmetic is in the result after you submit.",
         },
       ],
     },

@@ -28,14 +28,17 @@ export const answerKey: Record<string, LessonKey> = {
         "d1q1d",
         "Charge is conserved, so a resistor does not consume it. Ordinary charges come in whole-number multiples of the elementary charge, e = 1.602176634×10⁻¹⁹ C. Current is a different quantity, in amperes, and it flows on a closed path.",
       ),
-      d1q2: q("d1q2b", "The milli prefix is 10⁻³, so 1 mA = 0.001 A. The micro prefix is 10⁻⁶, so 1 µA = 0.000001 A. Neither one is a volt or a coulomb."),
+      d1q2: q(
+        "d1q2b",
+        "A = 500 mm² = 5.00×10⁻⁴ m². R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = 0.053 Ω. Copper's 1.72×10⁻⁸ would give 0.0344 Ω. Inverting the formula gives about 18.9 Ω. Using 1 m instead of 1,000 m gives 5.3×10⁻⁵ Ω.",
+      ),
       d1q3: q(
         "d1q3a",
-        "V = W / Q. One volt is one joule per coulomb. A voltmeter reads that difference and is connected in parallel. An ammeter reads current and is connected in series.",
+        "13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.",
       ),
       d1q4: q(
         "d1q4c",
-        "A closed circuit is one continuous conducting path, so current can flow. An open circuit has a break, so the current stops. A switch or an open breaker is that break, made on purpose.",
+        "P = I² R = (1,000 A)² × 0.053 Ω = 53,000 W = 53 kW. The product I R = 53 V is the voltage drop, not the power. 53,000 J is the heat in one second. 53 MW would be a thousand times too large.",
       ),
       d1q5: q(
         "d1q5d",
@@ -64,10 +67,6 @@ export const answerKey: Record<string, LessonKey> = {
       d1q11: q(
         "d1q11a",
         "60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.",
-      ),
-      d1q12: q(
-        "d1q12c",
-        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.",
       ),
     },
   },
@@ -109,6 +108,10 @@ export const answerKey: Record<string, LessonKey> = {
       d2q10: q(
         "d2q10d",
         "Viper Power's Week 1 description is gas turbines on pipeline gas. It is not a Rankine plant, so boiler and cooling-tower scope does not belong on this outage unless a current plant document adds it.",
+      ),
+      d2q11: q(
+        "d2q11c",
+        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.",
       ),
     },
   },

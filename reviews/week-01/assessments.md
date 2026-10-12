@@ -6,7 +6,7 @@ Correct choices and explanations live in `content/week-01/answer-key.ts`. The le
 
 ### d1e1 — numeric exercise
 
-Practice numbers, not a plant nameplate: six units, each given as 59 MW, for 3 hours. How many MWh is that? Plant documents use other bases. Day 5 lines those bases up.
+Six units, each given as 59 MW, run for 3 hours. How many MWh is that? The 59 MW figure is a practice input, not a plant nameplate.
 
 - Unit: MWh
 - Expected: 1062
@@ -46,38 +46,38 @@ Which statement about electric charge is right?
 
 Explanation: Charge is conserved, so a resistor does not consume it. Ordinary charges come in whole-number multiples of the elementary charge, e = 1.602176634×10⁻¹⁹ C. Current is a different quantity, in amperes, and it flows on a closed path.
 
-### d1q2 — knowledge check, level 1
+### d1q2 — knowledge check, level 2
 
-What are 1 mA and 1 µA?
+An illustrative aluminum conductor is 1 km long and has a cross-section of 500 mm². Use ρ = 2.65×10⁻⁸ Ω·m. What is R?
 
-0. 1 mA is a millionth of an ampere, and 1 µA is a thousandth.
-1. 1 mA is one thousandth of an ampere, and 1 µA is one millionth. **(correct)**
-2. Both are voltages: one thousand volts and one million volts.
-3. 1 mA is one ampere, and 1 µA is one coulomb of charge.
+0. 0.0344 Ω, using copper's 1.72×10⁻⁸ Ω·m in place of aluminum.
+1. 0.053 Ω, from ρL/A with the area converted to square metres. **(correct)**
+2. 18.9 Ω, from turning the formula upside down as A divided by ρL.
+3. 5.3×10⁻⁵ Ω, from entering the length as 1 m instead of 1 km.
 
-Explanation: The milli prefix is 10⁻³, so 1 mA = 0.001 A. The micro prefix is 10⁻⁶, so 1 µA = 0.000001 A. Neither one is a volt or a coulomb.
+Explanation: A = 500 mm² = 5.00×10⁻⁴ m². R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = 0.053 Ω. Copper's 1.72×10⁻⁸ would give 0.0344 Ω. Inverting the formula gives about 18.9 Ω. Using 1 m instead of 1,000 m gives 5.3×10⁻⁵ Ω.
 
-### d1q3 — knowledge check, level 1
+### d1q3 — knowledge check, level 2
 
-What is potential difference, and what measures it?
+A generator nameplate reads 13.8 kV. How much work is that per coulomb of charge?
 
-0. Work per unit charge, in volts, and a voltmeter measures it. **(correct)**
-1. Charge per unit time, in amperes, and an ammeter measures it.
-2. Resistance per unit length, in ohm-metres, from the material alone.
-3. Heat per unit time, in joules, and a fuse measures that heat.
+0. 13,800 J/C, because 13.8 kV is 13,800 V and one volt is one joule per coulomb. **(correct)**
+1. 13.8 J/C, because the kilo prefix was left off before the nameplate was read.
+2. 13,800 W, because a generator nameplate voltage was read as electric power.
+3. 13.8 MW, because the kilo prefix on that voltage was taken as a power unit.
 
-Explanation: V = W / Q. One volt is one joule per coulomb. A voltmeter reads that difference and is connected in parallel. An ammeter reads current and is connected in series.
+Explanation: 13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.
 
-### d1q4 — knowledge check, level 1
+### d1q4 — knowledge check, level 2
 
-What is the difference between a closed circuit and an open circuit?
+That same illustrative aluminum line has R = 0.053 Ω and carries 1,000 A. What is the heating power?
 
-0. A closed circuit stores the day's energy, and an open circuit releases it.
-1. A closed circuit is direct current, and an open circuit is alternating current.
-2. A closed circuit is a continuous path. An open circuit is a broken path. **(correct)**
-3. A closed circuit has zero resistance, and an open circuit has zero voltage.
+0. 53 V, which is current times resistance and is a voltage drop.
+1. 53,000 J, which is the heat released in one second, not the power.
+2. 53 kW, from I²R with current in amperes and resistance in ohms. **(correct)**
+3. 53 MW, from putting a mega prefix on a result that is in kilowatts.
 
-Explanation: A closed circuit is one continuous conducting path, so current can flow. An open circuit has a break, so the current stops. A switch or an open breaker is that break, made on purpose.
+Explanation: P = I² R = (1,000 A)² × 0.053 Ω = 53,000 W = 53 kW. The product I R = 53 V is the voltage drop, not the power. 53,000 J is the heat in one second. 53 MW would be a thousand times too large.
 
 ### d1q5 — knowledge check, level 1
 
@@ -155,17 +155,6 @@ What does 60 Hz mean on the grids in this lesson?
 3. Direct current pulses 60 times a second, and a transformer steps it up.
 
 Explanation: 60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.
-
-### d1q12 — knowledge check, level 2
-
-On a synchronous generator, which device holds shaft speed, and which holds voltage?
-
-0. The exciter adds fuel to raise frequency, and the governor changes field current.
-1. Both devices move a transformer tap, and neither one touches fuel or field current.
-2. The governor changes fuel to hold shaft speed, and the exciter holds voltage. **(correct)**
-3. The step-up transformer holds both frequency and voltage once the unit is online.
-
-Explanation: The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.
 
 ## w1d2 — Day 2
 
@@ -302,6 +291,17 @@ Boiler and cooling-tower scope is proposed for the Viper Power outage. What belo
 3. Viper Power is not a Rankine plant, so that boiler scope does not belong. **(correct)**
 
 Explanation: Viper Power's Week 1 description is gas turbines on pipeline gas. It is not a Rankine plant, so boiler and cooling-tower scope does not belong on this outage unless a current plant document adds it.
+
+### d2q11 — knowledge check, level 2
+
+On a synchronous generator, which device holds shaft speed, and which holds voltage?
+
+0. The exciter adds fuel to raise frequency, and the governor changes field current.
+1. Both devices move a transformer tap, and neither one touches fuel or field current.
+2. The governor changes fuel to hold shaft speed, and the exciter holds voltage. **(correct)**
+3. The step-up transformer holds both frequency and voltage once the unit is online.
+
+Explanation: The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.
 
 ## w1d3 — Day 3
 

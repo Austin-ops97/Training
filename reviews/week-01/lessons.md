@@ -9,16 +9,16 @@ Each lesson is 60 to 90 minutes. Video minutes are inside the section that embed
 
 | Day | Lesson id | Route | Scheduled minutes | Knowledge-check items |
 | --- | --- | --- | ---: | ---: |
-| 1 | w1d1 | `/week/1/day/1` | 88 | 12 |
-| 2 | w1d2 | `/week/1/day/2` | 62 | 10 |
+| 1 | w1d1 | `/week/1/day/1` | 84 | 11 |
+| 2 | w1d2 | `/week/1/day/2` | 76 | 11 |
 | 3 | w1d3 | `/week/1/day/3` | 66 | 10 |
 | 4 | w1d4 | `/week/1/day/4` | 70 | 10 |
 | 5 | w1d5 | `/week/1/day/5` | 61 | 12 |
-| | | **Total** | **347** | |
+| | | **Total** | **357** | |
 
-## Day 1 — Electricity, then how a plant puts it on the grid (88 min)
+## Day 1 — Electricity, then how a plant puts it on the grid (84 min)
 
-Charge, current, voltage, resistance, and power, and why a generator steps voltage up before a long line.
+Charge, current, voltage, resistance, and power, with the arithmetic worked, and why raising voltage cuts line heating.
 
 Public content: `content/week-01/day1.ts`. Lesson id `w1d1`.
 
@@ -26,8 +26,8 @@ Public content: `content/week-01/day1.ts`. Lesson id `w1d1`.
 
 - Define charge, current, potential difference, resistance, and power, and use the SI unit with each one.
 - Use Ohm's law, the resistivity formula, and the series and parallel rules on a simple circuit.
-- Explain why I²R heating is why a plant raises voltage for transmission, and why a fuse or breaker opens the path.
-- Separate MW from MWh, and trace electricity from the generator through the step-up transformer to the customer.
+- Compute power and heating from P = VI, I²R, and V²/R, and say why a fuse or breaker opens the path.
+- Separate MW from MWh, and keep a plant figure attached to its unit and its basis.
 
 ### Sections
 
@@ -35,39 +35,39 @@ Public content: `content/week-01/day1.ts`. Lesson id `w1d1`.
 | --- | --- | --- | ---: | ---: | --- | --- |
 | `intro` | The product is electricity | intro | 1 | 3 | — | — |
 | `charge-current` | Charge and current | core | 1 | 8 | — | — |
-| `voltage-circuits` | Potential difference and the circuit | core | 1 | 7 | — | — |
+| `voltage-circuits` | Potential difference and the circuit | core | 1 | 9 | — | — |
 | `check-current` | Checkpoint — charge per second | checkpoint | 1 | 3 | — | d1c1 |
-| `ohm` | Ohm's law and resistance | core | 1 | 8 | — | — |
+| `ohm` | Ohm's law and resistance | core | 1 | 12 | — | — |
 | `series-parallel` | Series and parallel | core | 1 | 6 | — | — |
-| `power-heat` | Power, energy, and heating | core | 1 | 7 | — | — |
+| `power-heat` | Power, energy, and heating | core | 1 | 11 | — | — |
 | `check-energy` | Checkpoint — power held for two hours | checkpoint | 1 | 2 | — | d1c2 |
 | `video-grid` | Visual — one grid, no storage in the wires | visual | 1 | 11 | V01 | — |
-| `path` | From the shaft to the customer | core | 1 | 6 | — | — |
-| `video-home` | Visual — the transformer and the line | visual | 1 | 8 | V02 | — |
 | `apply` | The plant numbers, kept in their units | application | 2 | 4 | — | — |
 | `exercise` | Exercise — six units, three hours | exercise | 2 | 5 | — | d1e1 |
 | `quiz` | Knowledge check | quiz | 1 | 10 | — | — |
 
-Knowledge-check ids (scored together at the end): `d1q1`, `d1q2`, `d1q3`, `d1q4`, `d1q5`, `d1q6`, `d1q7`, `d1q8`, `d1q9`, `d1q10`, `d1q11`, `d1q12`.
+Knowledge-check ids (scored together at the end): `d1q1`, `d1q2`, `d1q3`, `d1q4`, `d1q5`, `d1q6`, `d1q7`, `d1q8`, `d1q9`, `d1q10`, `d1q11`.
 
-## Day 2 — The steam cycle a gas-plant PM still has to read (62 min)
+## Day 2 — The steam cycle a gas-plant PM still has to read (76 min)
 
-How a Rankine plant boils water, makes power, and rejects heat, and why Viper Power has no condenser.
+The path from a generator to a customer, then how a Rankine plant boils water, makes power, and rejects heat, and why Viper Power has no condenser.
 
 Public content: `content/week-01/day2.ts`. Lesson id `w1d2`.
 
 ### Objectives
 
+- Trace electricity from the generator through the step-up transformer to the customer, and name the device that holds shaft speed.
 - Sketch a Rankine loop and say where heat enters and where heat is thrown away.
 - Separate the fuel fire in a coal plant from fission in a nuclear plant, and keep the steam turbine in both.
-- Explain why a condenser or cooling failure is a megawatt failure.
-- Keep national nuclear capacity factor distinct from efficiency, and keep both off the Viper Power sheet.
+- Explain why a condenser or cooling failure is a megawatt failure, and keep national capacity factor off the Viper Power sheet.
 
 ### Sections
 
 | Section id | Title | Kind | Level | Minutes | Videos | Checks |
 | --- | --- | --- | ---: | ---: | --- | --- |
 | `intro` | A boiler on a gas-turbine outage | intro | 1 | 5 | — | — |
+| `path` | From the shaft to the customer | core | 1 | 6 | — | — |
+| `video-home` | Visual — the transformer and the line | visual | 1 | 8 | V02 | — |
 | `rankine` | The Rankine loop | core | 1 | 11 | — | — |
 | `video-coal` | Visual — coal plant, fuel and water | visual | 1 | 8 | V03 | — |
 | `video-nuclear` | Visual — fission in place of the fire | visual | 1 | 5 | V04 | — |
@@ -77,7 +77,7 @@ Public content: `content/week-01/day2.ts`. Lesson id `w1d2`.
 | `exercise` | Exercise — sketch the loop, then cross it off this plant | exercise | 2 | 8 | — | — |
 | `quiz` | Knowledge check | quiz | 1 | 10 | — | — |
 
-Knowledge-check ids (scored together at the end): `d2q1`, `d2q2`, `d2q3`, `d2q4`, `d2q5`, `d2q6`, `d2q7`, `d2q8`, `d2q9`, `d2q10`.
+Knowledge-check ids (scored together at the end): `d2q1`, `d2q2`, `d2q3`, `d2q4`, `d2q5`, `d2q6`, `d2q7`, `d2q8`, `d2q9`, `d2q10`, `d2q11`.
 
 ## Day 3 — Gas turbines, combined cycle, and useful heat (66 min)
 

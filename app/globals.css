@@ -197,6 +197,7 @@ footer.site { color: var(--ink-soft); padding: 2rem 1.25rem 3rem; max-width: var
 .diagram { margin: 0.6rem 0; }
 .diagram svg { width: 100%; height: auto; display: block; background: #f7f4ee; border-radius: 12px; }
 .duty-phone text { font-size: 22px; }
+.symbols-phone text { font-size: 22px; }
 .sheet-wrap { overflow-x: auto; margin: 0.6rem 0; }
 .sheet { width: 100%; border-collapse: collapse; background: #f7f4ee; font-size: 0.95rem; }
 .sheet caption { text-align: left; font-weight: 700; padding: 0.35rem 0.2rem 0.5rem; }

@@ -5,20 +5,31 @@ export const day2: Lesson = {
   week: 1,
   day: 2,
   title: "The steam cycle a gas-plant PM still has to read",
-  summary: "How a Rankine plant boils water, makes power, and rejects heat, and why Viper Power has no condenser.",
+  summary:
+    "The path from a generator to a customer, then how a Rankine plant boils water, makes power, and rejects heat, and why Viper Power has no condenser.",
   objectives: [
+    "Trace electricity from the generator through the step-up transformer to the customer, and name the device that holds shaft speed.",
     "Sketch a Rankine loop and say where heat enters and where heat is thrown away.",
     "Separate the fuel fire in a coal plant from fission in a nuclear plant, and keep the steam turbine in both.",
-    "Explain why a condenser or cooling failure is a megawatt failure.",
-    "Keep national nuclear capacity factor distinct from efficiency, and keep both off the Viper Power sheet.",
+    "Explain why a condenser or cooling failure is a megawatt failure, and keep national capacity factor off the Viper Power sheet.",
   ],
   exercises: [],
-  quizIds: ["d2q1", "d2q2", "d2q3", "d2q4", "d2q5", "d2q6", "d2q7", "d2q8", "d2q9", "d2q10"],
+  quizIds: ["d2q1", "d2q2", "d2q3", "d2q4", "d2q5", "d2q6", "d2q7", "d2q8", "d2q9", "d2q10", "d2q11"],
   sources: [
+    {
+      title: "Crash Course Physics #35, How Power Gets to Your Home",
+      detail:
+        "In-lesson video. Alternating current, why a transformer needs a changing current, and why raising voltage cuts heating in a long line. The voltages in the film are round teaching examples, not this plant's voltages.",
+    },
+    {
+      title: "U.S. Energy Information Administration, delivery to consumers",
+      detail:
+        "https://www.eia.gov/energyexplained/electricity/delivery-to-consumers.php reviewed 12 October 2026. Three interconnections in the Lower 48, ERCOT covering most of Texas, supply matched to demand, and reliability standards written by NERC and approved by FERC.",
+    },
     {
       title: "U.S. Energy Information Administration, how electricity is generated",
       detail:
-        "https://www.eia.gov/energyexplained/electricity/how-electricity-is-generated.php updated 31 October 2023, data through 2022. Steam turbines about 42 percent of US generation that year, combined cycle about 34 percent.",
+        "https://www.eia.gov/energyexplained/electricity/how-electricity-is-generated.php updated 31 October 2023, data through 2022. A prime mover spins a generator. Steam turbines about 42 percent of US generation that year, combined cycle about 34 percent.",
     },
     {
       title: "saVRee, Coal-Fired Power Plants Explained",
@@ -173,6 +184,17 @@ export const day2: Lesson = {
         { id: "d2q10d", text: "Viper Power is not a Rankine plant, so that boiler scope does not belong." },
       ],
     },
+    {
+      id: "d2q11",
+      level: 2,
+      prompt: "On a synchronous generator, which device holds shaft speed, and which holds voltage?",
+      choices: [
+        { id: "d2q11a", text: "The exciter adds fuel to raise frequency, and the governor changes field current." },
+        { id: "d2q11b", text: "Both devices move a transformer tap, and neither one touches fuel or field current." },
+        { id: "d2q11c", text: "The governor changes fuel to hold shaft speed, and the exciter holds voltage." },
+        { id: "d2q11d", text: "The step-up transformer holds both frequency and voltage once the unit is online." },
+      ],
+    },
   ],
   sections: [
     {
@@ -184,11 +206,57 @@ export const day2: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "An outage plan can arrive with a cooling-tower repair and a boiler inspection attached to a gas-turbine plant. By the end of today you can say which plants need a condenser, and why Viper Power does not.",
+          text: "The first two sections finish the path from a generator shaft to a customer, including the transformer clip. Then the day turns to steam. An outage plan can arrive with a cooling-tower repair and a boiler inspection attached to a gas-turbine plant. By the end of today you can say which plants need a condenser, and why Viper Power does not.",
         },
         {
           type: "p",
           text: "Today's problem is steam scope on a gas-turbine outage. Most of the country's electricity still comes from a turbine that boils water: steam plants were about 42 percent of US generation in 2022, and combined-cycle plants about 34 percent. You will sit next to people who use those words. You need the loop.",
+        },
+      ],
+    },
+    {
+      id: "path",
+      title: "From the shaft to the customer",
+      minutes: 6,
+      level: 1,
+      kind: "core",
+      blocks: [
+        { type: "diagram", diagram: "grid" },
+        {
+          type: "p",
+          text: "A prime mover spins the generator. The generator pushes alternating current out at the plant's voltage. A step-up transformer raises that voltage for the long line, which cuts the current and cuts the I²R heating. Transmission carries it. A substation steps the voltage down. Distribution delivers it. A transformer needs a changing current. Steady direct current does not keep inducing voltage in the second coil. The film's example voltages are illustrations.",
+        },
+        {
+          type: "p",
+          text: "The Lower 48 has three major grids: the Eastern Interconnection, the Western Interconnection, and ERCOT, which covers most of Texas and has limited ties to the grids next door. Selling from a Texas plant into a utility on the Eastern grid is a different project from selling to a Texas utility. ERCOT directs the system. It does not own the plants.",
+        },
+        {
+          type: "p",
+          text: "If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed. On a synchronous machine, two devices split the work. The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. A two-pole machine at 60 Hz turns at 3,600 rpm, and a four-pole machine at 1,800 rpm. That relationship is the physics, not a setpoint for this plant.",
+        },
+      ],
+    },
+    {
+      id: "video-home",
+      title: "Visual — the transformer and the line",
+      minutes: 8,
+      level: 1,
+      kind: "visual",
+      videoIds: ["V02"],
+      blocks: [
+        {
+          type: "p",
+          text: "This 8-minute video is the generator and the transformer. While you watch, notice why a transformer needs a changing current, and why a higher voltage means a lower current for the same power. Treat the voltages as round examples.",
+        },
+        {
+          type: "ul",
+          afterVideo: true,
+          items: [
+            "A changing current in one coil induces voltage in the other. Steady direct current does not keep doing that.",
+            "Step up for the long line, step down near the customer.",
+            "Double the voltage, half the current, and I²R heating falls to a quarter if the resistance is unchanged.",
+            "Those example voltages are not Viper Power's 13.8 kV generator or 138 kV yard.",
+          ],
         },
       ],
     },
@@ -359,7 +427,7 @@ export const day2: Lesson = {
       level: 1,
       kind: "quiz",
       blocks: [
-        { type: "p", text: "Ten questions. You'll see why each answer is right or wrong when you submit." },
+        { type: "p", text: "Eleven questions. You'll see why each answer is right or wrong when you submit." },
       ],
     },
   ],

@@ -9,7 +9,7 @@ Every video is an iframe inside its lesson section. The player source is `https:
 | Code | Title | Channel | YouTube id | Listed duration | Start | End | Required | Placed in | Embed URL |
 | --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | V01 | How Does the Power Grid Work? | Practical Engineering | `v1BMWczn7JM` | 10:25 | 0 | 625 | yes | Day 1 section `video-grid` (11 min) | `https://www.youtube.com/embed/v1BMWczn7JM?start=0&end=625&rel=0&modestbranding=1&playsinline=1` |
-| V02 | How Power Gets to Your Home: Crash Course Physics #35 | CrashCourse | `9kgzA0Vd8S8` | 8:33 | 0 | 513 | yes | Day 1 section `video-home` (8 min) | `https://www.youtube.com/embed/9kgzA0Vd8S8?start=0&end=513&rel=0&modestbranding=1&playsinline=1` |
+| V02 | How Power Gets to Your Home: Crash Course Physics #35 | CrashCourse | `9kgzA0Vd8S8` | 8:33 | 0 | 513 | yes | Day 2 section `video-home` (8 min) | `https://www.youtube.com/embed/9kgzA0Vd8S8?start=0&end=513&rel=0&modestbranding=1&playsinline=1` |
 | V03 | Coal-Fired Power Plants Explained | How They Work | saVRee | `eqn0VBVWS50` | 7:10 | 0 | 430 | yes | Day 2 section `video-coal` (8 min) | `https://www.youtube.com/embed/eqn0VBVWS50?start=0&end=430&rel=0&modestbranding=1&playsinline=1` |
 | V04 | How does a nuclear power plant work? | ENGIE Belgium | `jpDRfaWYk3I` | 4:08 | 0 | 248 | yes | Day 2 section `video-nuclear` (5 min) | `https://www.youtube.com/embed/jpDRfaWYk3I?start=0&end=248&rel=0&modestbranding=1&playsinline=1` |
 | V05 | The Steam Turbine | Enerdynamics | `V5cpJwiF0u4` | 1:07 | 0 | 67 | yes | Day 2 section `video-steam` (3 min) | `https://www.youtube.com/embed/V5cpJwiF0u4?start=0&end=67&rel=0&modestbranding=1&playsinline=1` |
