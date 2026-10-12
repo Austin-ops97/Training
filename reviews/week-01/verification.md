@@ -1,6 +1,6 @@
 # Verification commands
 
-Run from the repository root on 12 October 2026. Node v22.14.0. Next.js 15.5.27. Vitest 4.1.11.
+Run from the repository root on 12 October 2026, on `course/week-01-rev2`, after the audit fixes (worked examples, Day 2 path move, diagram fixes). Node v22.14.0. Next.js 15.5.27. Vitest 4.1.11.
 
 ## `npm test`
 
@@ -13,12 +13,12 @@ Exit code 0. Vitest 4.1.11.
  RUN  v4.1.11 /workspace
 
  Test Files  1 passed (1)
-      Tests  11 passed (11)
-   Start at  09:40:58
-   Duration  564ms (transform 202ms, setup 0ms, import 325ms, tests 115ms, environment 0ms)
+      Tests  12 passed (12)
+   Start at  19:17:17
+   Duration  494ms (transform 156ms, setup 0ms, import 249ms, tests 151ms, environment 0ms)
 ```
 
-The embed test renders each lesson to HTML and checks that every video is an iframe inside its section, with `start`, `end`, and `playsinline=1`, and that the page has no `youtube.com/watch` or `youtu.be` link. It also checks that a sentence which exists only in the answer key is absent from the rendered lesson. Choice positions are balanced and are not a 3-step or a strict 4-step cycle. A further test fails if the keyed choice is the longest option on more than 35 percent of items, or if its average length runs more than 15 percent above the distractors.
+The embed test renders each lesson to HTML and checks that every video is an iframe inside its section, with `start`, `end`, and `playsinline=1`, and that the page has no `youtube.com/watch` or `youtu.be` link. It also checks that a sentence which exists only in the answer key is absent from the rendered lesson. Choice positions are balanced and are not a 3-step or a strict 4-step cycle. A further test fails if the keyed choice is the longest option on more than 35 percent of items, or if its average length runs more than 15 percent above the distractors. The same caps are applied to the 54 scored questions with checkpoints left out. Another test recomputes the worked arithmetic, including R = 0.053 Ω, P = 53,000 W, and H = 190,800,000 J. Lesson times are 84, 76, 66, 70, and 61 minutes. The Day 5 heat-recovery key must not repeat the equipment name used in the question. Rendered lessons must not contain the three story names.
 
 ## `npm run lint`
 
@@ -42,7 +42,7 @@ Exit code 0.
    ▲ Next.js 15.5.27
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 1080ms
+ ✓ Compiled successfully in 1409ms
    Linting and checking validity of types ...
    Collecting page data ...
    Generating static pages (0/6) ...
@@ -58,7 +58,7 @@ Route (app)                                 Size  First Load JS
 ├ ○ /_not-found                            127 B         103 kB
 ├ ƒ /api/quiz/grade                        127 B         103 kB
 ├ ƒ /week/[weekId]                         716 B         107 kB
-└ ƒ /week/[weekId]/day/[day]             7.26 kB         113 kB
+└ ƒ /week/[weekId]/day/[day]              9.1 kB         115 kB
 + First Load JS shared by all             103 kB
   ├ chunks/255-ce8c7c75002f810b.js       46.5 kB
   ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
@@ -89,32 +89,30 @@ On 12 October 2026, YouTube oEmbed returned HTTP 200 for all 14 ids, with titles
 
 ## Lesson HTML and grade API
 
-Checked 12 October 2026 with HTTP requests against `http://127.0.0.1:3921` after this revision's build. `/favicon.ico` returned HTTP 200, `content-type: image/x-icon`, 4,286 bytes, a 32×32 icon.
+Checked 12 October 2026 with HTTP requests against `http://127.0.0.1:3944` after this build. `/favicon.ico` returned HTTP 200, `content-type: image/x-icon`, 4,286 bytes.
 
 | Path | Status | In-page embeds | Outbound watch link |
 | --- | ---: | ---: | --- |
 | `/` | 200 | 0 | no |
 | `/week/1` | 200 | 0 | no |
-| `/week/1/day/1` | 200 | 2 | no |
-| `/week/1/day/2` | 200 | 3 | no |
+| `/week/1/day/1` | 200 | 1 | no |
+| `/week/1/day/2` | 200 | 4 | no |
 | `/week/1/day/3` | 200 | 4 | no |
 | `/week/1/day/4` | 200 | 4 | no |
 | `/week/1/day/5` | 200 | 1 | no |
 | `/week/2` | 404 | 0 | no |
 
-Day 1 HTML contains the opening ("It's your second week" / "When someone says"), the sources panel, and does not contain "six questions", "hypothetical people", or the answer-key sentence "Do not report 1,062". The Week page states the hypothetical-people note once. Day 4 HTML contains the duty diagram ("Baseload: on most hours") and "23.3 percent". Day 5 HTML says "two more than the other days" and still names the frame, the PLC-5, the 2024 test, the 15 May date, and the remote operations center.
+Day 1 HTML contains "When someone says", the resistivity table, the illustrative line at 0.053 Ω, and "1.908×10⁸ J". The phrase "not a plant nameplate" appears once in the visible exercise prompt. Day 1 no longer contains the shaft-to-customer section or the transformer video. Day 2 contains that section, the governor sentence, and four in-page players. Day 4 HTML contains the phone duty diagram. Day 5 HTML still names the frame, the PLC-5, the 15 May date, and the remote operations center.
 
 `POST /api/quiz/grade` scores choice ids:
 
-- `w1d1` question `d1c1` selected choice `d1c1c` returned `correct: true` and the 100 MWh explanation.
-- `w1d4` question `d4q4` selected choice `d4q4d` returned `correct: true`. The explanation contains 0.233 and says 0.249 is July 2025.
-- `w1d5` question `d5q12` selected choice `d5q12b` returned `correct: true`.
-- `w1d5` question `d5q8` selected choice `d5q8a` returned `correct: false`. The correct choice id was `d5q8c`.
+- `w1d1` question `d1q2` selected choice `d1q2b` returned `correct: true` (R = 0.053 Ω).
+- `w1d1` question `d1q3` selected choice `d1q3a` returned `correct: true` (13,800 J/C).
+- `w1d1` question `d1q4` selected choice `d1q4c` returned `correct: true` (53 kW).
+- `w1d1` exercise `d1e1` value `1062` returned `correct: true`.
 - A body of `{` returned HTTP 400 and `The request was not valid JSON.`
-- `/week/2` and `/week/1/day/6` returned HTTP 404.
+- `/week/2` returned HTTP 404.
 
-## Browser pass — partial
+## Diagram check
 
-An interactive browser pass (click play, submit in the UI, resize to a phone width, reload for localStorage) was started on the earlier revision and did not return. It is not claimed as done for this revision either.
-
-What was verified without that pass: the unit test renders each lesson to HTML and asserts an iframe inside the video section; the CSS box is `width: 100%` with `aspect-ratio: 16 / 9` and a layout change at 800 px; the live lesson HTML contains those iframes, the sources panel, and no outbound watch link. Playback inside a real browser window, the phone toggle, and progress surviving a reload were not observed in this pass.
+Headless Chrome screenshots of the Ohm figure at 1280 px and at 390 px show the caption in full, wrapping onto more than one line at 390 px, with axes labeled "V (volts)" and "I (amperes)". A 390 px screenshot of the phone symbol sheet shows 22 px labels, including "Cell, long thin plate is +", with the long plate thin and the short plate thick. A click-through of the quiz form and a reload of saved progress were not repeated in this pass. Scoring was checked through the grade API.

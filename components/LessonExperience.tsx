@@ -295,6 +295,30 @@ function BlockView({ block }: { block: Block }) {
       </div>
     );
   if (block.type === "diagram") return <LessonDiagram diagram={block.diagram} />;
+  if (block.type === "table")
+    return (
+      <div className="sheet-wrap">
+        <table className="sheet">
+          <caption>{block.caption}</caption>
+          <thead>
+            <tr>
+              {block.headers.map((header) => (
+                <th key={header}>{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row) => (
+              <tr key={row.join("|")}>
+                {row.map((cell) => (
+                  <td key={cell}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
   if (block.type === "terms")
     return (
       <dl className="terms">

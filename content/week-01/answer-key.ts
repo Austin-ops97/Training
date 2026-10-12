@@ -22,44 +22,51 @@ export const answerKey: Record<string, LessonKey> = {
       },
     },
     questions: {
-      d1c1: q("d1c1c", "50 MW held for 2 hours is 50 × 2 = 100 MWh. The power is still 50 MW."),
-      d1c2: q(
-        "d1c2a",
-        "A transformer needs a changing magnetic field. Steady direct current does not keep inducing voltage in the second coil. That is why the grid is alternating current.",
+      d1c1: q("d1c1c", "I = Q / t = 180 C / 60 s = 3 A. Current is charge per time, so the coulomb and the second do not get multiplied, and the unit is the ampere."),
+      d1c2: q("d1c2a", "Energy = power × time = 50 MW × 2 h = 100 MWh. The machine is still a 50 MW machine. The two hours change the unit from power to energy."),
+      d1q1: q(
+        "d1q1d",
+        "Charge is conserved, so a resistor does not consume it. Ordinary charges come in whole-number multiples of the elementary charge, e = 1.602176634×10⁻¹⁹ C. Current is a different quantity, in amperes, and it flows on a closed path.",
       ),
-      d1q1: q("d1q1d", "Power is the rate, in MW. Energy is that rate times time, in MWh. The invoice needs the unit before it needs a signature."),
       d1q2: q(
         "d1q2b",
-        "Production and use happen together. There is no large store of electrical energy in the wires, so a mismatch moves frequency immediately.",
+        "A = 500 mm² = 5.00×10⁻⁴ m². R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = 0.053 Ω. Copper's 1.72×10⁻⁸ would give 0.0344 Ω. Inverting the formula gives about 18.9 Ω. Using 1 m instead of 1,000 m gives 5.3×10⁻⁵ Ω.",
       ),
-      d1q3: q("d1q3d", "60 Hz means the alternating current reverses 60 times each second. It is not a voltage, a heat rate, or a headcount of machines."),
+      d1q3: q(
+        "d1q3a",
+        "13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.",
+      ),
       d1q4: q(
-        "d1q4a",
-        "Higher voltage means lower current for the same power. Heating follows the square of the current, so raising voltage cuts line loss. The transformer does not store the energy and it does not set the frequency.",
+        "d1q4c",
+        "P = I² R = (1,000 A)² × 0.053 Ω = 53,000 W = 53 kW. The product I R = 53 V is the voltage drop, not the power. 53,000 J is the heat in one second. 53 MW would be a thousand times too large.",
       ),
       d1q5: q(
-        "d1q5c",
-        "6 × 59 = 354 MW. 354 × 3 h = 1,062 MWh. The 59 MW figure is the problem's given, not a confirmed nameplate. The plant's own bases are a hot-day net figure and a standard-condition figure per unit.",
+        "d1q5d",
+        "Ohm's law at steady conditions: I = V / R = 12 V / 4 Ω = 3 A. Multiplying 12 by 4 gives 48, which is not the current. The ohm is the unit of resistance, not of current.",
       ),
       d1q6: q(
         "d1q6b",
-        "Most of Texas is on ERCOT, its own interconnection, with limited ties to the Eastern grid. Oklahoma is on that Eastern grid. ERCOT does not own the plants, and the lesson does not say interstate sales are banned or that Oklahoma runs at 50 Hz.",
+        "Series resistances add: R = 2 Ω + 3 Ω + 7 Ω = 12 Ω. The same current passes through each resistor. The parallel formula is for a different connection.",
       ),
       d1q7: q(
-        "d1q7a",
-        "If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed.",
+        "d1q7c",
+        "Parallel branches share the same two points, so the voltage across each branch is the same. The branch currents add to the total current. Series is the connection where the current is common and the voltages add.",
       ),
       d1q8: q(
-        "d1q8d",
-        "Current is power divided by voltage. Double the voltage and the current is cut in half. Loss follows current squared, so loss falls to one quarter. The example voltages in the film are not this plant's voltages.",
+        "d1q8a",
+        "R = ρ L / A. Increasing L, decreasing A, or increasing ρ each increases R when the others are held fixed. For a typical metal, a lower temperature lowers resistance rather than raising it.",
       ),
       d1q9: q(
         "d1q9b",
-        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage.",
+        "1 kWh = 1,000 W × 3,600 s = 3,600,000 J = 3.6×10⁶ J. The result is energy, in joules, not power in watts. Dropping the 3,600 s would leave 3.6×10³ J, which is only one kilowatt for one second.",
       ),
       d1q10: q(
-        "d1q10c",
-        "The prime mover spins the generator. A photovoltaic plant has no turbine. The transformer changes voltage. It does not spin the shaft.",
+        "d1q10d",
+        "For the same power, current = power / voltage. Double the voltage and the current is halved. Heating follows current squared, so (1/2)² = 1/4. The line heating falls to one quarter if the resistance is unchanged.",
+      ),
+      d1q11: q(
+        "d1q11a",
+        "60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.",
       ),
     },
   },
@@ -101,6 +108,10 @@ export const answerKey: Record<string, LessonKey> = {
       d2q10: q(
         "d2q10d",
         "Viper Power's Week 1 description is gas turbines on pipeline gas. It is not a Rankine plant, so boiler and cooling-tower scope does not belong on this outage unless a current plant document adds it.",
+      ),
+      d2q11: q(
+        "d2q11c",
+        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.",
       ),
     },
   },
@@ -151,7 +162,7 @@ export const answerKey: Record<string, LessonKey> = {
         expected: 13.7,
         tolerance: 0.05,
         explanation:
-          "The unit is hypothetical, not Viper Power. Maximum energy is 100 MW × 8,760 h = 876,000 MWh. 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.",
+          "These are practice numbers, not a Viper Power record. Maximum energy is 100 MW × 8,760 h = 876,000 MWh. 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.",
       },
     },
     questions: {
@@ -194,7 +205,7 @@ export const answerKey: Record<string, LessonKey> = {
       ),
       d4q9: q(
         "d4q9c",
-        "100 × 8,760 = 876,000 MWh maximum. 120,000 / 876,000 = 13.7 percent. The unit is hypothetical.",
+        "100 × 8,760 = 876,000 MWh maximum. 120,000 / 876,000 = 13.7 percent. These are practice numbers, not a Viper Power record.",
       ),
       d4q10: q(
         "d4q10b",

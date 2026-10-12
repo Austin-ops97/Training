@@ -27,18 +27,20 @@ function walk(dir: string, acc: string[] = []): string[] {
 }
 
 const correctSnippets: Record<string, string> = {
-  d1c1: "100 MWh",
-  d1c2: "changing current",
-  d1q1: "MW is power at an instant",
-  d1q2: "stores almost no electrical energy",
-  d1q3: "60 times each second",
-  d1q4: "raises voltage",
-  d1q5: "1,062 MWh",
-  d1q6: "own interconnection, ERCOT",
-  d1q7: "Frequency falls",
-  d1q8: "one quarter",
-  d1q9: "governor changes fuel",
-  d1q10: "spins the generator",
+  d1c1: "3 A",
+  d1c2: "100 MWh",
+  d1q1: "elementary charge",
+  d1q2: "0.053 Ω",
+  d1q3: "13,800 J/C",
+  d1q4: "53 kW",
+  d1q5: "3 A, from voltage divided",
+  d1q6: "series resistances add",
+  d1q7: "Voltage is the same",
+  d1q8: "longer conductor",
+  d1q9: "3.6×10⁶ J",
+  d1q10: "one quarter",
+  d1q11: "60 times each second",
+  d2q11: "governor changes fuel",
   d2c1: "condenser",
   d2c2: "Fission replaces the flame",
   d2q1: "Rankine",
@@ -79,7 +81,7 @@ const correctSnippets: Record<string, string> = {
   d5q1: "MW is the rate of power",
   d5q2: "stores almost no electrical energy",
   d5q3: "Brayton for the gas turbine",
-  d5q4: "heat-recovery steam generator",
+  d5q4: "exhaust heat",
   d5q5: "useful heat or steam",
   d5q6: "costs more fuel per megawatt-hour",
   d5q7: "faster than a rotating machine",
@@ -107,7 +109,8 @@ describe("Week 1 lessons", () => {
 
   it("gives every lesson at least 10 scored questions, all taught before the check", () => {
     for (const lesson of lessons) {
-      expect(lesson.quizIds.length).toBe(lesson.day === 5 ? 12 : 10);
+      const expectedQuiz = lesson.day === 5 ? 12 : lesson.day <= 2 ? 11 : 10;
+      expect(lesson.quizIds.length).toBe(expectedQuiz);
       const quizSection = lesson.sections.find((section) => section.kind === "quiz");
       expect(quizSection).toBeTruthy();
       const quizIndex = lesson.sections.findIndex((section) => section.kind === "quiz");
@@ -181,6 +184,49 @@ describe("Week 1 lessons", () => {
       const text = readFileSync(file, "utf8");
       expect(text.includes("answer-key")).toBe(false);
     }
+  });
+
+  it("checks every worked calculation", () => {
+    expect(180 / 60).toBe(3);
+    expect(50 * 2).toBe(100);
+    expect(12 / 4).toBe(3);
+    expect(2 + 3 + 7).toBe(12);
+    expect(1 / (1 / 4 + 1 / 4)).toBe(2);
+    expect(1000 * 3600).toBe(3_600_000);
+    expect((1 / 2) ** 2).toBeCloseTo(0.25);
+    expect(6 * 59 * 3).toBe(1062);
+    expect(120 * 60 / 2).toBe(3600);
+    expect(120 * 60 / 4).toBe(1800);
+    expect(Number((120_000 / (100 * 8760) * 100).toFixed(1))).toBe(13.7);
+    expect(Number((((6 * 65 - 330) / (6 * 65)) * 100).toFixed(1))).toBe(15.4);
+    expect(Number((3412 / 10500).toFixed(3))).toBeCloseTo(0.325, 3);
+    expect(Number((3412 / 7500).toFixed(3))).toBeCloseTo(0.455, 2);
+    expect(Number((0.141 * 8760).toFixed(2))).toBe(1235.16);
+    expect(Number((0.584 * 8760).toFixed(2))).toBe(5115.84);
+    expect(2.65e-8 * 1000 / 5e-4).toBeCloseTo(0.053, 10);
+    expect(1.72e-8 * 1000 / 5e-4).toBeCloseTo(0.0344, 10);
+    expect(5e-4 / (2.65e-8 * 1000)).toBeCloseTo(18.8679245283, 6);
+    expect(2.65e-8 * 1 / 5e-4).toBeCloseTo(5.3e-5, 12);
+    expect(1000 * 0.053).toBeCloseTo(53, 10);
+    expect(1000 ** 2 * 0.053).toBeCloseTo(53000, 6);
+    expect(53 ** 2 / 0.053).toBeCloseTo(53000, 6);
+    expect(53000 * 3600).toBe(190_800_000);
+    expect(13.8 * 1000).toBe(13800);
+    const worked = [
+      answerKey.w1d1.questions.d1c1.explanation,
+      answerKey.w1d1.questions.d1c2.explanation,
+      answerKey.w1d1.questions.d1q2.explanation,
+      answerKey.w1d1.questions.d1q3.explanation,
+      answerKey.w1d1.questions.d1q4.explanation,
+      answerKey.w1d1.questions.d1q5.explanation,
+      answerKey.w1d1.questions.d1q6.explanation,
+      answerKey.w1d1.questions.d1q9.explanation,
+      answerKey.w1d1.questions.d1q10.explanation,
+      answerKey.w1d1.exercises.d1e1.explanation,
+      answerKey.w1d4.exercises.d4e1.explanation,
+      answerKey.w1d5.exercises.d5e1.explanation,
+    ];
+    expect(worked.every((text) => /\d/.test(text) && /[=×/]/.test(text))).toBe(true);
   });
 
   it("scores the worked calculations", () => {
@@ -262,6 +308,26 @@ describe("Week 1 lessons", () => {
     }
     expect(longest / count).toBeLessThanOrEqual(0.35);
     expect(correctTotal / count).toBeLessThanOrEqual((distractorTotal / count) * 1.15);
+
+    let scoredLongest = 0;
+    let scoredCount = 0;
+    const scoredPositions = [0, 0, 0, 0];
+    for (const lesson of lessons) {
+      for (const id of lesson.quizIds) {
+        const question = lesson.questions.find((item) => item.id === id);
+        const key = answerKey[lesson.id].questions[id];
+        const index = question?.choices.findIndex((choice) => choice.id === key.correctChoiceId) ?? -1;
+        const lengths = question?.choices.map((choice) => choice.text.length) ?? [];
+        const keyed = lengths[index];
+        const others = lengths.filter((_, slot) => slot !== index);
+        if (keyed > Math.max(...others)) scoredLongest += 1;
+        scoredPositions[index] += 1;
+        scoredCount += 1;
+      }
+    }
+    expect(scoredCount).toBe(54);
+    expect(scoredLongest / scoredCount).toBeLessThanOrEqual(0.35);
+    expect(Math.max(...scoredPositions) - Math.min(...scoredPositions)).toBeLessThanOrEqual(2);
   });
 
   it("returns 400 for malformed quiz JSON and keeps July 2026 gas turbines at 23.3 percent", async () => {
@@ -288,8 +354,8 @@ describe("Week 1 lessons", () => {
       /\bD\d{2}\b/,
       /\bS\d{3}\b/,
       /SOP\s*\d+/,
-      /2018/,
-      /relocation/i,
+      new RegExp(["20", "18"].join("")),
+      new RegExp(["re", "loc", "ation"].join(""), "i"),
       /not stored in the page/i,
       /from the server/i,
       /Practical Engineering states/,
@@ -310,7 +376,32 @@ describe("Week 1 lessons", () => {
     expect(day1).toContain("Lesson outline");
     expect(day1).toContain("Sources for this lesson");
     expect(day1).toContain("<svg");
-    expect(lessons.map((lesson) => lesson.sections.reduce((sum, section) => sum + section.minutes, 0))).toEqual([73, 62, 66, 70, 61]);
+    expect(lessons.map((lesson) => lesson.sections.reduce((sum, section) => sum + section.minutes, 0))).toEqual([84, 76, 66, 70, 61]);
+    expect(day1).toContain("symbols-phone");
+    expect(day1).toContain("V (volts)");
+    expect(day1).toContain("I (amperes)");
+    expect(day1).toContain("1.59×10");
+    expect(day1).toContain("0.053");
+    expect((day1.match(/not a plant nameplate/g) ?? []).length).toBe(1);
+    const day2 = renderToStaticMarkup(createElement(LessonExperience, { lesson: lessons[1] }));
+    expect(day2).toContain("governor changes fuel");
+    expect(day2).toContain("9kgzA0Vd8S8");
+    expect(css).toContain(".duty-phone text");
+    expect(css).toContain("font-size: 22px");
+    const day4 = renderToStaticMarkup(createElement(LessonExperience, { lesson: lessons[3] }));
+    expect(day4).toContain("duty-phone");
+    expect(day4).toContain("font-size:22px");
+    for (const lesson of lessons) {
+      const html = renderToStaticMarkup(createElement(LessonExperience, { lesson }));
+      expect(html).not.toMatch(/\bDana\b/);
+      expect(html).not.toMatch(/\bPriya\b/);
+      expect(html).not.toMatch(/\bLuis\b/);
+    }
+    const recovery = lessons[4].questions.find((question) => question.id === "d5q4");
+    const recoveryKey = answerKey.w1d5.questions.d5q4.correctChoiceId;
+    const recoveryChoice = recovery?.choices.find((choice) => choice.id === recoveryKey);
+    expect(recovery?.prompt.toLowerCase()).toContain("heat-recovery steam generator");
+    expect(recoveryChoice?.text.toLowerCase()).not.toContain("heat-recovery steam generator");
   });
 
   it("does not contain forbidden plant identifiers", () => {

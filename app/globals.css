@@ -196,6 +196,13 @@ footer.site { color: var(--ink-soft); padding: 2rem 1.25rem 3rem; max-width: var
 .terms dd { margin: 0.15rem 0 0; color: var(--ink-soft); }
 .diagram { margin: 0.6rem 0; }
 .diagram svg { width: 100%; height: auto; display: block; background: #f7f4ee; border-radius: 12px; }
+.duty-phone text { font-size: 22px; }
+.symbols-phone text { font-size: 22px; }
+.sheet-wrap { overflow-x: auto; margin: 0.6rem 0; }
+.sheet { width: 100%; border-collapse: collapse; background: #f7f4ee; font-size: 0.95rem; }
+.sheet caption { text-align: left; font-weight: 700; padding: 0.35rem 0.2rem 0.5rem; }
+.sheet th, .sheet td { border: 1px solid var(--line); padding: 0.45rem 0.55rem; text-align: left; vertical-align: top; }
+.sheet th { background: var(--pine-soft); }
 .lesson-fold, .sources { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 0.6rem 0.8rem; margin: 0.6rem 0 0.9rem; }
 .lesson-fold summary, .sources summary { cursor: pointer; font-weight: 700; }
 .phone-only { display: none; }

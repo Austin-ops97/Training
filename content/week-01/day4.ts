@@ -5,7 +5,7 @@ export const day4: Lesson = {
   week: 1,
   day: 4,
   title: "Hydro, wind, solar, storage, and the peaker's year",
-  summary: "Priya wants to retire the plant because the capacity factor looks low. This lesson is what that number means, and what it does not.",
+  summary: "What capacity factor measures, why a peaker's number is low, and how hydro, wind, solar, and batteries fit the day.",
   objectives: [
     "Separate hydro, wind, solar, and batteries by energy path and by what each cannot do.",
     "Define baseload, intermediate, peaker, dispatchable, and inverter-based resource.",
@@ -16,7 +16,7 @@ export const day4: Lesson = {
     {
       id: "d4e1",
       prompt:
-        "Hypothetical unit, not Viper Power. It is rated 100 MW and produced 120,000 MWh in a 365-day year (8,760 hours). Capacity factor in percent, to one decimal place.",
+        "Practice numbers, not a Viper Power record. A unit is rated 100 MW and produced 120,000 MWh in a 365-day year (8,760 hours). Capacity factor in percent, to one decimal place.",
       unit: "percent",
       decimals: 1,
     },
@@ -54,7 +54,7 @@ export const day4: Lesson = {
     {
       id: "d4c1",
       level: 1,
-      prompt: "Priya points at a solar contract and asks where the turbine is.",
+      prompt: "Where is the turbine in a solar photovoltaic plant?",
       choices: [
         { id: "d4c1a", text: "The turbine sits inside the inverter and spins at 3,600 rpm all day." },
         { id: "d4c1b", text: "Solar uses the same boiler as a coal plant, without the pulverizer." },
@@ -65,7 +65,7 @@ export const day4: Lesson = {
     {
       id: "d4c2",
       level: 2,
-      prompt: "Luis drops a storage slide into the folder: 10 MW and 24 MWh, from a British project. What may you use it for?",
+      prompt: "A storage slide quotes 10 MW and 24 MWh from a British project. What may you use it for?",
       choices: [
         { id: "d4c2a", text: "As this plant's required battery, because every peaker is now expected to carry one." },
         { id: "d4c2b", text: "As a foreign example whose sizes are not an ERCOT rating and not this plant." },
@@ -76,7 +76,7 @@ export const day4: Lesson = {
     {
       id: "d4q1",
       level: 1,
-      prompt: "Dana asks for the definition you will use when Priya says the factor is low.",
+      prompt: "What is the definition of capacity factor?",
       choices: [
         { id: "d4q1a", text: "Actual energy divided by rated output across every hour in the period." },
         { id: "d4q1b", text: "Fuel burned over the period, divided by boiler steam pressure." },
@@ -109,7 +109,7 @@ export const day4: Lesson = {
     {
       id: "d4q4",
       level: 2,
-      prompt: "Priya says last July the national gas-turbine fleet ran at about a quarter of rating. Which figure is July 2026?",
+      prompt: "Which figure is the July 2026 national gas-turbine capacity factor?",
       choices: [
         { id: "d4q4a", text: "14.1 percent. That is the 2025 annual gas-turbine factor, not the July month." },
         { id: "d4q4b", text: "24.9 percent. That figure is July 2025, not July 2026." },
@@ -120,7 +120,7 @@ export const day4: Lesson = {
     {
       id: "d4q5",
       level: 2,
-      prompt: "Priya writes those national factors next to the Viper Power name. What do you change?",
+      prompt: "National capacity factors are written next to the Viper Power name. What do you change?",
       choices: [
         { id: "d4q5a", text: "Label them national and preliminary. They are not Viper Power's own factor." },
         { id: "d4q5b", text: "Nothing. A national fleet factor is the factor measured at this plant." },
@@ -131,7 +131,7 @@ export const day4: Lesson = {
     {
       id: "d4q6",
       level: 1,
-      prompt: "A night-time peak arrives and the solar contract is the resource Priya hoped would cover it. What can that contract deliver?",
+      prompt: "A night-time peak arrives and a solar photovoltaic contract is the resource offered to cover it. What can that contract deliver?",
       choices: [
         { id: "d4q6a", text: "Full output, because the cells store noon energy and release it after dark." },
         { id: "d4q6b", text: "Output from a small steam turbine mounted underneath the photovoltaic array." },
@@ -142,7 +142,7 @@ export const day4: Lesson = {
     {
       id: "d4q7",
       level: 2,
-      prompt: "Luis quotes the wind clip's capture limit as if it were a capacity factor. What is the limit?",
+      prompt: "The wind clip's capture limit is quoted as if it were a capacity factor. What is the limit?",
       choices: [
         { id: "d4q7a", text: "59.3 percent of the wind's kinetic energy, a capture limit rather than a capacity factor." },
         { id: "d4q7b", text: "14.1 percent, which is the annual gas-turbine capacity factor in the national table." },
@@ -175,7 +175,7 @@ export const day4: Lesson = {
     {
       id: "d4q10",
       level: 2,
-      prompt: "Dana asks you to label the resources in the memo without mixing the words. Which set is right?",
+      prompt: "Which statement about these resource labels is right?",
       choices: [
         { id: "d4q10a", text: "A peaker runs most hours, baseload runs only in shortages, and wind is fully dispatchable." },
         { id: "d4q10b", text: "Solar and batteries with no synchronous shaft are inverter-based resources." },
@@ -187,18 +187,18 @@ export const day4: Lesson = {
   sections: [
     {
       id: "intro",
-      title: "Priya says retire it",
+      title: "A low capacity factor is not a retirement",
       minutes: 5,
       level: 1,
       kind: "intro",
       blocks: [
         {
           type: "p",
-          text: "Priya's note says to study retiring Viper Power because gas turbines 'barely run.' She has a national capacity factor in the margin and the plant's name in the title. Dana wants a memo that says what the number means before anyone drafts a retirement paper.",
+          text: "A low national capacity factor is sometimes read as a reason to retire a gas-turbine plant. The number and the plant's name can end up in the same sentence. The memo has to say what the number means before anyone treats it as this plant's record.",
         },
         {
           type: "p",
-          text: "Today's problem is that note. Wind, solar, hydro, and batteries change when a peaker is the resource the system still wants. You need each one's energy path, and the habit of leaving other companies' project sizes on their own slides.",
+          text: "Wind, solar, hydro, and batteries change when a peaker is the resource the system still wants. Each one has its own energy path. Other companies' project sizes stay on their own slides.",
         },
       ],
     },
@@ -323,7 +323,7 @@ export const day4: Lesson = {
     },
     {
       id: "apply",
-      title: "The memo Priya can forward",
+      title: "What belongs in the memo",
       minutes: 7,
       level: 2,
       kind: "application",
@@ -348,7 +348,7 @@ export const day4: Lesson = {
     },
     {
       id: "exercise",
-      title: "Exercise — a labeled hypothetical",
+      title: "Exercise — a practice capacity factor",
       minutes: 8,
       level: 2,
       kind: "exercise",
@@ -356,7 +356,7 @@ export const day4: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "The unit in the problem is hypothetical. Maximum energy is the rating times 8,760 hours. Divide the energy produced by that maximum, then convert to a percent with one decimal place. After the number grades, add three sentences in your notes: why a gas turbine's national capacity factor is low, how a battery competes for short hours, and why neither the national percent nor this hypothetical percent is Viper Power's factor.",
+          text: "The unit in the problem is a practice calculation, not a Viper Power record. Maximum energy is the rating times 8,760 hours. Divide the energy produced by that maximum, then convert to a percent with one decimal place. After the number grades, add three sentences in your notes: why a gas turbine's national capacity factor is low, how a battery competes for short hours, and why neither the national percent nor this practice percent is Viper Power's factor.",
         },
       ],
     },

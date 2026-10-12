@@ -5,7 +5,7 @@ export const day3: Lesson = {
   week: 1,
   day: 3,
   title: "Gas turbines, combined cycle, and useful heat",
-  summary: "A vendor priced a heat-recovery boiler for Viper Power. This lesson is how you tell a simple cycle from a plant that keeps the exhaust.",
+  summary: "How a simple-cycle gas turbine differs from combined cycle and from combined heat and power, and where Viper Power sits.",
   objectives: [
     "Name the Brayton path: compressor, combustor, turbine, and a hot stack.",
     "Explain what a heat-recovery steam generator adds, and which megawatts depend on it.",
@@ -99,7 +99,7 @@ export const day3: Lesson = {
     {
       id: "d3q3",
       level: 1,
-      prompt: "The vendor calls the boiler on the exhaust a recovery unit. What is the ordinary name, and what does it feed?",
+      prompt: "What is the ordinary name for the boiler on the exhaust, and what does it feed?",
       choices: [
         { id: "d3q3a", text: "A step-up transformer, which raises exhaust pressure up to transmission voltage." },
         { id: "d3q3b", text: "A condenser, which turns the hot exhaust gas back into gas for the pipeline." },
@@ -110,7 +110,7 @@ export const day3: Lesson = {
     {
       id: "d3q4",
       level: 1,
-      prompt: "Priya asks what combined heat and power adds beyond electricity.",
+      prompt: "What does combined heat and power add beyond electricity?",
       choices: [
         { id: "d3q4a", text: "Useful thermal energy: process heat, steam, hot water, or chilled water." },
         { id: "d3q4b", text: "A second generator voltage, with no use found for the leftover heat at all." },
@@ -143,7 +143,7 @@ export const day3: Lesson = {
     {
       id: "d3q7",
       level: 2,
-      prompt: "The vendor's slide shows a 300-ton combined-cycle machine and a price for the same scope here. What is that slide good for?",
+      prompt: "A slide shows a 300-ton combined-cycle machine and a price for the same scope here. What is that figure good for?",
       choices: [
         { id: "d3q7a", text: "It is this plant's as-built weight, so a foundation calc can use 300 tons." },
         { id: "d3q7b", text: "It stands in for the heat-rate test this week does not have on file." },
@@ -154,7 +154,7 @@ export const day3: Lesson = {
     {
       id: "d3q8",
       level: 2,
-      prompt: "Two people quote the plant as 330 MW and as 65 MW per unit. What do you ask before you pick one?",
+      prompt: "Two documents quote the plant as 330 MW and as 65 MW per unit. What do you ask before you pick one?",
       choices: [
         { id: "d3q8a", text: "Which figure is the generator voltage printed on the nameplate." },
         { id: "d3q8b", text: "Whether each quote is net or gross, and what outdoor condition it uses." },
@@ -165,7 +165,7 @@ export const day3: Lesson = {
     {
       id: "d3q9",
       level: 2,
-      prompt: "Priya mixes a generation share into a capacity-factor sentence. Which pair is the 2022 share of US utility-scale generation?",
+      prompt: "Which pair is the 2022 share of US utility-scale generation, not a capacity factor?",
       choices: [
         { id: "d3q9a", text: "Combined cycle about 33.8 percent, and single-cycle turbines about 3.6 percent." },
         { id: "d3q9b", text: "Nuclear at 91.0 percent and hydro at 35.3 percent, which are capacity factors." },
@@ -188,18 +188,18 @@ export const day3: Lesson = {
   sections: [
     {
       id: "intro",
-      title: "The vendor drew a boiler on our exhaust",
+      title: "A boiler drawn on the exhaust",
       minutes: 5,
       level: 1,
       kind: "intro",
       blocks: [
         {
           type: "p",
-          text: "A vendor's proposal treats Viper Power as a combined-cycle plant and prices a heat-recovery boiler. Priya asks if that scope belongs on this site. Dana wants the answer in one sentence before the call.",
+          text: "A proposal can treat Viper Power as a combined-cycle plant and price a heat-recovery boiler. The question is whether that scope belongs on this site. The answer is one sentence once the cycle is clear.",
         },
         {
           type: "p",
-          text: "Today's problem is that proposal. The project question is always the same: what is the prime mover, what happens to the leftover heat, and which megawatts disappear if that heat-recovery equipment is out?",
+          text: "The project question is always the same: what is the prime mover, what happens to the leftover heat, and which megawatts disappear if that heat-recovery equipment is out?",
         },
       ],
     },
@@ -324,7 +324,7 @@ export const day3: Lesson = {
     },
     {
       id: "apply",
-      title: "The reply to the vendor",
+      title: "What this plant actually is",
       minutes: 8,
       level: 2,
       kind: "application",

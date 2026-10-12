@@ -6,7 +6,7 @@ Correct choices and explanations live in `content/week-01/answer-key.ts`. The le
 
 ### d1e1 — numeric exercise
 
-Training problem, not a plant nameplate: six units, each given as 59 MW, for 3 hours. How many MWh is that? The 59 MW figure is the problem's given. Plant documents use other bases, which Day 5 lines up.
+Six units, each given as 59 MW, run for 3 hours. How many MWh is that? The 59 MW figure is a practice input, not a plant nameplate.
 
 - Unit: MWh
 - Expected: 1062
@@ -15,135 +15,146 @@ Training problem, not a plant nameplate: six units, each given as 59 MW, for 3 h
 
 ### d1c1 — checkpoint, level 1
 
-A unit holds 50 MW for 2 hours. How much energy did it deliver?
+A charge of 180 C passes a point in 60 s. What is the current?
 
-0. 25 MWh, because the two hours cut the 50 MW reading in half.
-1. 50 MW, because a timed run keeps the power unit on the page.
-2. 100 MWh, because 50 MW held for two hours is energy delivered. **(correct)**
-3. 50 kV, because a two-hour run is reported as electrical pressure.
+0. 10,800 A, because the charge and the time are multiplied together.
+1. 0.33 A, because the time is divided by the charge that passed.
+2. 3 A, because current is the charge divided by the time. **(correct)**
+3. 180 C, because a current keeps the coulomb as its unit.
 
-Explanation: 50 MW held for 2 hours is 50 × 2 = 100 MWh. The power is still 50 MW.
+Explanation: I = Q / t = 180 C / 60 s = 3 A. Current is charge per time, so the coulomb and the second do not get multiplied, and the unit is the ampere.
 
 ### d1c2 — checkpoint, level 1
 
-Why can a transformer change voltage on an AC line and not on a steady DC circuit?
+A generator holds 50 MW for 2 hours. How much energy is that?
 
-0. It needs a changing current so one coil can induce voltage in the other. **(correct)**
-1. It stores the day's megawatt-hours and later releases them as voltage.
-2. Steady direct current induces more voltage because the field never falls.
-3. Frequency and voltage are one quantity, so either one can be stepped up.
+0. 100 MWh, because 50 MW held for two hours is energy. **(correct)**
+1. 25 MWh, because the two hours cut the 50 MW reading in half.
+2. 50 MW, because a timed run keeps the power unit on the page.
+3. 50 kV, because a two-hour run is reported as electrical pressure.
 
-Explanation: A transformer needs a changing magnetic field. Steady direct current does not keep inducing voltage in the second coil. That is why the grid is alternating current.
+Explanation: Energy = power × time = 50 MW × 2 h = 100 MWh. The machine is still a 50 MW machine. The two hours change the unit from power to energy.
 
 ### d1q1 — knowledge check, level 1
 
-Priya forwards an invoice that says the plant 'lost 60 on Tuesday.' What distinction do you settle before you approve it?
+Which statement about electric charge is right?
 
-0. MW is the energy collected over a day, and MWh is the line voltage.
-1. They are two labels for one unit, so either one can sit on the invoice.
-2. MWh is the megawatt reading divided by 1,000, so 60 MW is 0.06 MWh.
-3. MW is power at an instant, and MWh is that power held over hours. **(correct)**
+0. Charge is used up inside a resistor and the generator has to replace it.
+1. Charge is the same quantity as current, and both are measured in amperes.
+2. Charge flows only on an open path, where the conductor has a break.
+3. Charge is conserved, and ordinary amounts come in multiples of the elementary charge. **(correct)**
 
-Explanation: Power is the rate, in MW. Energy is that rate times time, in MWh. The invoice needs the unit before it needs a signature.
+Explanation: Charge is conserved, so a resistor does not consume it. Ordinary charges come in whole-number multiples of the elementary charge, e = 1.602176634×10⁻¹⁹ C. Current is a different quantity, in amperes, and it flows on a closed path.
 
-### d1q2 — knowledge check, level 1
+### d1q2 — knowledge check, level 2
 
-A contractor says the transmission lines can store Tuesday's generation and deliver it Wednesday morning. What do you tell Dana?
+An illustrative aluminum conductor is 1 km long and has a cross-section of 500 mm². Use ρ = 2.65×10⁻⁸ Ω·m. What is R?
 
-0. Transformers pass power for one second and then reset until the next dispatch call.
-1. The grid stores almost no electrical energy, so an imbalance shows up as frequency. **(correct)**
-2. The gas pipeline holds the electrical energy until the plant is called to run.
-3. Customer contracts fix the frequency each morning and hold that value all day.
+0. 0.0344 Ω, using copper's 1.72×10⁻⁸ Ω·m in place of aluminum.
+1. 0.053 Ω, from ρL/A with the area converted to square metres. **(correct)**
+2. 18.9 Ω, from turning the formula upside down as A divided by ρL.
+3. 5.3×10⁻⁵ Ω, from entering the length as 1 m instead of 1 km.
 
-Explanation: Production and use happen together. There is no large store of electrical energy in the wires, so a mismatch moves frequency immediately.
+Explanation: A = 500 mm² = 5.00×10⁻⁴ m². R = ρ L / A = (2.65×10⁻⁸ Ω·m) × (1,000 m) / (5.00×10⁻⁴ m²) = 0.053 Ω. Copper's 1.72×10⁻⁸ would give 0.0344 Ω. Inverting the formula gives about 18.9 Ω. Using 1 m instead of 1,000 m gives 5.3×10⁻⁵ Ω.
 
-### d1q3 — knowledge check, level 1
+### d1q3 — knowledge check, level 2
 
-Luis asks what 60 Hz means on the North American grids in this lesson.
+A generator nameplate reads 13.8 kV. How much work is that per coulomb of charge?
 
-0. The plant heat rate is 60, which is why these grids are described that way.
-1. Transmission voltage is 60 kV on the North American lines used in this lesson.
-2. The generator nameplate is a 60-volt machine once it is tied to these grids.
-3. Alternating current reverses direction 60 times each second on these grids. **(correct)**
+0. 13,800 J/C, because 13.8 kV is 13,800 V and one volt is one joule per coulomb. **(correct)**
+1. 13.8 J/C, because the kilo prefix was left off before the nameplate was read.
+2. 13,800 W, because a generator nameplate voltage was read as electric power.
+3. 13.8 MW, because the kilo prefix on that voltage was taken as a power unit.
 
-Explanation: 60 Hz means the alternating current reverses 60 times each second. It is not a voltage, a heat rate, or a headcount of machines.
+Explanation: 13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.
 
-### d1q4 — knowledge check, level 1
+### d1q4 — knowledge check, level 2
 
-Why does the plant raise voltage before a long transmission line?
+That same illustrative aluminum line has R = 0.053 Ω and carries 1,000 A. What is the heating power?
 
-0. It raises voltage so the same power travels the line at a lower current. **(correct)**
-1. It turns the plant's alternating current into direct current for the long line.
-2. The core stores the day's energy and releases that energy at the far substation.
-3. It sets the grid frequency to 50 Hz so the line matches overseas equipment.
+0. 53 V, which is current times resistance and is a voltage drop.
+1. 53,000 J, which is the heat released in one second, not the power.
+2. 53 kW, from I²R with current in amperes and resistance in ohms. **(correct)**
+3. 53 MW, from putting a mega prefix on a result that is in kilowatts.
 
-Explanation: Higher voltage means lower current for the same power. Heating follows the square of the current, so raising voltage cuts line loss. The transformer does not store the energy and it does not set the frequency.
+Explanation: P = I² R = (1,000 A)² × 0.053 Ω = 53,000 W = 53 kW. The product I R = 53 V is the voltage drop, not the power. 53,000 J is the heat in one second. 53 MW would be a thousand times too large.
 
-### d1q5 — knowledge check, level 2
+### d1q5 — knowledge check, level 1
 
-The training problem says six units at 59 MW for 3 hours. What belongs on the answer line?
+A resistor has 12 V across it and a resistance of 4 Ω. What is the current?
 
-0. 177 MWh, from adding 59 and 3 and then multiplying by the six units.
-1. 354 MW, because the three hours do not change a power figure into energy.
-2. 1,062 MWh, from six units at 59 MW each, held for three hours. **(correct)**
-3. 59 kV, because that figure is the generator voltage held for three hours.
+0. 48 A, because the voltage and the resistance are multiplied.
+1. 0.33 A, because the resistance is divided by the voltage.
+2. 12 Ω, because the current keeps the resistance as its unit.
+3. 3 A, from voltage divided by resistance, with conditions steady. **(correct)**
 
-Explanation: 6 × 59 = 354 MW. 354 × 3 h = 1,062 MWh. The 59 MW figure is the problem's given, not a confirmed nameplate. The plant's own bases are a hot-day net figure and a standard-condition figure per unit.
+Explanation: Ohm's law at steady conditions: I = V / R = 12 V / 4 Ω = 3 A. Multiplying 12 by 4 gives 48, which is not the current. The ohm is the unit of resistance, not of current.
 
-### d1q6 — knowledge check, level 2
+### d1q6 — knowledge check, level 1
 
-A developer wants to sell power from a new Viper Power unit into a utility in Oklahoma. Why is that harder than selling to a Texas utility?
+Resistors of 2 Ω, 3 Ω, and 7 Ω are connected in series. What is the equivalent resistance?
 
-0. Oklahoma uses 50 Hz, so these machines cannot synchronize with that utility at all.
-1. Texas is mostly its own interconnection, ERCOT, with limited ties to the east. **(correct)**
-2. ERCOT owns the Texas plants and can refuse a sale that leaves the state.
-3. Federal law bans an interstate electricity sale from a plant inside Texas.
+0. About 1 Ω, because series resistors use the parallel formula.
+1. 12 Ω, because series resistances add to one equivalent. **(correct)**
+2. 42 Ω, because the three resistances are multiplied together.
+3. 2 Ω, because only the first resistor carries the current.
 
-Explanation: Most of Texas is on ERCOT, its own interconnection, with limited ties to the Eastern grid. Oklahoma is on that Eastern grid. ERCOT does not own the plants, and the lesson does not say interstate sales are banned or that Oklahoma runs at 50 Hz.
+Explanation: Series resistances add: R = 2 Ω + 3 Ω + 7 Ω = 12 Ω. The same current passes through each resistor. The parallel formula is for a different connection.
 
 ### d1q7 — knowledge check, level 1
 
-Load jumps and the online machines do not pick it up. What happens to frequency?
+What stays the same for resistors connected in parallel?
 
-0. Frequency falls until generation is added or some of the load is removed. **(correct)**
-1. Frequency rises, because the extra load speeds the online shafts up.
-2. Frequency stays at 60 Hz by definition, and only the voltage is free to move.
-3. The step-up transformer absorbs the extra load and holds it as stored energy.
+0. The current is the same in every branch, and the voltages add.
+1. Each branch resistance falls to zero when the others are connected.
+2. Voltage is the same across each branch, and the branch currents add. **(correct)**
+3. Each branch takes the same power, whatever its resistance is.
 
-Explanation: If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed.
+Explanation: Parallel branches share the same two points, so the voltage across each branch is the same. The branch currents add to the total current. Series is the connection where the current is common and the voltages add.
 
 ### d1q8 — knowledge check, level 2
 
-Same power, and the line voltage is doubled. Heating loss follows the square of the current. What happens to that loss?
+From R = ρL/A, what raises resistance if the other factors stay the same?
 
-0. The loss doubles, because voltage and conductor heating move together.
-1. The loss stays put, because the transformer cancels current out on the line.
-2. The loss falls by half, because current and heating stay in proportion.
-3. The current is cut in half, so heating loss falls to one quarter. **(correct)**
+0. A longer conductor, a smaller cross-section, or a higher resistivity. **(correct)**
+1. A shorter conductor, a larger cross-section, or a lower resistivity.
+2. A higher voltage by itself, with length and area left unchanged.
+3. A lower temperature in a typical metal, which raises its resistance.
 
-Explanation: Current is power divided by voltage. Double the voltage and the current is cut in half. Loss follows current squared, so loss falls to one quarter. The example voltages in the film are not this plant's voltages.
+Explanation: R = ρ L / A. Increasing L, decreasing A, or increasing ρ each increases R when the others are held fixed. For a typical metal, a lower temperature lowers resistance rather than raising it.
 
-### d1q9 — knowledge check, level 2
+### d1q9 — knowledge check, level 1
 
-During a test, frequency is low and voltage is low. Which device does which job?
+How many joules are in 1 kWh?
 
-0. The exciter adds fuel to raise frequency, and the governor changes field current.
-1. The governor changes fuel to hold shaft speed, and the exciter holds voltage. **(correct)**
-2. Both devices move a transformer tap, and neither one touches fuel or field current.
-3. The step-up transformer holds both frequency and voltage once the unit is online.
+0. 3.6×10³ J, because the hour is left out of the conversion.
+1. 3.6×10⁶ J, because a kilowatt for one hour is that many joules. **(correct)**
+2. 1,000 J, because the kilo prefix is the only factor used.
+3. 3.6×10⁶ W, because the converted result is still a power.
 
-Explanation: The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage.
+Explanation: 1 kWh = 1,000 W × 3,600 s = 3,600,000 J = 3.6×10⁶ J. The result is energy, in joules, not power in watts. Dropping the 3,600 s would leave 3.6×10³ J, which is only one kilowatt for one second.
 
-### d1q10 — knowledge check, level 1
+### d1q10 — knowledge check, level 2
 
-Priya asks what spins a gas-turbine generator, and whether a solar plant has the same shaft.
+The same power is sent down a line, and the voltage is doubled. Heating follows I²R. What happens to that heating?
 
-0. The transformer spins the generator, and a solar plant uses a smaller transformer for that job.
-1. Grid frequency spins the shaft, and a solar plant is spun by that same frequency.
-2. The prime mover spins the generator, and a photovoltaic plant has no turbine shaft. **(correct)**
-3. The condenser spins the shaft on every plant, including a photovoltaic plant.
+0. The current doubles, so heating in the line resistance quadruples.
+1. The current is unchanged, so the heating in the line stays put.
+2. The current is halved, so the heating falls only to one half.
+3. The current is halved, so the heating falls to one quarter. **(correct)**
 
-Explanation: The prime mover spins the generator. A photovoltaic plant has no turbine. The transformer changes voltage. It does not spin the shaft.
+Explanation: For the same power, current = power / voltage. Double the voltage and the current is halved. Heating follows current squared, so (1/2)² = 1/4. The line heating falls to one quarter if the resistance is unchanged.
+
+### d1q11 — knowledge check, level 1
+
+What does 60 Hz mean on the grids in this lesson?
+
+0. Alternating current reverses direction 60 times each second. **(correct)**
+1. Transmission voltage is 60 kV on the lines used in this lesson.
+2. The heat rate of these grids is 60, which is why they use that label.
+3. Direct current pulses 60 times a second, and a transformer steps it up.
+
+Explanation: 60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.
 
 ## w1d2 — Day 2
 
@@ -173,7 +184,7 @@ Explanation: Fission replaces the flame. On the pressurized-water units in the f
 
 ### d2q1 — knowledge check, level 1
 
-Dana asks what cycle a coal plant or a nuclear steam plant is running.
+What cycle is a coal plant or a nuclear steam plant running?
 
 0. Rankine: boil a liquid, expand the vapor, condense it, and pump it back. **(correct)**
 1. Brayton, because every turbine compresses air before it produces steam.
@@ -228,7 +239,7 @@ Explanation: Raw water in a high-pressure boiler leads to corrosion and deposits
 
 ### d2q6 — knowledge check, level 2
 
-Luis wants the cooling tower in the outage because it is only a heat dump. What is the project consequence on a steam plant?
+A cooling tower is described as only a heat dump. What is the consequence on a steam plant?
 
 0. If the plant cannot reject heat, it cannot keep making steam power. **(correct)**
 1. Cooling can wait. The turbine keeps its megawatts with the condenser valved out.
@@ -239,7 +250,7 @@ Explanation: If the plant cannot reject heat, it cannot keep making steam power.
 
 ### d2q7 — knowledge check, level 2
 
-Priya quotes a national nuclear capacity factor for 2025 and asks if that is the efficiency to use on a Viper Power memo.
+The 2025 national nuclear capacity factor is quoted as if it were an efficiency. What is it?
 
 0. 91.0 percent is the efficiency of every steam turbine, including a gas peaker.
 1. 91.0 percent, preliminary, is a national capacity factor, not this plant's efficiency. **(correct)**
@@ -272,7 +283,7 @@ Explanation: The last step before the pump is to cool the exhaust steam back int
 
 ### d2q10 — knowledge check, level 2
 
-Luis still wants boiler and cooling-tower scope on the Viper Power outage. What do you send back?
+Boiler and cooling-tower scope is proposed for the Viper Power outage. What belongs in the reply?
 
 0. Approve it. Every gas turbine in simple cycle has a Rankine condenser.
 1. Approve the cooling tower and drop the boiler. The stack condenses the steam.
@@ -280,6 +291,17 @@ Luis still wants boiler and cooling-tower scope on the Viper Power outage. What 
 3. Viper Power is not a Rankine plant, so that boiler scope does not belong. **(correct)**
 
 Explanation: Viper Power's Week 1 description is gas turbines on pipeline gas. It is not a Rankine plant, so boiler and cooling-tower scope does not belong on this outage unless a current plant document adds it.
+
+### d2q11 — knowledge check, level 2
+
+On a synchronous generator, which device holds shaft speed, and which holds voltage?
+
+0. The exciter adds fuel to raise frequency, and the governor changes field current.
+1. Both devices move a transformer tap, and neither one touches fuel or field current.
+2. The governor changes fuel to hold shaft speed, and the exciter holds voltage. **(correct)**
+3. The step-up transformer holds both frequency and voltage once the unit is online.
+
+Explanation: The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.
 
 ## w1d3 — Day 3
 
@@ -331,7 +353,7 @@ Explanation: The three gas-path sections are the compressor, the combustor, and 
 
 ### d3q3 — knowledge check, level 1
 
-The vendor calls the boiler on the exhaust a recovery unit. What is the ordinary name, and what does it feed?
+What is the ordinary name for the boiler on the exhaust, and what does it feed?
 
 0. A step-up transformer, which raises exhaust pressure up to transmission voltage.
 1. A condenser, which turns the hot exhaust gas back into gas for the pipeline.
@@ -342,7 +364,7 @@ Explanation: A heat-recovery steam generator makes steam from exhaust that would
 
 ### d3q4 — knowledge check, level 1
 
-Priya asks what combined heat and power adds beyond electricity.
+What does combined heat and power add beyond electricity?
 
 0. Useful thermal energy: process heat, steam, hot water, or chilled water. **(correct)**
 1. A second generator voltage, with no use found for the leftover heat at all.
@@ -375,7 +397,7 @@ Explanation: Viper Power is the simple-cycle row. Exhaust heat leaves the stack.
 
 ### d3q7 — knowledge check, level 2
 
-The vendor's slide shows a 300-ton combined-cycle machine and a price for the same scope here. What is that slide good for?
+A slide shows a 300-ton combined-cycle machine and a price for the same scope here. What is that figure good for?
 
 0. It is this plant's as-built weight, so a foundation calc can use 300 tons.
 1. It stands in for the heat-rate test this week does not have on file.
@@ -386,7 +408,7 @@ Explanation: The 300-ton machine is someone else's combined-cycle unit. It is on
 
 ### d3q8 — knowledge check, level 2
 
-Two people quote the plant as 330 MW and as 65 MW per unit. What do you ask before you pick one?
+Two documents quote the plant as 330 MW and as 65 MW per unit. What do you ask before you pick one?
 
 0. Which figure is the generator voltage printed on the nameplate.
 1. Whether each quote is net or gross, and what outdoor condition it uses. **(correct)**
@@ -397,7 +419,7 @@ Explanation: Ask net or gross, and ask the outdoor condition. About 330 MW net a
 
 ### d3q9 — knowledge check, level 2
 
-Priya mixes a generation share into a capacity-factor sentence. Which pair is the 2022 share of US utility-scale generation?
+Which pair is the 2022 share of US utility-scale generation, not a capacity factor?
 
 0. Combined cycle about 33.8 percent, and single-cycle turbines about 3.6 percent. **(correct)**
 1. Nuclear at 91.0 percent and hydro at 35.3 percent, which are capacity factors.
@@ -421,16 +443,16 @@ Explanation: A reciprocating engine with heat recovery is one combined-heat conf
 
 ### d4e1 — numeric exercise
 
-Hypothetical unit, not Viper Power. It is rated 100 MW and produced 120,000 MWh in a 365-day year (8,760 hours). Capacity factor in percent, to one decimal place.
+Practice numbers, not a Viper Power record. A unit is rated 100 MW and produced 120,000 MWh in a 365-day year (8,760 hours). Capacity factor in percent, to one decimal place.
 
 - Unit: percent
 - Expected: 13.7
 - Tolerance: 0.05
-- Worked explanation: The unit is hypothetical, not Viper Power. Maximum energy is 100 MW × 8,760 h = 876,000 MWh. 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.
+- Worked explanation: These are practice numbers, not a Viper Power record. Maximum energy is 100 MW × 8,760 h = 876,000 MWh. 120,000 / 876,000 = 0.136986, which is 13.7 percent to one decimal place.
 
 ### d4c1 — checkpoint, level 1
 
-Priya points at a solar contract and asks where the turbine is.
+Where is the turbine in a solar photovoltaic plant?
 
 0. The turbine sits inside the inverter and spins at 3,600 rpm all day.
 1. Solar uses the same boiler as a coal plant, without the pulverizer.
@@ -441,7 +463,7 @@ Explanation: A solar photovoltaic plant has no turbine. Light frees electrons, a
 
 ### d4c2 — checkpoint, level 2
 
-Luis drops a storage slide into the folder: 10 MW and 24 MWh, from a British project. What may you use it for?
+A storage slide quotes 10 MW and 24 MWh from a British project. What may you use it for?
 
 0. As this plant's required battery, because every peaker is now expected to carry one.
 1. As a foreign example whose sizes are not an ERCOT rating and not this plant. **(correct)**
@@ -452,7 +474,7 @@ Explanation: The 10 MW and 24 MWh project is a British example from the storage 
 
 ### d4q1 — knowledge check, level 1
 
-Dana asks for the definition you will use when Priya says the factor is low.
+What is the definition of capacity factor?
 
 0. Actual energy divided by rated output across every hour in the period. **(correct)**
 1. Fuel burned over the period, divided by boiler steam pressure.
@@ -485,7 +507,7 @@ Explanation: A simple-cycle turbine uses more fuel per megawatt-hour, so it is d
 
 ### d4q4 — knowledge check, level 2
 
-Priya says last July the national gas-turbine fleet ran at about a quarter of rating. Which figure is July 2026?
+Which figure is the July 2026 national gas-turbine capacity factor?
 
 0. 14.1 percent. That is the 2025 annual gas-turbine factor, not the July month.
 1. 24.9 percent. That figure is July 2025, not July 2026.
@@ -496,7 +518,7 @@ Explanation: July 2026 gas-turbine capacity factor is 0.233, which is 23.3 perce
 
 ### d4q5 — knowledge check, level 2
 
-Priya writes those national factors next to the Viper Power name. What do you change?
+National capacity factors are written next to the Viper Power name. What do you change?
 
 0. Label them national and preliminary. They are not Viper Power's own factor. **(correct)**
 1. Nothing. A national fleet factor is the factor measured at this plant.
@@ -507,7 +529,7 @@ Explanation: The national factors are not Viper Power's capacity factor. This we
 
 ### d4q6 — knowledge check, level 1
 
-A night-time peak arrives and the solar contract is the resource Priya hoped would cover it. What can that contract deliver?
+A night-time peak arrives and a solar photovoltaic contract is the resource offered to cover it. What can that contract deliver?
 
 0. Full output, because the cells store noon energy and release it after dark.
 1. Output from a small steam turbine mounted underneath the photovoltaic array.
@@ -518,7 +540,7 @@ Explanation: Solar photovoltaic has no turbine and no output at night. The cells
 
 ### d4q7 — knowledge check, level 2
 
-Luis quotes the wind clip's capture limit as if it were a capacity factor. What is the limit?
+The wind clip's capture limit is quoted as if it were a capacity factor. What is the limit?
 
 0. 59.3 percent of the wind's kinetic energy, a capture limit rather than a capacity factor. **(correct)**
 1. 14.1 percent, which is the annual gas-turbine capacity factor in the national table.
@@ -547,11 +569,11 @@ Your practice unit, not the plant, produced 120,000 MWh from a 100 MW rating ove
 2. 13.7 percent, from 120,000 MWh divided by a maximum of 876,000 MWh. **(correct)**
 3. 120 percent, because the energy produced is numerically larger than the rating.
 
-Explanation: 100 × 8,760 = 876,000 MWh maximum. 120,000 / 876,000 = 13.7 percent. The unit is hypothetical.
+Explanation: 100 × 8,760 = 876,000 MWh maximum. 120,000 / 876,000 = 13.7 percent. These are practice numbers, not a Viper Power record.
 
 ### d4q10 — knowledge check, level 2
 
-Dana asks you to label the resources in the memo without mixing the words. Which set is right?
+Which statement about these resource labels is right?
 
 0. A peaker runs most hours, baseload runs only in shortages, and wind is fully dispatchable.
 1. Solar and batteries with no synchronous shaft are inverter-based resources. **(correct)**
@@ -573,7 +595,7 @@ Two different approximates, not one nameplate. Six times the 65 MW standard-cond
 
 ### d5c1 — checkpoint, level 2
 
-Dana asks which pair of figures you will put on the first slide, and what each one is.
+Which pair of figures belongs on the first slide, and what is each one?
 
 0. 59 MW and 1,062 MWh, treated as two nameplate ratings from the same test.
 1. 220 MW and twelve engines, treated as the machines standing in this yard today.
@@ -584,7 +606,7 @@ Explanation: The pair to show is about 65 MW per unit at standard conditions, fr
 
 ### d5q1 — knowledge check, level 1
 
-The invoice from Monday is back. Priya still needs the units in one sentence.
+What is the difference between MW and MWh?
 
 0. MW is the rate of power. MWh is that rate held over hours. **(correct)**
 1. MW and MWh are both voltages, taken an hour apart.
@@ -595,7 +617,7 @@ Explanation: MW is the rate of power. MWh is that rate held over hours.
 
 ### d5q2 — knowledge check, level 1
 
-Luis says the 138 kV lines can hold the plant's energy overnight. What is the grid fact?
+Can the 138 kV lines hold the plant's energy overnight?
 
 0. The lines store electrical energy in proportion to their operating voltage.
 1. The grid stores almost no electrical energy, so a mismatch moves frequency. **(correct)**
@@ -606,7 +628,7 @@ Explanation: The grid stores almost no electrical energy. A mismatch moves frequ
 
 ### d5q3 — knowledge check, level 1
 
-Someone in Dana's meeting calls the gas turbine a Rankine machine. Which correction is right?
+A gas turbine is called a Rankine machine. Which correction is right?
 
 0. Both cycles boil water. The only difference is which fuel truck arrives.
 1. Rankine is the gas turbine, and Brayton is the condenser on the steam side.
@@ -620,7 +642,7 @@ Explanation: Brayton for the gas turbine. Rankine for the steam plant. Viper Pow
 The vendor from Wednesday is in the meeting. What does a heat-recovery steam generator add?
 
 0. A second gas compressor that burns a separate stream of fuel for the extra power.
-1. A heat-recovery steam generator makes extra megawatts from exhaust heat. **(correct)**
+1. Extra megawatts from exhaust heat, without a second fuel burn. **(correct)**
 2. A cooling tower installed in the yard in place of the electrical generator.
 3. An inverter that stores the exhaust gas and releases it at the next peak.
 
@@ -628,7 +650,7 @@ Explanation: A heat-recovery steam generator turns exhaust into steam for a seco
 
 ### d5q5 — knowledge check, level 1
 
-Priya asks what combined heat and power is, in one line.
+What is combined heat and power, in one line?
 
 0. Two plants billed on one invoice, with the leftover heat thrown away at both of them.
 1. A peaker that runs only in winter so the exhaust leaving the stack stays cool.
@@ -705,7 +727,7 @@ Explanation: The 138 kV yard is the transmission service provider interface, and
 
 ### d5q12 — knowledge check, level 1
 
-Dana asks who calls ERCOT. What is a Qualified Scheduling Entity?
+Who calls ERCOT for the plant? What is a Qualified Scheduling Entity?
 
 0. The transmission service provider that owns the breakers and switches them in the 138 kV yard.
 1. A market participant qualified under Protocol Section 16 to speak for the plant and settle. **(correct)**
