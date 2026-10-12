@@ -13,9 +13,6 @@ export default async function WeekPage({ params }: { params: Promise<{ weekId: s
       <h1>{week1.title}</h1>
       <p className="lede">{week1.focus}</p>
       <p className="meta">Five lessons. Scheduled time {total} minutes. Later weeks are not in this release.</p>
-      <p>
-        Dana, Priya, and Luis appear through the week. They are hypothetical people in a scenario, not site staff.
-      </p>
       <WeekProgress lessonIds={week1.lessons.map((lesson) => lesson.id)} />
       <ol className="day-list">
         {week1.lessons.map((lesson) => (

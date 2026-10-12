@@ -27,6 +27,22 @@ Inventory ids in this file stay in the evidence package. Learner-facing lessons 
 | Drone and install photos S166–S171 exist in the library and are not in this course pack. The lesson says the photos are absent. It does not print these ids. | Day 5 intro and exercise | Inventory rows S166–S171. | Inventory |
 | 59 MW × 6 × 3 h = 1,062 MWh | Day 1 exercise | Course outline exercise input. Not an inventory nameplate. | Taught once, as the problem's given |
 
+## Electricity fundamentals added in rev2
+
+Reviewed 12 October 2026. Learner text states the relations. The URLs stay in the Day 1 sources panel.
+
+| Claim | Taught in | Source | Status |
+| --- | --- | --- | --- |
+| Charge is conserved. Directly observed charges are integer multiples of the electron charge. OpenStax prints \|q_e\| = 1.60×10⁻¹⁹ C. | Day 1 `charge-current` | OpenStax College Physics 2e, 18.1, https://openstax.org/books/college-physics-2e/pages/18-1-static-electricity-and-charge-conservation-of-charge | Verified 2026-10-12 |
+| The elementary charge is the exact SI defining constant e = 1.602176634×10⁻¹⁹ C. Milli is 10⁻³ and micro is 10⁻⁶. The coulomb, volt, ohm, and watt are SI units. | Day 1 charge and unit formulas | BIPM SI Brochure page, https://www.bipm.org/en/publications/si-brochure , opened 12 October 2026. It points to the 9th edition (2019), which is the edition that fixes e. The lesson tells the reader that OpenStax rounds the same charge to 1.60×10⁻¹⁹ C. | Brochure page opened 2026-10-12. The exact digits are the 2019 defining constant, not a measurement made for this course. |
+| Potential difference is energy per unit charge. 1 V = 1 J/C. | Day 1 `voltage-circuits` | OpenStax College Physics 2e, 19.1, https://openstax.org/books/college-physics-2e/pages/19-1-electric-potential-energy-potential-difference | Verified 2026-10-12 |
+| I = ΔQ/Δt and 1 A = 1 C/s. An ampere is the SI unit of current. | Day 1 `charge-current`, checkpoint d1c1 | OpenStax College Physics 2e, 20.1, https://openstax.org/books/college-physics-2e/pages/20-1-current | Verified 2026-10-12 |
+| For an ohmic conductor, I = V/R. 1 Ω = 1 V/A. Resistance of a metal rises with temperature. | Day 1 `ohm`, d1q5 | OpenStax College Physics 2e, 20.2, https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits | Verified 2026-10-12 |
+| R = ρ L / A, with ρ in Ω·m. Resistivity of a metal increases with temperature. | Day 1 `ohm`, d1q8 | OpenStax College Physics 2e, 20.3, https://openstax.org/books/college-physics-2e/pages/20-3-resistance-and-resistivity | Verified 2026-10-12 |
+| P = IV for a device. For a resistor, P = I²R = V²/R. Energy E = Pt. 1 kWh = 3.6×10⁶ J. | Day 1 `power-heat`, d1q9, d1q10 | OpenStax College Physics 2e, 20.4, https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy | Verified 2026-10-12 |
+| Series: the same current, voltages add, R = R1 + R2 + R3. Parallel: the same voltage across each branch, currents add, and the equivalent resistance is the reciprocal sum. | Day 1 `series-parallel`, d1q6, d1q7 | OpenStax College Physics 2e, 21.1, https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel | Verified 2026-10-12 |
+| A fuse or breaker is rated in amperes and limits current so heating does not continue in the protected conductor. | Day 1 `power-heat` | OpenStax 20.1 and 20.4 discuss fuses and breakers as current-limiting devices. The lesson does not invent a trip setting. | Verified 2026-10-12 for the rating statement. No plant breaker setting is used. |
+
 ## Public sources checked for this lesson
 
 | Claim | Taught in | Source | Status |

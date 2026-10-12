@@ -109,9 +109,96 @@ export function ViperDiagram() {
   );
 }
 
+export function CircuitSymbols() {
+  return (
+    <Frame title="Circuit symbols used in this lesson" label="symbols-title">
+      <text x="16" y="28" style={{ fill: "#3d4b5c", fontSize: 14 }}>
+        A line is a conductor. A break in that line is an open path.
+      </text>
+      <g>
+        <line x1="48" y1="78" x2="70" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="70" y1="66" x2="70" y2="90" stroke="#1f4d45" strokeWidth="3" />
+        <line x1="82" y1="70" x2="82" y2="86" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="82" y1="78" x2="104" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="112" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Cell</text>
+      </g>
+      <g>
+        <line x1="210" y1="78" x2="228" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="228" y1="66" x2="228" y2="90" stroke="#1f4d45" strokeWidth="3" />
+        <line x1="236" y1="70" x2="236" y2="86" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="244" y1="66" x2="244" y2="90" stroke="#1f4d45" strokeWidth="3" />
+        <line x1="252" y1="70" x2="252" y2="86" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="252" y1="78" x2="270" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="278" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Battery</text>
+      </g>
+      <g>
+        <line x1="400" y1="78" x2="424" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <circle cx="424" cy="78" r="2.5" fill="#1f4d45" />
+        <line x1="424" y1="78" x2="452" y2="58" stroke="#1f4d45" strokeWidth="2" />
+        <circle cx="460" cy="78" r="2.5" fill="#1f4d45" />
+        <line x1="460" y1="78" x2="484" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="492" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Switch</text>
+      </g>
+      <g>
+        <line x1="580" y1="78" x2="598" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <circle cx="616" cy="78" r="16" fill="none" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="605" y1="67" x2="627" y2="89" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="627" y1="67" x2="605" y2="89" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="634" y1="78" x2="652" y2="78" stroke="#1f4d45" strokeWidth="2" />
+        <text x="660" y="82" style={{ fill: "#1b2430", fontSize: 14 }}>Lamp</text>
+      </g>
+      <g>
+        <line x1="36" y1="176" x2="52" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <polyline points="52,176 60,164 68,188 76,164 84,188 92,164 100,176" fill="none" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="100" y1="176" x2="116" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <text x="124" y="180" style={{ fill: "#1b2430", fontSize: 14 }}>Resistor</text>
+      </g>
+      <g>
+        <line x1="214" y1="176" x2="232" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <rect x="232" y="166" width="36" height="20" fill="none" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="238" y1="176" x2="262" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <line x1="268" y1="176" x2="286" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <text x="294" y="180" style={{ fill: "#1b2430", fontSize: 14 }}>Fuse</text>
+      </g>
+      <g>
+        <line x1="392" y1="176" x2="408" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <circle cx="426" cy="176" r="16" fill="none" stroke="#1f4d45" strokeWidth="2" />
+        <text x="420" y="181" style={{ fill: "#1b2430", fontSize: 14 }}>A</text>
+        <line x1="442" y1="176" x2="458" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <text x="466" y="180" style={{ fill: "#1b2430", fontSize: 14 }}>Ammeter</text>
+      </g>
+      <g>
+        <line x1="572" y1="176" x2="588" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <circle cx="606" cy="176" r="16" fill="none" stroke="#1f4d45" strokeWidth="2" />
+        <text x="600" y="181" style={{ fill: "#1b2430", fontSize: 14 }}>V</text>
+        <line x1="622" y1="176" x2="638" y2="176" stroke="#1f4d45" strokeWidth="2" />
+        <text x="646" y="180" style={{ fill: "#1b2430", fontSize: 14 }}>Voltmeter</text>
+      </g>
+    </Frame>
+  );
+}
+
+export function OhmGraph() {
+  return (
+    <Frame title="Ohm's law: voltage against current for one ohmic resistor" label="ohm-title">
+      <line x1="70" y1="30" x2="70" y2="180" stroke="#1f4d45" strokeWidth="2" />
+      <line x1="70" y1="180" x2="680" y2="180" stroke="#1f4d45" strokeWidth="2" />
+      <line x1="70" y1="180" x2="620" y2="50" stroke="#9a4e24" strokeWidth="3" />
+      <text x="78" y="28" style={{ fill: "#1b2430", fontSize: 14 }}>V</text>
+      <text x="640" y="174" style={{ fill: "#1b2430", fontSize: 14 }}>I</text>
+      <text x="250" y="100" style={{ fill: "#1b2430", fontSize: 16 }}>slope = R</text>
+      <text x="90" y="208" style={{ fill: "#3d4b5c", fontSize: 14 }}>
+        A straight line through the origin means V and I stay in proportion. That is Ohm&apos;s law at one temperature.
+      </text>
+    </Frame>
+  );
+}
+
 export function DutyDiagram() {
   return (
-    <Frame title="A sample day: baseload stays on, solar rises at noon, and a peaker or a battery covers the evening" label="duty-title">
+    <>
+      <div className="desktop-only">
+        <Frame title="A sample day: baseload stays on, solar rises at noon, and a peaker or a battery covers the evening" label="duty-title">
       <text x="24" y="28" style={{ fill: "#3d4b5c", fontSize: 12 }}>
         Morning
       </text>
@@ -141,14 +228,64 @@ export function DutyDiagram() {
       <text x="512" y="195" style={{ fill: "#1b2430", fontSize: 12 }}>
         Battery discharges
       </text>
-    </Frame>
+        </Frame>
+      </div>
+      <div className="phone-only">
+        <figure className="diagram duty-phone">
+          <svg viewBox="0 0 400 520" role="img" aria-labelledby="duty-title-phone">
+            <title id="duty-title-phone">A sample day: baseload, solar, a peaker, and a battery</title>
+            <text x="16" y="36" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Baseload: on most hours
+            </text>
+            <rect x="16" y="48" width="368" height="70" rx="8" style={{ fill: "#e7efe9", stroke: "#1f4d45" }} />
+            <text x="28" y="90" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Stays on
+            </text>
+            <text x="16" y="156" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Solar: midday only
+            </text>
+            <rect x="16" y="168" width="368" height="70" rx="8" style={{ fill: "#f3e6c8", stroke: "#9a4e24" }} />
+            <text x="28" y="210" style={{ fill: "#1b2430", fontSize: 22 }}>
+              None at night
+            </text>
+            <text x="16" y="276" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Peaker: scarce hours
+            </text>
+            <rect x="16" y="288" width="368" height="70" rx="8" style={{ fill: "#f6ddd2", stroke: "#9a4e24" }} />
+            <text x="28" y="330" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Short peaks
+            </text>
+            <text x="16" y="396" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Battery: charge, then use
+            </text>
+            <rect x="16" y="408" width="176" height="70" rx="8" style={{ fill: "#e4eaf3", stroke: "#1f4d45" }} />
+            <text x="28" y="450" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Charges
+            </text>
+            <rect x="208" y="408" width="176" height="70" rx="8" style={{ fill: "#e4eaf3", stroke: "#1f4d45" }} />
+            <text x="220" y="450" style={{ fill: "#1b2430", fontSize: 22 }}>
+              Discharges
+            </text>
+          </svg>
+          <figcaption className="meta">
+            A sample day: baseload stays on, solar rises at noon, and a peaker or a battery covers the evening.
+          </figcaption>
+        </figure>
+      </div>
+    </>
   );
 }
 
-export function LessonDiagram({ diagram }: { diagram: "grid" | "rankine" | "brayton" | "viper" | "duty" }) {
+export function LessonDiagram({
+  diagram,
+}: {
+  diagram: "grid" | "rankine" | "brayton" | "viper" | "duty" | "symbols" | "ohm";
+}) {
   if (diagram === "grid") return <GridPath />;
   if (diagram === "rankine") return <RankineLoop />;
   if (diagram === "brayton") return <BraytonDiagram />;
   if (diagram === "duty") return <DutyDiagram />;
+  if (diagram === "symbols") return <CircuitSymbols />;
+  if (diagram === "ohm") return <OhmGraph />;
   return <ViperDiagram />;
 }

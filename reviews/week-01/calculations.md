@@ -2,6 +2,38 @@
 
 Every arithmetic step taught in Week 1 is below. Graded items are also in [assessments.md](assessments.md). Figures that are not a Viper Power measurement are labeled.
 
+## Day 1 — charge, current, resistance, power, and heating
+
+Sources for the definitions are OpenStax College Physics 2e (chapters 18–21) and the SI Brochure. The elementary-charge digits in the lesson are the exact SI defining constant. OpenStax rounds the same charge to 1.60×10⁻¹⁹ C.
+
+### Checkpoint d1c1 (graded)
+
+I = Q / t = 180 C / 60 s = **3 A**.
+
+### Ohm's law, d1q5 (graded)
+
+I = V / R = 12 V / 4 Ω = **3 A**.
+
+### Series, d1q6 (graded)
+
+R = 2 Ω + 3 Ω + 7 Ω = **12 Ω**.
+
+### Parallel, taught in the section (not a separate grade)
+
+Two 4 Ω resistors: 1/R = 1/4 + 1/4 = 1/2, so R = **2 Ω**. The voltage across each branch is the supply voltage.
+
+### Kilowatt-hour, d1q9 (graded)
+
+1 kWh = 1,000 W × 3,600 s = **3,600,000 J** = 3.6×10⁶ J.
+
+### Line heating, d1q10 (graded)
+
+Same power, double the voltage: current falls to one half. Heating follows current squared, so the heating falls to (1/2)² = **one quarter**.
+
+### Checkpoint d1c2 (graded)
+
+50 MW × 2 h = **100 MWh**. The power is still 50 MW.
+
 ## Day 1 — energy from a steady output
 
 Definition used in the lesson: energy (MWh) = power (MW) × time (hours).
@@ -80,7 +112,7 @@ Table 6.07.A, still preliminary:
 
 ### Exercise d4e1 (graded)
 
-Hypothetical unit. Not Viper Power. Rating 100 MW. Energy 120,000 MWh. Non-leap year.
+Practice numbers, not a Viper Power record. Rating 100 MW. Energy 120,000 MWh. Non-leap year.
 
 1. Maximum energy = 100 MW × 8,760 h = **876,000 MWh**.
 2. Capacity factor = 120,000 / 876,000 = 0.136986.

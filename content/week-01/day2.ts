@@ -5,7 +5,7 @@ export const day2: Lesson = {
   week: 1,
   day: 2,
   title: "The steam cycle a gas-plant PM still has to read",
-  summary: "Luis put a boiler and a cooling tower on the outage. This lesson is how you tell a Rankine plant from Viper Power.",
+  summary: "How a Rankine plant boils water, makes power, and rejects heat, and why Viper Power has no condenser.",
   objectives: [
     "Sketch a Rankine loop and say where heat enters and where heat is thrown away.",
     "Separate the fuel fire in a coal plant from fission in a nuclear plant, and keep the steam turbine in both.",
@@ -66,7 +66,7 @@ export const day2: Lesson = {
     {
       id: "d2q1",
       level: 1,
-      prompt: "Dana asks what cycle a coal plant or a nuclear steam plant is running.",
+      prompt: "What cycle is a coal plant or a nuclear steam plant running?",
       choices: [
         { id: "d2q1a", text: "Rankine: boil a liquid, expand the vapor, condense it, and pump it back." },
         { id: "d2q1b", text: "Brayton, because every turbine compresses air before it produces steam." },
@@ -121,7 +121,7 @@ export const day2: Lesson = {
     {
       id: "d2q6",
       level: 2,
-      prompt: "Luis wants the cooling tower in the outage because it is only a heat dump. What is the project consequence on a steam plant?",
+      prompt: "A cooling tower is described as only a heat dump. What is the consequence on a steam plant?",
       choices: [
         { id: "d2q6a", text: "If the plant cannot reject heat, it cannot keep making steam power." },
         { id: "d2q6b", text: "Cooling can wait. The turbine keeps its megawatts with the condenser valved out." },
@@ -132,7 +132,7 @@ export const day2: Lesson = {
     {
       id: "d2q7",
       level: 2,
-      prompt: "Priya quotes a national nuclear capacity factor for 2025 and asks if that is the efficiency to use on a Viper Power memo.",
+      prompt: "The 2025 national nuclear capacity factor is quoted as if it were an efficiency. What is it?",
       choices: [
         { id: "d2q7a", text: "91.0 percent is the efficiency of every steam turbine, including a gas peaker." },
         { id: "d2q7b", text: "91.0 percent, preliminary, is a national capacity factor, not this plant's efficiency." },
@@ -165,7 +165,7 @@ export const day2: Lesson = {
     {
       id: "d2q10",
       level: 2,
-      prompt: "Luis still wants boiler and cooling-tower scope on the Viper Power outage. What do you send back?",
+      prompt: "Boiler and cooling-tower scope is proposed for the Viper Power outage. What belongs in the reply?",
       choices: [
         { id: "d2q10a", text: "Approve it. Every gas turbine in simple cycle has a Rankine condenser." },
         { id: "d2q10b", text: "Approve the cooling tower and drop the boiler. The stack condenses the steam." },
@@ -177,14 +177,14 @@ export const day2: Lesson = {
   sections: [
     {
       id: "intro",
-      title: "Luis added a boiler to the outage",
+      title: "A boiler on a gas-turbine outage",
       minutes: 5,
       level: 1,
       kind: "intro",
       blocks: [
         {
           type: "p",
-          text: "Luis sends the outage plan with a cooling-tower repair and a boiler inspection. Dana asks whether Viper Power has either one. By the end of today you can say which plants need a condenser, and why this one does not.",
+          text: "An outage plan can arrive with a cooling-tower repair and a boiler inspection attached to a gas-turbine plant. By the end of today you can say which plants need a condenser, and why Viper Power does not.",
         },
         {
           type: "p",
@@ -316,7 +316,7 @@ export const day2: Lesson = {
     },
     {
       id: "apply",
-      title: "What you tell Luis",
+      title: "What stays off this outage",
       minutes: 8,
       level: 2,
       kind: "application",

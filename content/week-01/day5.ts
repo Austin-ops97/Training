@@ -5,7 +5,7 @@ export const day5: Lesson = {
   week: 1,
   day: 5,
   title: "Viper Power on one page, and the week in review",
-  summary: "Dana's meeting asks how big the plant is and who calls ERCOT. This lesson is the page you can defend.",
+  summary: "Viper Power on one page: the machines, the voltages, the capacity bases, and who speaks to ERCOT.",
   objectives: [
     "State the plant's unit count, fuel, cycle, and the three capacity bases without mixing them.",
     "Trace 13.8 kV through three step-up transformers to the 138 kV yard, and name the open confirmation items.",
@@ -57,7 +57,7 @@ export const day5: Lesson = {
     {
       id: "d5c1",
       level: 2,
-      prompt: "Dana asks which pair of figures you will put on the first slide, and what each one is.",
+      prompt: "Which pair of figures belongs on the first slide, and what is each one?",
       choices: [
         { id: "d5c1a", text: "59 MW and 1,062 MWh, treated as two nameplate ratings from the same test." },
         { id: "d5c1b", text: "220 MW and twelve engines, treated as the machines standing in this yard today." },
@@ -68,7 +68,7 @@ export const day5: Lesson = {
     {
       id: "d5q1",
       level: 1,
-      prompt: "The invoice from Monday is back. Priya still needs the units in one sentence.",
+      prompt: "What is the difference between MW and MWh?",
       choices: [
         { id: "d5q1a", text: "MW is the rate of power. MWh is that rate held over hours." },
         { id: "d5q1b", text: "MW and MWh are both voltages, taken an hour apart." },
@@ -79,7 +79,7 @@ export const day5: Lesson = {
     {
       id: "d5q2",
       level: 1,
-      prompt: "Luis says the 138 kV lines can hold the plant's energy overnight. What is the grid fact?",
+      prompt: "Can the 138 kV lines hold the plant's energy overnight?",
       choices: [
         { id: "d5q2a", text: "The lines store electrical energy in proportion to their operating voltage." },
         { id: "d5q2b", text: "The grid stores almost no electrical energy, so a mismatch moves frequency." },
@@ -90,7 +90,7 @@ export const day5: Lesson = {
     {
       id: "d5q3",
       level: 1,
-      prompt: "Someone in Dana's meeting calls the gas turbine a Rankine machine. Which correction is right?",
+      prompt: "A gas turbine is called a Rankine machine. Which correction is right?",
       choices: [
         { id: "d5q3a", text: "Both cycles boil water. The only difference is which fuel truck arrives." },
         { id: "d5q3b", text: "Rankine is the gas turbine, and Brayton is the condenser on the steam side." },
@@ -104,7 +104,7 @@ export const day5: Lesson = {
       prompt: "The vendor from Wednesday is in the meeting. What does a heat-recovery steam generator add?",
       choices: [
         { id: "d5q4a", text: "A second gas compressor that burns a separate stream of fuel for the extra power." },
-        { id: "d5q4b", text: "A heat-recovery steam generator makes extra megawatts from exhaust heat." },
+        { id: "d5q4b", text: "Extra megawatts from exhaust heat, without a second fuel burn." },
         { id: "d5q4c", text: "A cooling tower installed in the yard in place of the electrical generator." },
         { id: "d5q4d", text: "An inverter that stores the exhaust gas and releases it at the next peak." },
       ],
@@ -112,7 +112,7 @@ export const day5: Lesson = {
     {
       id: "d5q5",
       level: 1,
-      prompt: "Priya asks what combined heat and power is, in one line.",
+      prompt: "What is combined heat and power, in one line?",
       choices: [
         { id: "d5q5a", text: "Two plants billed on one invoice, with the leftover heat thrown away at both of them." },
         { id: "d5q5b", text: "A peaker that runs only in winter so the exhaust leaving the stack stays cool." },
@@ -189,7 +189,7 @@ export const day5: Lesson = {
     {
       id: "d5q12",
       level: 1,
-      prompt: "Dana asks who calls ERCOT. What is a Qualified Scheduling Entity?",
+      prompt: "Who calls ERCOT for the plant? What is a Qualified Scheduling Entity?",
       choices: [
         { id: "d5q12a", text: "The transmission service provider that owns the breakers and switches them in the 138 kV yard." },
         { id: "d5q12b", text: "A market participant qualified under Protocol Section 16 to speak for the plant and settle." },
@@ -201,14 +201,14 @@ export const day5: Lesson = {
   sections: [
     {
       id: "intro",
-      title: "Dana's meeting",
+      title: "One page for the plant",
       minutes: 5,
       level: 1,
       kind: "intro",
       blocks: [
         {
           type: "p",
-          text: "Dana's Monday meeting has two questions: how big is Viper Power, and who calls ERCOT when a unit is out? You have three capacity figures and a yard of shared transformers. The meeting needs one page.",
+          text: "Two questions decide the page: how big is Viper Power, and who calls ERCOT when a unit is out? There are three capacity figures and a yard of shared transformers. The page has to carry both.",
         },
         {
           type: "p",
@@ -303,7 +303,7 @@ export const day5: Lesson = {
         },
         {
           type: "p",
-          text: "ERCOT serves more than 27 million Texas customers, about 90 percent of the state's electric load. The Public Utility Commission of Texas and the Texas Legislature oversee it. Reliability standards still exist: NERC writes them and FERC approves them. The sentence for Dana's meeting is that the PUCT oversees the ERCOT market, the reliability standards still apply, and compliance gets the question before a project changes protection, voltage control, or cyber boundaries.",
+          text: "ERCOT serves more than 27 million Texas customers, about 90 percent of the state's electric load. The Public Utility Commission of Texas and the Texas Legislature oversee it. Reliability standards still exist: NERC writes them and FERC approves them. The sentence for the page is that the PUCT oversees the ERCOT market, the reliability standards still apply, and compliance gets the question before a project changes protection, voltage control, or cyber boundaries.",
         },
         {
           type: "callout",
@@ -337,7 +337,9 @@ export const day5: Lesson = {
         {
           type: "ol",
           items: [
-            "MW is power now. MWh is that power times hours.",
+            "Charge is conserved and quantised. Current is charge per time, in amperes. Potential difference is work per charge, in volts.",
+            "Ohm's law is V = IR when conditions are steady. Series resistances add. Parallel branches share one voltage. Line heating is I²R, which is why voltage is stepped up.",
+            "MW is power now. MWh is that power times hours. 1 kWh = 3.6×10⁶ J.",
             "The grid stores almost no electricity. Imbalance moves the frequency at once.",
             "A gas turbine is Brayton. A steam plant is Rankine.",
             "Combined cycle adds a heat-recovery steam generator and a steam turbine.",
@@ -366,7 +368,7 @@ export const day5: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "Twelve questions, two more than the other days, because this check covers the week. You'll see why each answer is right or wrong when you submit.",
+          text: "Twelve questions, because this check covers the week. You'll see why each answer is right or wrong when you submit.",
         },
       ],
     },

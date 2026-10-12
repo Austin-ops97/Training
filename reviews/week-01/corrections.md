@@ -99,3 +99,7 @@ Vitest 4.1.11 replaces 3.2.7. Critical and moderate findings from that upgrade p
 ### W1R2-L7 — Plant details
 
 Not changed. The Day 5 page still names the frame, the control system, the 2024 test, the 15 May weatherization date, and the remote operations center, pending the owner's decision.
+
+## Owner revision after the merge
+
+The story names and the scenario framing were removed after this file's audit log. The change log, the new electricity sources, and the lesson times are in `reviews/week-01/rev2-corrections.md`.
