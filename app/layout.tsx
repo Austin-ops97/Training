@@ -3,8 +3,9 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Training — Power Plant Fundamentals",
-  description: "Week 1 of Power Plant Fundamentals for Project Managers. Technical literacy for a project manager new to power generation.",
+  title: "Training",
+  description:
+    "Two courses: Power Plant Fundamentals for Project Managers, and Peaking Power Plant Operator Fundamentals. Neither course qualifies anyone to operate a plant.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,7 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <footer className="site">
-          Training site. Week 1 only. Viper Power is an anonymized worked example.
+          Training site. The project-manager course and the operator course are separate. Neither one qualifies a person
+          to operate a plant. Viper Power is an anonymized worked example.
         </footer>
       </body>
     </html>
