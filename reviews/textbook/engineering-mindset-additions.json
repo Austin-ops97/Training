@@ -1,0 +1,90 @@
+{
+  "reviewedOn": "2026-10-13",
+  "basis": "Publisher companion lessons checked for section fit; YouTube oEmbed identity verified. Full timed narration and live playback were not independently verified.",
+  "selected": [
+    {
+      "code": "T04",
+      "youtubeId": "SMPhh8gT_1E",
+      "title": "What is a kWh? Kilowatt-hour calculations",
+      "placement": "3.1 \u00b7 Power and energy",
+      "publisherLesson": "https://theengineeringmindset.com/kilowatt-hours-kwh-explained/"
+    },
+    {
+      "code": "T05",
+      "youtubeId": "WhATjUHgzxQ",
+      "title": "AC Electrical Generator Basics - How electricity is generated",
+      "placement": "4.1 \u00b7 Generator induction",
+      "publisherLesson": "https://theengineeringmindset.com/ac-electrical-generator-basics/"
+    },
+    {
+      "code": "T06",
+      "youtubeId": "c9gm_NL7KyE",
+      "title": "How 3 Phase Power works: why 3 phases?",
+      "placement": "4.2 \u00b7 Three-phase generation",
+      "publisherLesson": "https://theengineeringmindset.com/three-phase-power/"
+    },
+    {
+      "code": "T07",
+      "youtubeId": "NIrKOVZrqnU",
+      "title": "Power Factor Explained - Real, reactive, and apparent power",
+      "placement": "4.3 \u00b7 Real and reactive power",
+      "publisherLesson": "https://theengineeringmindset.com/power-factor-explained-your-electricity-bill-money-drain-reactive-power/"
+    },
+    {
+      "code": "T08",
+      "youtubeId": "T99yH_gw3p8",
+      "title": "What is Torque? - Torque basics explained",
+      "placement": "8.1 \u00b7 Torque and shaft power",
+      "publisherLesson": "https://theengineeringmindset.com/what-is-torque/"
+    },
+    {
+      "code": "T09",
+      "youtubeId": "GDyQXSEAJNA",
+      "title": "Industrial Heat Exchangers Explained",
+      "placement": "9.2 \u00b7 Heat removal",
+      "publisherLesson": "https://theengineeringmindset.com/industrial-heat-exchangers/"
+    },
+    {
+      "code": "T10",
+      "youtubeId": "XpcCUtYzwy0",
+      "title": "Centrifugal Pump Basics - How centrifugal pumps work",
+      "placement": "9.2 \u00b7 Cooling-loop pumps",
+      "publisherLesson": "https://theengineeringmindset.com/centrifugal-pump-basics-2/"
+    },
+    {
+      "code": "T11",
+      "youtubeId": "blnnAEmVXp0",
+      "title": "Resistance Temperature Detector Basics RTD",
+      "placement": "10.1 \u00b7 Temperature measurement",
+      "publisherLesson": "https://theengineeringmindset.com/resistance-temperature-detector-basics/"
+    },
+    {
+      "code": "T12",
+      "youtubeId": "uOtdWHMKhnw",
+      "title": "Programmable Logic Controller Basics Explained",
+      "placement": "10.2 \u00b7 Control logic",
+      "publisherLesson": "https://theengineeringmindset.com/programable-logic-controllers-explained/"
+    },
+    {
+      "code": "T13",
+      "youtubeId": "gqEu9t8HwW0",
+      "title": "Why Circuit Breakers Do Not Protect People from Electric Shocks",
+      "placement": "10.4 \u00b7 Electrical protection and hazards",
+      "publisherLesson": "https://theengineeringmindset.com/circuit-breakers-mcbs/"
+    }
+  ],
+  "deferred": [
+    {
+      "youtubeId": "N7TZ4gm3aUg",
+      "reason": "Older induction-motor lesson has ambiguous frequency/cycle wording and omits necessary slip context; requires additional narration review."
+    },
+    {
+      "youtubeId": "jcY4QN7awEc",
+      "reason": "Companion transmission-loss example has ambiguous source/delivered-power basis; existing transformer and grid explanations already cover the immediate learning objective."
+    },
+    {
+      "youtubeId": "u0SsejDCVkU",
+      "reason": "Detailed distribution connection arrangements extend beyond the current capstone objectives and would need more prerequisite explanation."
+    }
+  ]
+}

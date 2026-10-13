@@ -27,6 +27,7 @@ describe("Textbook course",()=>{
   });
   it("retains every existing video once in a suitable chapter with recorded limitations",()=>{
     const placements=chapters.flatMap(c=>c.sections.flatMap(s=>s.videoIds??[]));
+    expect(new Set(Object.values(videos).map(v=>v.youtubeId)).size).toBe(Object.keys(videos).length);
     expect(placements.sort()).toEqual(Object.keys(videos).sort());
     expect(Object.keys(videoReview).sort()).toEqual(Object.keys(videos).sort());
     expect(videoReview.V01.limitation).toContain("60 complete cycles");

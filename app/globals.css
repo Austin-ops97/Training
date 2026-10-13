@@ -334,3 +334,7 @@ button:disabled,textarea:disabled {opacity:.65;cursor:wait;}
 @media print {.navigation-toggle,.profile-controls {display:none;}.book-shell.navigation-collapsed {display:block;max-width:none;}}
 
 .navigation-collapsed .reading-section>p:not(.section-number) {max-width:85ch;}
+
+.video-check {margin:1.2rem 0;padding:1rem;background:#f0f2e9;border-left:3px solid var(--book-accent);}
+.video-check>p {margin-top:0;}
+.video-check summary {padding:.4rem 0;font-size:.8rem;}

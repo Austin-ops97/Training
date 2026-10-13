@@ -28,6 +28,8 @@ The original five-day project-manager lessons remain at `/week/1`. Their 60 Hz a
 
 Three embedded Chapter 2 companions cover voltage, resistance, and Ohm’s law, in that order. The user-supplied voltage transcript and the publisher’s Ohm’s law article were reviewed; the resistance clip is metadata-verified with full narration review pending. Corrections and limitations are shown beside the players. The original five-day video registry is unchanged.
 
+Ten further Engineering Mindset companions support energy calculations, induction, three-phase generation, power factor, torque, cooling equipment, RTDs, PLCs, and electrical protection. Each appears once, with a viewing question, explanatory guidance, and relevant scope/correction notes. Publisher lesson review is recorded separately from full timed narration verification, which remains outstanding. See `reviews/textbook/engineering-mindset-additions.json` for selected and deferred candidates.
+
 All fourteen existing videos are retained in the new course as optional companions. Publisher narration is qualified where needed; the written lessons stand alone. Current metadata was confirmed for all videos, but fresh full timed transcripts were not available. The detailed review is in `reviews/textbook/`.
 
 ## Development

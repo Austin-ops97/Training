@@ -85,7 +85,7 @@ p("Turbine stages contain stationary passages and moving blades. Stationary nozz
 p("Torque is a turning effect of force. A force applied farther from the shaft centre produces more torque for the same tangential force. Mechanical power equals torque times angular speed. A shaft can have high speed with little delivered torque, or high torque at a lower speed. Both are needed to describe the power transfer."),
 formula("Rotating power","P = τ ω","τ is torque in N·m and ω is angular speed in radians per second. With these units, P is watts. rpm must be converted before using this form."),
 p("In a typical single-shaft heavy-duty gas turbine, the turbine section, compressor, and generator are mechanically coupled. Other arrangements use multiple shafts, a separate power turbine, or gearing. Generator synchronous speed depends on the electrical design; it is not a universal speed for every internal turbine shaft."),
-]),
+], ["T08"]),
 section("materials","Heat and clearances shape the machine",[
 p("Hot gas temperatures challenge the strength and life of metal components. Cooling air, protective coatings, and suitable alloys help components survive their duty. The gas temperature and metal temperature are different quantities. A statement about firing temperature is incomplete without the manufacturer’s definition and the measurement or calculation basis."),
 p("Bearings support the shaft and locate it as it rotates. Journal bearings support radial loads; thrust bearings control axial position. In fluid-film designs, an oil film separates surfaces under operating conditions. Oil also carries heat away. The shaft and casing expand as they heat, and their clearances must accommodate that changing geometry."),
