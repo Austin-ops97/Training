@@ -3,6 +3,13 @@ import {runInNewContext} from "node:vm";
 import {APPEARANCE_KEY,DEFAULT_APPEARANCE,appearanceBootstrap,parseAppearance} from "@/lib/appearance";
 afterEach(()=>vi.unstubAllGlobals());
 describe("Reading display preferences",()=>{
+  it("defaults to the Apple system stack while preserving saved font choices",()=>{
+    expect(DEFAULT_APPEARANCE.font).toBe("sans");
+    expect(parseAppearance(null).font).toBe("sans");
+    for(const font of ["literary","classic","sans","mono"] as const) {
+      expect(parseAppearance(JSON.stringify({font})).font).toBe(font);
+    }
+  });
   it("recovers malformed settings and bounds unsafe or extreme preferences",()=>{
     expect(parseAppearance("broken")).toEqual(DEFAULT_APPEARANCE);
     expect(parseAppearance(JSON.stringify({theme:"unknown",font:"url(unsafe)",size:200,reading:"yes"}))).toEqual({...DEFAULT_APPEARANCE,size:28});

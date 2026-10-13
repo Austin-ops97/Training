@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="light" data-font="literary" data-reading="false" suppressHydrationWarning>
+    <html lang="en" data-theme="light" data-font="sans" data-reading="false" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{__html:appearanceBootstrap}}/></head>
       <body>
         <a className="skip" href="#main">
