@@ -12,6 +12,12 @@ A complete textbook-style online course for a project manager new to power gener
 
 Austin and Alex log in at `/login`. Passwords are verified on the server against salted scrypt hashes; sessions use signed HttpOnly cookies. Each profile keeps its own browser cache (`training.textbook.progress.v1.austin` or `.alex`) and pending online-save queue. Written answers autosave as users type; quiz selections, submitted state, scores, completed chapters, and the last chapter are retained. Existing guest work is preserved and can be explicitly imported from Profile & saves. The chapter navigation can collapse; completed chapters show green checks. Reading completion remains self-reported and independent of review scores. This is technical literacy, not operator qualification.
 
+## Display and reading preferences
+
+The header's **Display** menu switches Day/Dark themes, toggles a paper-style reading mode, chooses Book serif/Classic serif/Modern sans/Monospace, and sets reading text from 16–28 px. Preferences persist on the device under `training.appearance.v1`, separate from profile progress and answers. A validated pre-paint script restores the appearance before hydration. If storage is blocked, preferences still apply for the current session.
+
+Reading mode centers the chapter on a quieter paper surface and hides the course navigation temporarily; exiting restores the existing navigation preference. The Larger text shortcut updates the same saved size setting. Video players are visible in the flow of every chapter, with no disclosure required; lazy loading delays offscreen network work without hiding players. Existing video guidance, course content, assessments, and profile/save APIs are preserved.
+
 ## Online saves and hosting configuration
 
 Authentication variables are configured on the existing Vercel project: `TRAINING_SESSION_SECRET`, `TRAINING_AUSTIN_PASSWORD_HASH`, and `TRAINING_ALEX_PASSWORD_HASH`. Passwords and signing secrets must never be committed. See `.env.example` for local configuration names.

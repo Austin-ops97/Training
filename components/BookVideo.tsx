@@ -5,8 +5,8 @@ export function BookVideo({id}: {id:string}) {
   const video = videos[id];
   const review = videoReview[id];
   if (!video || !review) return null;
-  return <details className="book-video" open={["T01","T02","T03"].includes(id)}>
-    <summary><span className="eyebrow">Optional visual explanation</span><strong>{video.title}</strong><span>{video.channel} · open video</span></summary>
+  return <section className="book-video" aria-label={video.title}>
+    <header className="video-heading"><span className="eyebrow">Video companion</span><h3>{video.title}</h3><span>{video.channel}</span></header>
     <div className="video-inner">
       <p><strong>Watch for:</strong> {review.watchFor}</p>
       <p className={(id === "V01" || id === "T01") ? "video-correction" : "video-context"}><strong>{(id === "V01" || id === "T01") ? "Corrections to the narration:" : "Context:"}</strong> {review.limitation}</p>
@@ -15,5 +15,5 @@ export function BookVideo({id}: {id:string}) {
       {review.sourceUrl?<p className="video-context"><a href={review.sourceUrl} target="_blank" rel="noreferrer">Read the publisher’s companion lesson</a></p>:null}
       <p className="video-context">If the player is unavailable, <a href={"https://www.youtube.com/watch?v=" + video.youtubeId} target="_blank" rel="noreferrer">watch on YouTube</a>. The written chapter contains everything needed for its review.</p>
     </div>
-  </details>;
+  </section>;
 }

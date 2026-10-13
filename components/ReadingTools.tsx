@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { blankReadingProgress, readReadingProgress, saveReadingProgress, whenProgressReady, syncProfile } from "@/lib/reading-progress";
+import {saveAppearance} from "@/lib/appearance";
+import {useAppearance} from "./AppearanceControls";
 import {useProfileState} from "./ProfileControls";
 import type { ReviewQuestion } from "@/content/textbook/schema";
 import { scoreReview } from "@/lib/review-score";
@@ -9,20 +11,20 @@ import { scoreReview } from "@/lib/review-score";
 export function ReadingTools({slug}: {slug:string}) {
   const {ready,status}=useProfileState();
   const [completed,setCompleted] = useState(false);
-  const [large,setLarge] = useState(false);
+  const {size}=useAppearance();
   const [message,setMessage] = useState("");
   useEffect(()=>{
     let active=true;
     void whenProgressReady().then(()=>{if(active) saveReadingProgress(current=>({...current,lastChapter:slug}));});
     const sync=()=>setCompleted(readReadingProgress().completed.includes(slug));
     sync(); window.addEventListener("reading-progress",sync); window.addEventListener("storage",sync);
-    return ()=>{active=false;window.removeEventListener("reading-progress",sync);window.removeEventListener("storage",sync); document.documentElement.classList.remove("book-large");};
+    return ()=>{active=false;window.removeEventListener("reading-progress",sync);window.removeEventListener("storage",sync);};
   },[slug]);
   function toggle() {
     const ok = saveReadingProgress(current=>({...current,completed:current.completed.includes(slug)?current.completed.filter(s=>s!==slug):[...current.completed,slug]}));
     if(!ok) setMessage("Progress could not be saved. Try again after the profile loads.");
   }
-  return <div className="reading-tools"><button className="book-secondary" type="button" aria-pressed={large} onClick={()=>{document.documentElement.classList.toggle("book-large",!large);setLarge(!large);}}>Larger text</button><button className="book-secondary" type="button" onClick={()=>window.print()}>Print chapter</button><button className="book-primary" type="button" aria-pressed={completed} disabled={!ready} onClick={toggle}>{completed?"Chapter completed":"Mark chapter complete"}</button><span className="save-status" role="status">{message||status}</span></div>;
+  return <div className="reading-tools"><button className="book-secondary" type="button" disabled={size>=28} onClick={()=>saveAppearance(p=>({...p,size:Math.min(28,p.size+2)}))}>Larger text</button><button className="book-secondary" type="button" onClick={()=>window.print()}>Print chapter</button><button className="book-primary" type="button" aria-pressed={completed} disabled={!ready} onClick={toggle}>{completed?"Chapter completed":"Mark chapter complete"}</button><span className="save-status" role="status">{message||status}</span></div>;
 }
 
 export function ChapterNotebook({slug,prompt,guidance}: {slug:string;prompt:string;guidance:string}) {

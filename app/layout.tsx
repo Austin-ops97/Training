@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {appearanceBootstrap} from "@/lib/appearance";
 import {ProfileBridge} from "@/components/ProfileControls";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" data-font="literary" data-reading="false" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{__html:appearanceBootstrap}}/></head>
       <body>
         <a className="skip" href="#main">
           Skip to content

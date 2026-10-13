@@ -37,6 +37,7 @@ describe("Textbook course",()=>{
     for(const c of chapters) {
       const markup=renderToStaticMarkup(await ChapterPage({params:Promise.resolve({slug:c.slug})}));
       expect(markup).toContain("<h1>"+c.title+"</h1>");
+      expect(markup).not.toContain('<details class="book-video"');
       for(const s of c.sections) expect(markup).toContain('id="'+s.id+'"');
       const anchors=[...markup.matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
       for(const anchor of anchors) expect(markup).toContain('id="'+anchor+'"');
