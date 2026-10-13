@@ -1,6 +1,6 @@
 export const APPEARANCE_KEY = "training.appearance.v1";
-export type Appearance = {theme:"light"|"dark";font:"literary"|"classic"|"sans"|"mono";size:number;reading:boolean};
-export const DEFAULT_APPEARANCE:Appearance = {theme:"light",font:"sans",size:19,reading:false};
+export type Appearance = {theme:"light"|"dark";font:"literary"|"classic"|"sans"|"mono";size:number;weight:300|400|500|600|700;reading:boolean};
+export const DEFAULT_APPEARANCE:Appearance = {theme:"light",font:"sans",size:19,weight:400,reading:false};
 export function parseAppearance(raw:string|null):Appearance {
   try {
     const data=JSON.parse(raw??"null");
@@ -9,6 +9,7 @@ export function parseAppearance(raw:string|null):Appearance {
       theme:data.theme==="dark"?"dark":"light",
       font:["literary","classic","sans","mono"].includes(data.font)?data.font:"sans",
       size:typeof data.size==="number"&&Number.isFinite(data.size)?Math.min(28,Math.max(16,Math.round(data.size))):19,
+      weight:[300,400,500,600,700].includes(data.weight)?data.weight:400,
       reading:data.reading===true,
     };
   } catch {return {...DEFAULT_APPEARANCE};}
@@ -24,6 +25,7 @@ export function applyAppearance(p:Appearance) {
   const root=document.documentElement;
   root.dataset.theme=p.theme;root.dataset.font=p.font;root.dataset.reading=String(p.reading);
   root.style.setProperty("--reader-size",p.size+"px");
+  root.style.setProperty("--reader-weight",String(p.weight));
 }
 export function saveAppearance(update:(p:Appearance)=>Appearance):boolean {
   current=parseAppearance(JSON.stringify(update(readAppearance())));
@@ -32,4 +34,4 @@ export function saveAppearance(update:(p:Appearance)=>Appearance):boolean {
   applyAppearance(current);window.dispatchEvent(new Event("appearance-change"));return persisted;
 }
 // Validated settings are applied before paint so a returning dark-mode reader does not see a bright flash.
-export const appearanceBootstrap=`(()=>{try{const p=JSON.parse(localStorage.getItem("${APPEARANCE_KEY}")||"null");if(!p||typeof p!=="object")return;const d=document.documentElement;d.dataset.theme=p.theme==="dark"?"dark":"light";d.dataset.font=["literary","classic","sans","mono"].includes(p.font)?p.font:"sans";d.dataset.reading=String(p.reading===true);d.style.setProperty("--reader-size",(typeof p.size==="number"&&Number.isFinite(p.size)?Math.min(28,Math.max(16,Math.round(p.size))):19)+"px");}catch{}})();`;
+export const appearanceBootstrap=`(()=>{try{const p=JSON.parse(localStorage.getItem("${APPEARANCE_KEY}")||"null");if(!p||typeof p!=="object")return;const d=document.documentElement;d.dataset.theme=p.theme==="dark"?"dark":"light";d.dataset.font=["literary","classic","sans","mono"].includes(p.font)?p.font:"sans";d.dataset.reading=String(p.reading===true);d.style.setProperty("--reader-size",(typeof p.size==="number"&&Number.isFinite(p.size)?Math.min(28,Math.max(16,Math.round(p.size))):19)+"px");d.style.setProperty("--reader-weight",String([300,400,500,600,700].includes(p.weight)?p.weight:400));}catch{}})();`;

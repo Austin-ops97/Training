@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import {appearanceBootstrap} from "@/lib/appearance";
 import {ProfileBridge} from "@/components/ProfileControls";
+import {chapters} from "@/content/textbook";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <ProfileBridge/>
-        <SiteHeader />
+        <SiteHeader entries={chapters.map(({slug,number,title})=>({slug,number,title}))}/>
         <main id="main">{children}</main>
         <footer className="site">
           NEURO · Power Plant Foundations · Technical understanding for project managers. Actual operation and hazardous work

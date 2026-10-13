@@ -861,3 +861,78 @@ html[data-theme=dark] .neural-nodes {opacity:.12;}
   .neural-nodes {opacity:.075;}
   .login-display-controls .appearance-panel {top:64px;max-height:calc(100dvh - 84px);}
 }
+
+/* Reader weight preserves heading and emphasis hierarchy. */
+.book-reader,.font-preview,.glossary-list dd {font-weight:var(--reader-weight,400);}
+.mobile-navigation {display:none;}
+.appearance-embedded>summary {display:none;}
+.appearance-embedded .appearance-panel {position:static;width:auto;max-height:none;overflow:visible;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;}
+.appearance-embedded .appearance-heading {display:none;}
+@media (max-width:1023px) {
+  .site-header {position:sticky;top:0;z-index:70;display:block;min-height:0;padding:env(safe-area-inset-top,0px) 16px 0;border-bottom:1px solid var(--book-line);background:var(--book-surface);}
+  .site-header>.desktop-brand,.site-header>.header-links,.site-header>.header-actions {display:none;}
+  .mobile-navigation {display:block;}
+  .mobile-header-row {display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:12px;height:64px;}
+  .mobile-brand {justify-self:center;line-height:0;}
+  .mobile-brand .neuro-wordmark {width:140px;}
+  .mobile-icon-button {display:grid;place-items:center;width:44px;height:44px;padding:10px;border:0;border-radius:12px;background:transparent;color:var(--book-ink);cursor:pointer;}
+  .mobile-icon-button:hover,.mobile-icon-button:active {background:var(--book-raised);}
+  .mobile-icon-button:focus-visible {outline:2px solid var(--book-accent);outline-offset:2px;}
+  .mobile-icon-button svg {width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .mobile-display-button {font-size:16px;font-weight:500;letter-spacing:-.05em;}
+  .mobile-drawer {position:fixed;inset:0 auto 0 0;margin:0;padding:0;width:min(88vw,360px);max-width:none;height:100dvh;max-height:100dvh;border:0;border-right:1px solid var(--book-line);background:var(--book-surface);color:var(--book-ink);box-shadow:12px 0 64px #0002;overflow:hidden;}
+  .mobile-drawer[open] {display:flex;flex-direction:column;animation:mobile-drawer-in .18s ease-out;}
+  .mobile-drawer::backdrop {background:#111b2b66;}
+  html[data-theme=dark] .mobile-drawer::backdrop {background:#0009;}
+  .mobile-drawer-heading {display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px 22px;flex-shrink:0;border-bottom:1px solid var(--book-line);}
+  .mobile-drawer-heading .neuro-wordmark {width:144px;}
+  .mobile-drawer-content {min-height:0;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:16px 14px 24px;scrollbar-width:thin;}
+  .mobile-destination-links {display:grid;gap:4px;}
+  .mobile-destination-links a {display:flex;align-items:center;justify-content:space-between;min-height:46px;padding:12px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;color:var(--book-ink);}
+  .mobile-destination-links a[aria-current=page],.mobile-destination-links a:hover {background:var(--book-raised);}
+  .mobile-settings {margin:14px 0 22px;border-block:1px solid var(--book-line);}
+  .mobile-settings>summary {display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px;padding:14px 12px;font-size:13px;font-weight:500;cursor:pointer;list-style:none;}
+  .mobile-settings>summary::-webkit-details-marker {display:none;}
+  .mobile-settings>summary>span {font-size:15px;color:var(--book-muted);}
+  .mobile-settings .appearance-embedded {padding:0 12px 12px;}
+  .mobile-settings select {min-height:46px;font-size:16px;}
+  .mobile-settings button {min-height:44px;}
+  .mobile-settings .font-size-control {gap:8px;}
+  .mobile-settings .appearance-footer {flex-wrap:wrap;gap:12px;}
+  .mobile-course-progress {padding:0 12px 18px;}
+  .mobile-course-progress>p {display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;line-height:1.6;margin:0 0 12px;}
+  .mobile-course-progress strong {font-variant-numeric:tabular-nums;color:var(--book-accent);}
+  .mobile-course-progress progress {display:block;width:100%;height:4px;accent-color:var(--book-accent);margin-bottom:10px;}
+  .mobile-course-progress small {font-size:11px;color:var(--book-muted);}
+  .mobile-chapter-list ol {list-style:none;padding:0;margin:0;display:grid;gap:4px;}
+  .mobile-chapter-list a {display:flex;gap:12px;align-items:flex-start;min-height:52px;padding:14px 12px;border:1px solid transparent;border-radius:10px;color:var(--book-muted);font-size:13px;line-height:1.65;text-decoration:none;overflow-wrap:anywhere;}
+  .mobile-chapter-list a[aria-current=page] {background:var(--book-tint);border-color:var(--book-line);color:var(--book-ink);font-weight:600;}
+  .mobile-chapter-list a.chapter-done {color:var(--book-accent);}
+  .mobile-chapter-number {flex:0 0 22px;font-size:11px;line-height:1.95;font-variant-numeric:tabular-nums;}
+  .mobile-profile {position:relative;flex-shrink:0;padding:14px 22px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--book-line);}
+  .mobile-profile .profile-controls {position:static;gap:10px;min-height:40px;}
+  .mobile-profile .profile-avatar {width:32px;height:32px;font-size:10px;}
+  .mobile-profile .profile-name {display:block;font-size:13px;}
+  .mobile-profile .profile-menu {position:static;margin-left:auto;}
+  .mobile-profile .profile-menu summary {max-width:none;min-height:44px;display:flex;align-items:center;font-size:12px;}
+  .mobile-profile .profile-menu>div {position:absolute;inset:auto 12px calc(100% + 8px);width:auto;max-height:60dvh;overflow:auto;overscroll-behavior:contain;box-shadow:var(--book-shadow);}
+  .mobile-profile .profile-menu button {min-height:44px;}
+  .book-shell,.book-shell.navigation-collapsed {padding:20px clamp(20px,4vw,32px) 40px;}
+  .book-sidebar,.navigation-open-mobile .book-sidebar:not([hidden]),.learning-rail,.book-shell.navigation-collapsed .learning-rail {display:none!important;}
+  .navigation-toggle {margin-bottom:18px;}
+  .navigation-toggle>.book-secondary {display:none;}
+  .reader-breadcrumb {font-size:11px;}
+  .reader-breadcrumb>span:last-child {max-width:none;}
+  .chapter-header h1 {font-size:clamp(28px,5vw,36px);line-height:1.18;letter-spacing:-.035em;}
+  .chapter-header>.chapter-description {font-size:16px;line-height:1.75;}
+  .chapter-counter {font-size:11px;line-height:1.7;}
+  .reading-tools {gap:8px;}
+  .reading-tools button {min-height:44px;padding:10px 13px;font-size:11px;}
+  .notebook textarea,.login-form input,.login-form select {font-size:max(16px,var(--reader-size));}
+  .book-review label {min-height:52px;}
+  .chapter-roadmap summary,.chapter-sources summary {min-height:44px;display:flex;align-items:center;}
+  .reading-section {scroll-margin-top:90px;}
+}
+@keyframes mobile-drawer-in {from{opacity:.8;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
+@media (prefers-reduced-motion:reduce) {.mobile-drawer[open] {animation:none;}}
+@media print {.mobile-navigation {display:none!important;}}
