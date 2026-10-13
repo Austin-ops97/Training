@@ -4,7 +4,7 @@ import {chapters,finalReview,wordCount} from "@/content/textbook";
 import {sources} from "@/content/textbook/sources";
 import {textbookVideos as videos} from "@/content/textbook/videos";
 import {videoReview} from "@/content/textbook/video-review";
-import ChapterPage from "@/app/learn/[slug]/page";
+import ChapterPage from "@/app/(course)/learn/[slug]/page";
 import {parseReadingProgress,readReadingProgress,saveReadingProgress,READING_KEY,initializeProfile} from "@/lib/reading-progress";
 import {scoreReview} from "@/lib/review-score";
 

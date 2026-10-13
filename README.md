@@ -47,7 +47,7 @@ npm run build
 npm run dev
 ```
 
-Course content is in `content/textbook/`. Reading and progress components are in `components/`; the routes are in `app/learn/`. Tests cover course dependencies, source/video references, rendered chapter anchors, adjacent navigation, scoring, storage recovery, and the retained original assessments.
+Course content is in `content/textbook/`. Reading and progress components are in `components/`; the routes are in `app/(course)/learn/`. Tests cover course dependencies, source/video references, rendered chapter anchors, adjacent navigation, scoring, storage recovery, and the retained original assessments.
 
 The existing Vercel `training` project is linked to `Austin-ops97/Training` on `main`. Keep that integration rather than creating a second hosted course.
 
@@ -58,3 +58,5 @@ The supplied NEURO wordmark is retained unchanged at `public/neuro-wordmark.png`
 On wide desktop screens (1440 px and above), chapter navigation, the reading column, and a compact progress/goals rail share the screen. At 1024–1439 px, the reader has a two-column navigation/content layout. Below 1024 px, chapters default to a closed toggle and progress/goals stack above the lesson; goals can expand when needed. Below 768 px, login stacks into one column and the header navigation moves onto its own row. Phone pagination stacks vertically. Reading mode keeps the support rail hidden and retains the established paper palettes, font choices, and sizing.
 
 Learning goals and progress use the actual course/profile data. The reference image’s sample chapter names, stock photograph, percentages, and goal-completion marks are not curriculum inputs. The login keeps the existing two profiles, passwords, and save APIs; its Show/Hide password control is presentational.
+
+Signed-out visitors are redirected to `/login` by the server layout for all course pages. The login page returns authenticated profiles to the course home; successful logout replaces the current location with `/login`. Existing progress and answers are retained per profile.

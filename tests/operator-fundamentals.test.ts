@@ -3,8 +3,8 @@ import path from "node:path";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import HomePage from "@/app/page";
-import OperatorFundamentalsPage from "@/app/operator-fundamentals/page";
+import HomePage from "@/app/(course)/page";
+import OperatorFundamentalsPage from "@/app/(course)/operator-fundamentals/page";
 import { ASPECTS, BULLETS, COMPONENTS, type BulletId } from "@/content/operator-fundamentals/coverage";
 import { TREATMENT_KEYS } from "@/content/operator-fundamentals/schema";
 import {
@@ -178,9 +178,9 @@ describe("operator fundamentals outline", () => {
     expect(page.toLowerCase()).not.toContain("lorem");
     expect(page).not.toMatch(/\bDana\b|\bPriya\b|\bLuis\b/);
     expect(page).not.toMatch(/href="\/operator-fundamentals\/[^"]+"/);
-    expect(existsSync(path.join(root, "app/operator-fundamentals/page.tsx"))).toBe(true);
-    const routes = walk(path.join(root, "app/operator-fundamentals")).filter((file) => file.endsWith("page.tsx"));
-    expect(routes).toEqual([path.join(root, "app/operator-fundamentals/page.tsx")]);
+    expect(existsSync(path.join(root, "app/(course)/operator-fundamentals/page.tsx"))).toBe(true);
+    const routes = walk(path.join(root, "app/(course)/operator-fundamentals")).filter((file) => file.endsWith("page.tsx"));
+    expect(routes).toEqual([path.join(root, "app/(course)/operator-fundamentals/page.tsx")]);
   });
 
   it("keeps the evidence files aligned with the data", () => {
