@@ -53,7 +53,7 @@ The existing Vercel `training` project is linked to `Austin-ops97/Training` on `
 
 ## NEURO branding and responsive learning layout
 
-The supplied NEURO wordmark is retained unchanged at `public/neuro-wordmark.png`. `NeuroWordmark` uses Next Image delivery and a CSS viewing window to remove the source image’s large display margins, with monochrome blending for Day/Dark themes. The original uploaded file is not edited. Site titles, the header, and the login presentation use NEURO; the repository and existing Vercel project remain `Training`/`training`.
+The supplied NEURO wordmark is retained unchanged at `public/neuro-wordmark.png`. `NeuroWordmark` uses Next Image delivery inside an SVG alpha mask. The mask removes the pale background and source margins while preserving the supplied lettering; `currentColor` follows Day, Dark, and reading themes without an opaque backing or blend effects. The original uploaded file is not edited. Site titles, the header, and the login presentation use NEURO; the repository and existing Vercel project remain `Training`/`training`.
 
 On wide desktop screens (1440 px and above), chapter navigation, the reading column, and a compact progress/goals rail share the screen. At 1024–1439 px, the reader has a two-column navigation/content layout. Below 1024 px, chapters default to a closed toggle and progress/goals stack above the lesson; goals can expand when needed. Below 768 px, login stacks into one column and the header navigation moves onto its own row. Phone pagination stacks vertically. Reading mode keeps the support rail hidden and retains the established paper palettes, font choices, and sizing.
 

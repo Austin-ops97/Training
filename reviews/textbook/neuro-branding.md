@@ -1,6 +1,6 @@
 # NEURO branding and responsive layout
 
-Reference: the user-supplied NEURO wordmark and learning-platform mockup. Both attachments were inspected from their available scratch copies. The supplied raster logo is copied unchanged into the repository; CSS positions its visible lettering, and Next Image handles delivery. Its measured dark-ink bounds are x=359–1689, y=261–413 in a 2048×682 source; the display window includes those bounds with small margins.
+Reference: the user-supplied NEURO wordmark and learning-platform mockup. Both attachments were inspected from their available scratch copies. The supplied raster logo is copied unchanged into the repository; an SVG inverse-luminance alpha mask makes its backing transparent, and Next Image handles delivery. The mask clears pale background pixels and fills the exact lettering with the theme foreground colour; it does not rely on backdrop blending. Its measured dark-ink bounds are x=359–1689, y=261–413 in a 2048×682 source; the display window includes those bounds with small margins.
 
 The site uses restrained white/graphite surfaces and blue accents, a branded two-profile login, actual chapter navigation and progress, and actual learning objectives. The reference mockup’s fictitious course structure and progress are not imported. Course content, video identity/placement/review data, assessment data, backend authentication, and save APIs are unchanged. Existing display preferences and reading-mode behavior remain, including the four fonts and 16–28 px size range.
 

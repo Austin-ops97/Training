@@ -643,10 +643,8 @@ html[data-reading=true][data-theme=light] {--neuro-action:#353b2f;--neuro-action
 html[data-reading=true][data-theme=dark] {--neuro-action:#dadccc;--neuro-action-text:#20251c;--neuro-action-hover:#e6e9da;}
 html[data-reading=true][data-theme=light] {--book-paper:#eee9df;--book-surface:#f8f3e9;--book-raised:#ede6d9;--book-ink:#292720;--book-muted:#696356;--book-line:#d9d0bf;--book-accent:#4c5d42;--book-accent-hover:#35462d;--book-tint:#e9eadc;}
 html[data-reading=true][data-theme=dark] {--book-paper:#141411;--book-surface:#1c1d18;--book-raised:#292a23;--book-ink:#dddacf;--book-muted:#b0ad9e;--book-line:#3c3d32;--book-accent:#b5c4a0;--book-accent-hover:#d2ddc1;--book-tint:#2d3327;}
-.neuro-wordmark {display:block;position:relative;overflow:hidden;width:172px;aspect-ratio:8.4;isolation:isolate;flex-shrink:0;}
-.neuro-wordmark img {position:absolute;max-width:none;width:153%;height:auto;left:-26.2%;top:-161%;filter:grayscale(1) contrast(4);mix-blend-mode:multiply;}
+.neuro-wordmark {display:block;width:172px;height:auto;aspect-ratio:1350/161;color:var(--book-ink);flex-shrink:0;}
 .neuro-wordmark-large {width:240px;}
-html[data-theme=dark] .neuro-wordmark img {filter:invert(1) grayscale(1) contrast(4);mix-blend-mode:screen;}
 .site-header {min-height:80px;max-width:none;padding:18px clamp(24px,3.25vw,64px);gap:48px;background:var(--book-surface);box-shadow:none;}
 .brand {min-height:40px;gap:0;}
 .header-links {align-self:stretch;gap:32px;align-items:center;font-size:13px;}
