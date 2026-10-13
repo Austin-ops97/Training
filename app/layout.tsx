@@ -5,7 +5,7 @@ import {ProfileBridge} from "@/components/ProfileControls";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Power Plant Foundations · Training",
+  title: "NEURO · Power Plant Foundations",
   description:
     "A textbook-style online course from electricity and gas-turbine generation to plant operations, grid delivery, and project decisions.",
 };
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <footer className="site">
-          Power Plant Foundations · Technical understanding for project managers. Actual operation and hazardous work
+          NEURO · Power Plant Foundations · Technical understanding for project managers. Actual operation and hazardous work
           require site-specific training and authorization. Viper Power is an inherited anonymized example.
         </footer>
       </body>

@@ -1,0 +1,9 @@
+# NEURO branding and responsive layout
+
+Reference: the user-supplied NEURO wordmark and learning-platform mockup. Both attachments were inspected from their available scratch copies. The supplied raster logo is copied unchanged into the repository; CSS positions its visible lettering, and Next Image handles delivery. Its measured dark-ink bounds are x=359–1689, y=261–413 in a 2048×682 source; the display window includes those bounds with small margins.
+
+The site uses restrained white/graphite surfaces and blue accents, a branded two-profile login, actual chapter navigation and progress, and actual learning objectives. The reference mockup’s fictitious course structure and progress are not imported. Course content, video identity/placement/review data, assessment data, backend authentication, and save APIs are unchanged. Existing display preferences and reading-mode behavior remain, including the four fonts and 16–28 px size range.
+
+Responsive contracts: 1440+ px three columns; 1024–1439 px two columns; under 1024 px chapter toggle plus stacked progress/goals and reader; under 768 px stacked login and header navigation row; under 540 px compact wordmark/account controls and vertical previous/next links. Phone/tablet chapter navigation closes on chapter changes. Goal completion is not inferred from a chapter check.
+
+Verification: production build/type/lint checks, all 41 existing tests, static chapter/video markup checks, and live route/logo checks. Browser visual and interaction QA remains unavailable in this managed environment (no control-browser skill); viewport styles and contracts are implemented, but actual device screenshots/playback/touch behavior were not verified. The existing online-storage provisioning limitation is unaffected.
