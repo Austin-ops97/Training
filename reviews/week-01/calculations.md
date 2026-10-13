@@ -1,3 +1,5 @@
+> Historical Week 1 review. For the current course and subsequent corrections (60 Hz, AC nameplate context, governor/excitation, and storage), see ../textbook/review.md.
+
 # Worked calculations
 
 Every arithmetic step taught in Week 1 is below. Graded items are also in [assessments.md](assessments.md). Figures that are not a Viper Power measurement are labeled.

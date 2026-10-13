@@ -154,10 +154,10 @@ describe("operator fundamentals outline", () => {
     expect(operatorCourse.boundary.toLowerCase()).toContain("does not qualify");
   });
 
-  it("renders both course entries and a placeholder-free outline with no lesson routes", () => {
+  it("keeps original references accessible beside the textbook course and the complete operator outline", () => {
     const home = renderToStaticMarkup(createElement(HomePage));
-    expect(home).toContain("Power Plant Fundamentals for Project Managers");
-    expect(home).toContain("Peaking Power Plant Operator Fundamentals");
+    expect(home).toContain("Power Plant Foundations");
+    expect(home).toContain("Operator curriculum outline");
     expect(home).toContain('href="/week/1"');
     expect(home).toContain('href="/operator-fundamentals"');
 

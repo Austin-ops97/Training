@@ -17,7 +17,7 @@ export const videos: Record<string, VideoSpec> = {
     endSeconds: 625,
     required: true,
     watchNote:
-      "Watch the full listed video. Use the generation, transmission, distribution, 60 Hz, and supply-must-meet-demand sections. The closing sponsor message is not part of the lesson.",
+      "Use the generation, transmission, and distribution overview. Corrections: 60 Hz means 60 complete cycles per second, not 60 direction changes; energy storage is possible, though ordinary wires do not provide bulk storage. The closing sponsor message is not part of the lesson.",
   },
   V02: {
     code: "V02",

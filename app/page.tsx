@@ -1,66 +1,19 @@
 import Link from "next/link";
-import { courseMinutesTotal, lessonMinutesTotal, operatorCourse, operatorLessons } from "@/content/operator-fundamentals";
-import { course, lessonMinutes, week1 } from "@/lib/course";
-
-function formatDuration(minutes: number): string {
-  const hours = Math.floor(minutes / 60);
-  const rest = minutes % 60;
-  if (rest === 0) return `${hours} hours`;
-  return `${hours} hours ${rest} minutes`;
-}
+import { chapters, chapterIndex, courseTitle } from "@/content/textbook";
+import { CourseCatalog } from "@/components/CourseCatalog";
+import { CourseProgress } from "@/components/ReadingTools";
+import { EnergyExplorer } from "@/components/EnergyExplorer";
 
 export default function HomePage() {
-  const weekMinutes = week1.lessons.reduce((sum, lesson) => sum + lessonMinutes(lesson), 0);
-  return (
-    <div className="wrap">
-      <section className="hero">
-        <p className="kicker">{course.siteName}</p>
-        <h1>Courses</h1>
-        <p className="lede">
-          Two courses share this site. They stay separate. Neither one qualifies a person to operate a plant.
-        </p>
-      </section>
-      <div className="grid-cards">
-        <article className="card">
-          <p className="kicker">Course</p>
-          <h2>
-            <Link href="/week/1">{course.title}</Link>
-          </h2>
-          <p>{course.audience}</p>
-          <p>{course.workedExample}</p>
-          <p>
-            <Link href="/week/1">
-              Week 1 — {week1.title}
-            </Link>
-          </p>
-          <p className="meta">
-            {week1.lessons.length} published lessons · {weekMinutes} minutes · {week1.focus}. Target 60 minutes each,
-            hard cap 90.
-          </p>
-        </article>
-        <article className="card">
-          <p className="kicker">Course</p>
-          <h2>
-            <Link href="/operator-fundamentals">{operatorCourse.title}</Link>
-          </h2>
-          <p>{operatorCourse.audience}</p>
-          <p>{operatorCourse.boundary}</p>
-          <p className="meta">
-            Outline published. {operatorLessons.length} lessons · {formatDuration(lessonMinutesTotal())} · final
-            assessment {formatDuration(operatorCourse.finalAssessment.minutes)} · {formatDuration(courseMinutesTotal())}{" "}
-            in all.
-          </p>
-        </article>
-        <article className="card">
-          <p className="kicker">How the published lessons work</p>
-          <ul>
-            <li>Short sections with a clock time on each one.</li>
-            <li>Videos in the project-manager course play in the page.</li>
-            <li>Checks are scored on the server. Explanations appear after you answer.</li>
-            <li>Progress for that course stays in this browser.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  );
+  return <div className="book-home">
+    <section className="book-hero">
+      <div className="hero-copy"><p className="eyebrow">A course for project managers · Start from first principles</p><h1>Understand the plant.<br/><em>From the inside out.</em></h1><p className="hero-description">From what electricity is to how a gas turbine makes it, how the grid delivers it, and how projects keep the whole process working.</p><div className="hero-meta"><span>16 complete chapters</span><span>Worked examples</span><span>Chapter reviews + capstone</span></div></div>
+      <aside className="start-panel"><span className="eyebrow">{courseTitle}</span><h2>Your place in the course</h2><CourseProgress slugs={chapters.map(c=>c.slug)}/></aside>
+    </section>
+    <section className="course-orientation"><div><p className="eyebrow">The approach</p><h2>The depth stays.<br/>The explanation comes first.</h2></div><div><p>Read in order the first time. Each chapter introduces the physical idea, defines its vocabulary, works through an example, and connects it to the plant. Equations follow the explanation, with their units and assumptions visible.</p><p>Stop at the end to explain the idea in your own words and check your reasoning. Videos are optional companions placed after the relevant explanation; the written course stands on its own.</p><p className="orientation-links"><Link href="/learn/glossary">Open the glossary →</Link><Link href="/learn/review">Cumulative review →</Link></p></div></section>
+    <section className="process-intro"><p className="eyebrow">One connected process</p><h2>Follow the energy.</h2><p>Select a stage to see its role. The course explains what happens between these stages and the systems that support them.</p><EnergyExplorer/></section>
+    <CourseCatalog entries={chapterIndex}/>
+    <section className="study-plan"><p className="eyebrow">A flexible study rhythm</p><h2>Five parts, at your pace.</h2><p>For a steady introduction, study two chapters per session and discuss the written responses afterward. Electrical foundations may need extra practice. Pause after Chapter 12 and trace the complete simple-cycle plant before comparing other technologies.</p><p>Reading-time estimates on chapter pages cover the text only. Worked examples, reflection, discussion, and videos add time. Understanding the explanation matters more than meeting a timer.</p></section>
+    <div className="course-reference-links"><Link href="/learn/evidence">Sources and video review</Link><Link href="/week/1">Original five-day reference material</Link><Link href="/operator-fundamentals">Operator curriculum outline</Link></div>
+  </div>;
 }

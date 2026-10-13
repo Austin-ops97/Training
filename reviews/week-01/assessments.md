@@ -59,14 +59,14 @@ Explanation: A = 500 mm² = 5.00×10⁻⁴ m². R = ρ L / A = (2.65×10⁻⁸ �
 
 ### d1q3 — knowledge check, level 2
 
-A generator nameplate reads 13.8 kV. How much work is that per coulomb of charge?
+A steady potential difference is 13.8 kV between two points. What energy difference does that represent per coulomb of charge?
 
 0. 13,800 J/C, because 13.8 kV is 13,800 V and one volt is one joule per coulomb. **(correct)**
 1. 13.8 J/C, because the kilo prefix was left off before the nameplate was read.
 2. 13,800 W, because a generator nameplate voltage was read as electric power.
 3. 13.8 MW, because the kilo prefix on that voltage was taken as a power unit.
 
-Explanation: 13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.
+Explanation: 13.8 kV = 13,800 V. For the stated steady potential difference, 1 V = 1 J/C gives 13,800 J/C. This is a voltage, not watts or megawatts. An AC generator nameplate normally gives RMS line-to-line voltage, a different context from this steady example.
 
 ### d1q4 — knowledge check, level 2
 
@@ -149,12 +149,12 @@ Explanation: For the same power, current = power / voltage. Double the voltage a
 
 What does 60 Hz mean on the grids in this lesson?
 
-0. Alternating current reverses direction 60 times each second. **(correct)**
+0. Alternating current completes 60 cycles each second. **(correct)**
 1. Transmission voltage is 60 kV on the lines used in this lesson.
 2. The heat rate of these grids is 60, which is why they use that label.
 3. Direct current pulses 60 times a second, and a transformer steps it up.
 
-Explanation: 60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.
+Explanation: 60 Hz means 60 complete cycles per second. A sinusoidal current changes direction twice per cycle, or 120 times per second. It is not a voltage, heat rate, or description of direct current.
 
 ## w1d2 — Day 2
 
@@ -294,14 +294,14 @@ Explanation: Viper Power's Week 1 description is gas turbines on pipeline gas. I
 
 ### d2q11 — knowledge check, level 2
 
-On a synchronous generator, which device holds shaft speed, and which holds voltage?
+Before connection to a large grid, which device regulates synchronous-generator shaft speed, and which regulates voltage?
 
 0. The exciter adds fuel to raise frequency, and the governor changes field current.
 1. Both devices move a transformer tap, and neither one touches fuel or field current.
 2. The governor changes fuel to hold shaft speed, and the exciter holds voltage. **(correct)**
 3. The step-up transformer holds both frequency and voltage once the unit is online.
 
-Explanation: The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.
+Explanation: Before grid connection, the governor changes fuel to regulate shaft speed and the exciter regulates voltage. On a large grid, added torque chiefly increases real power; excitation chiefly influences voltage/reactive output. A transformer changes voltage between windings.
 
 ## w1d3 — Day 3
 
@@ -620,11 +620,11 @@ Explanation: MW is the rate of power. MWh is that rate held over hours.
 Can the 138 kV lines hold the plant's energy overnight?
 
 0. The lines store electrical energy in proportion to their operating voltage.
-1. The grid stores almost no electrical energy, so a mismatch moves frequency. **(correct)**
+1. Wires are not bulk storage; the grid needs continuous energy balance. **(correct)**
 2. The wires hold a few hours of energy, and then the frequency resets itself.
 3. The step-up transformer is the battery for energy that leaves the yard.
 
-Explanation: The grid stores almost no electrical energy. A mismatch moves frequency at once.
+Explanation: Ordinary wires are not bulk storage, but fields, rotating machinery, and connected storage contain energy. System inflows and outflows still need to balance; a mismatch can move frequency.
 
 ### d5q3 — knowledge check, level 1
 

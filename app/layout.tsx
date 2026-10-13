@@ -3,9 +3,9 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Training",
+  title: "Power Plant Foundations · Training",
   description:
-    "Two courses: Power Plant Fundamentals for Project Managers, and Peaking Power Plant Operator Fundamentals. Neither course qualifies anyone to operate a plant.",
+    "A textbook-style online course from electricity and gas-turbine generation to plant operations, grid delivery, and project decisions.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <footer className="site">
-          Training site. The project-manager course and the operator course are separate. Neither one qualifies a person
-          to operate a plant. Viper Power is an anonymized worked example.
+          Power Plant Foundations · Technical understanding for project managers. Actual operation and hazardous work
+          require site-specific training and authorization. Viper Power is an inherited anonymized example.
         </footer>
       </body>
     </html>

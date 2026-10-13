@@ -9,7 +9,8 @@ export default async function WeekPage({ params }: { params: Promise<{ weekId: s
   const total = week1.lessons.reduce((sum, lesson) => sum + lessonMinutes(lesson), 0);
   return (
     <div className="wrap">
-      <p className="kicker">Week 1</p>
+      <p className="kicker">Original five-day reference material</p>
+      <p><Link href="/">Open the textbook course and complete learning path →</Link></p>
       <h1>{week1.title}</h1>
       <p className="lede">{week1.focus}</p>
       <p className="meta">Five lessons. Scheduled time {total} minutes. Later weeks are not in this release.</p>

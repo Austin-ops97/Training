@@ -187,7 +187,7 @@ export const day2: Lesson = {
     {
       id: "d2q11",
       level: 2,
-      prompt: "On a synchronous generator, which device holds shaft speed, and which holds voltage?",
+      prompt: "Before connection to a large grid, which device regulates synchronous-generator shaft speed, and which regulates voltage?",
       choices: [
         { id: "d2q11a", text: "The exciter adds fuel to raise frequency, and the governor changes field current." },
         { id: "d2q11b", text: "Both devices move a transformer tap, and neither one touches fuel or field current." },
@@ -232,7 +232,7 @@ export const day2: Lesson = {
         },
         {
           type: "p",
-          text: "If load exceeds generation, the rotating machines slow and frequency falls until generation is added or load is removed. On a synchronous machine, two devices split the work. The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. A two-pole machine at 60 Hz turns at 3,600 rpm, and a four-pole machine at 1,800 rpm. That relationship is the physics, not a setpoint for this plant.",
+          text: "If electrical demand exceeds input, rotating machines initially supply some energy by slowing, and frequency tends to fall while controls respond. Before connection, the governor changes fuel to regulate speed. On a large grid, frequency constrains average synchronous speed and increased fuel/torque primarily increases real power. Excitation regulates voltage or reactive output according to the operating mode. A two-pole generator at 60 Hz turns at 3,600 rpm; a four-pole generator turns at 1,800 rpm. This is a physical relationship, not a universal turbine-shaft setpoint.",
         },
       ],
     },

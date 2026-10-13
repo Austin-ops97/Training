@@ -39,7 +39,7 @@ const correctSnippets: Record<string, string> = {
   d1q8: "longer conductor",
   d1q9: "3.6×10⁶ J",
   d1q10: "one quarter",
-  d1q11: "60 times each second",
+  d1q11: "60 cycles each second",
   d2q11: "governor changes fuel",
   d2c1: "condenser",
   d2c2: "Fission replaces the flame",
@@ -79,7 +79,7 @@ const correctSnippets: Record<string, string> = {
   d4q10: "inverter-based resources",
   d5c1: "65 MW",
   d5q1: "MW is the rate of power",
-  d5q2: "stores almost no electrical energy",
+  d5q2: "continuous energy balance",
   d5q3: "Brayton for the gas turbine",
   d5q4: "exhaust heat",
   d5q5: "useful heat or steam",
@@ -101,7 +101,7 @@ describe("Week 1 lessons", () => {
       expect(minutes).toBeLessThanOrEqual(90);
       expect(lesson.sections.every((section) => section.minutes >= 0)).toBe(true);
       const kinds = new Set(lesson.sections.map((section) => section.kind));
-      for (const kind of ["intro", "core", "visual", "application", "exercise", "quiz"]) {
+      for (const kind of ["intro", "core", "visual", "application", "exercise", "quiz"] as const) {
         expect(kinds.has(kind)).toBe(true);
       }
     }

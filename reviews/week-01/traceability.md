@@ -1,3 +1,5 @@
+> Historical Week 1 review. For the current course and subsequent corrections (60 Hz, AC nameplate context, governor/excitation, and storage), see ../textbook/review.md.
+
 # Source traceability
 
 Status values:

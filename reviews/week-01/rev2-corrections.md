@@ -1,3 +1,5 @@
+> Historical Week 1 review. For the current course and subsequent corrections (60 Hz, AC nameplate context, governor/excitation, and storage), see ../textbook/review.md.
+
 # Week 1 rev2 — corrections and change log
 
 Started from merged `main` at `7e5fdabb`. This revision does not rewrite that history. The new branch is `course/week-01-rev2`.

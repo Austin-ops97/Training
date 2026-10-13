@@ -93,7 +93,7 @@ export const day1: Lesson = {
     {
       id: "d1q3",
       level: 2,
-      prompt: "A generator nameplate reads 13.8 kV. How much work is that per coulomb of charge?",
+      prompt: "A steady potential difference is 13.8 kV between two points. What energy difference does that represent per coulomb of charge?",
       choices: [
         { id: "d1q3a", text: "13,800 J/C, because 13.8 kV is 13,800 V and one volt is one joule per coulomb." },
         { id: "d1q3b", text: "13.8 J/C, because the kilo prefix was left off before the nameplate was read." },
@@ -183,7 +183,7 @@ export const day1: Lesson = {
       level: 1,
       prompt: "What does 60 Hz mean on the grids in this lesson?",
       choices: [
-        { id: "d1q11a", text: "Alternating current reverses direction 60 times each second." },
+        { id: "d1q11a", text: "Alternating current completes 60 cycles each second." },
         { id: "d1q11b", text: "Transmission voltage is 60 kV on the lines used in this lesson." },
         { id: "d1q11c", text: "The heat rate of these grids is 60, which is why they use that label." },
         { id: "d1q11d", text: "Direct current pulses 60 times a second, and a transformer steps it up." },
@@ -200,7 +200,7 @@ export const day1: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "A power plant's product is electric charge pushed through a circuit. Charge, current, voltage, resistance, and power are different quantities. Put the wrong unit on a figure and the rest of the calculation follows the wrong quantity.",
+          text: "A power plant converts an energy source into electrical energy. The conductors already contain charge carriers; the plant does not manufacture charge. Charge, current, voltage, resistance, and power are different quantities. Their units distinguish what is being measured.",
         },
         {
           type: "p",
@@ -271,7 +271,7 @@ export const day1: Lesson = {
         { type: "diagram", diagram: "symbols" },
         {
           type: "p",
-          text: "Worked example, read from a nameplate. Viper Power's generators are marked 13.8 kV. That is 13,800 V. Because 1 V = 1 J/C, the nameplate means 13,800 J of work per coulomb: V = W / Q = 13,800 J / 1 C = 13,800 V. The nameplate is a voltage. It is not a power, and it is not a measured energy total for one particular coulomb that passed through the machine.",
+          text: "For a steady potential difference of 13.8 kV, 13,800 V corresponds to an energy difference of 13,800 J/C. Viper Power's generator nameplate uses the same voltage unit but describes an AC rating: normally RMS line-to-line voltage. It is not a constant energy delivery of 13,800 J to each individual coulomb passing through the generator. AC voltage changes over time; three-phase power also requires current and power factor.",
         },
         {
           type: "p",
@@ -376,13 +376,13 @@ export const day1: Lesson = {
       blocks: [
         {
           type: "p",
-          text: "Electric power is the rate of energy transfer. For any device, power is current times potential difference. In a resistor, that same power is also I²R and V²/R. Those two forms belong to the resistor. They are how a conductor turns electrical energy into heat.",
+          text: "Electric power is the rate of energy transfer. Instantaneous power is instantaneous voltage times instantaneous current. For steady DC, P = VI. For AC, average real power depends on the waveform and phase relationship. In a resistor, power is also I²R and V²/R with the appropriate steady or RMS quantities. Those two forms describe resistive heating.",
         },
         {
           type: "formula",
           label: "Power and Joule heating",
           expression: "P = V I = I² R = V² / R    and    H = I² R t",
-          note: "P is in watts when V is in volts and I is in amperes. H is the heat energy in joules when R is in ohms and t is in seconds. 1 W = 1 J/s. P = VI is general. P = I²R and P = V²/R belong to a resistor.",
+          note: "These are steady resistive-circuit formulas; RMS values can be used for average sinusoidal resistive heating. P is watts, H is joules, and time is seconds. 1 W = 1 J/s. Do not apply P = VI with RMS generator line values as a complete three-phase real-power formula.",
         },
         {
           type: "p",
@@ -436,7 +436,7 @@ export const day1: Lesson = {
           afterVideo: true,
           items: [
             "Generation, transmission, and distribution are three different jobs with three different voltages.",
-            "The grids in this film reverse 60 times a second. Some other countries use 50. That reversal is alternating current. Direct current holds one direction.",
+            "60 Hz means 60 complete cycles per second, with 120 direction changes for a sinusoidal current. Some other countries use 50 Hz. Alternating current changes direction periodically; direct current holds one direction.",
             "Production and use happen together. A mismatch shows up as frequency, not as a pile of saved electricity.",
             "The closing sponsor message is not part of the lesson.",
           ],

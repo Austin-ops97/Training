@@ -34,7 +34,7 @@ export const answerKey: Record<string, LessonKey> = {
       ),
       d1q3: q(
         "d1q3a",
-        "13.8 kV = 13,800 V. V = W / Q and 1 V = 1 J/C, so the nameplate is 13,800 J per coulomb. It is a voltage, not 13,800 W and not 13.8 MW.",
+        "13.8 kV = 13,800 V. For the stated steady potential difference, 1 V = 1 J/C gives 13,800 J/C. This is a voltage, not watts or megawatts. An AC generator nameplate normally gives RMS line-to-line voltage, a different context from this steady example.",
       ),
       d1q4: q(
         "d1q4c",
@@ -66,7 +66,7 @@ export const answerKey: Record<string, LessonKey> = {
       ),
       d1q11: q(
         "d1q11a",
-        "60 Hz means the alternating current reverses direction 60 times each second. It is not a voltage, a heat rate, or a description of direct current.",
+        "60 Hz means 60 complete cycles per second. A sinusoidal current changes direction twice per cycle, or 120 times per second. It is not a voltage, heat rate, or description of direct current.",
       ),
     },
   },
@@ -111,7 +111,7 @@ export const answerKey: Record<string, LessonKey> = {
       ),
       d2q11: q(
         "d2q11c",
-        "The governor changes fuel to hold shaft speed, and shaft speed is locked to frequency. The exciter changes field current to hold voltage. The step-up transformer changes voltage between windings. It does not hold both quantities by itself.",
+        "Before grid connection, the governor changes fuel to regulate shaft speed and the exciter regulates voltage. On a large grid, added torque chiefly increases real power; excitation chiefly influences voltage/reactive output. A transformer changes voltage between windings.",
       ),
     },
   },
@@ -228,7 +228,7 @@ export const answerKey: Record<string, LessonKey> = {
         "The pair to show is about 65 MW per unit at standard conditions, from the 2024 test, and about 330 MW net at 95°F. A prior-owner sheet says about 360 MW. The 59 MW figure is an exercise input. The 220 MW figure belongs to someone else's animation.",
       ),
       d5q1: q("d5q1a", "MW is the rate of power. MWh is that rate held over hours."),
-      d5q2: q("d5q2b", "The grid stores almost no electrical energy. A mismatch moves frequency at once."),
+      d5q2: q("d5q2b", "Ordinary wires are not bulk storage, but fields, rotating machinery, and connected storage contain energy. System inflows and outflows still need to balance; a mismatch can move frequency."),
       d5q3: q("d5q3d", "Brayton for the gas turbine. Rankine for the steam plant. Viper Power is the Brayton machine."),
       d5q4: q(
         "d5q4b",

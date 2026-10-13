@@ -82,7 +82,7 @@ export const day5: Lesson = {
       prompt: "Can the 138 kV lines hold the plant's energy overnight?",
       choices: [
         { id: "d5q2a", text: "The lines store electrical energy in proportion to their operating voltage." },
-        { id: "d5q2b", text: "The grid stores almost no electrical energy, so a mismatch moves frequency." },
+        { id: "d5q2b", text: "Wires are not bulk storage; the grid needs continuous energy balance." },
         { id: "d5q2c", text: "The wires hold a few hours of energy, and then the frequency resets itself." },
         { id: "d5q2d", text: "The step-up transformer is the battery for energy that leaves the yard." },
       ],
@@ -340,7 +340,7 @@ export const day5: Lesson = {
             "Charge is conserved and quantised. Current is charge per time, in amperes. Potential difference is work per charge, in volts.",
             "Ohm's law is V = IR when conditions are steady. Series resistances add. Parallel branches share one voltage. Line heating is I²R, which is why voltage is stepped up.",
             "MW is power now. MWh is that power times hours. 1 kWh = 3.6×10⁶ J.",
-            "The grid stores almost no electricity. Imbalance moves the frequency at once.",
+            "Ordinary wires are not bulk energy storage. Rotating machines and connected storage contain energy, but continuous system balance is still needed.",
             "A gas turbine is Brayton. A steam plant is Rankine.",
             "Combined cycle adds a heat-recovery steam generator and a steam turbine.",
             "Combined heat and power is electricity plus useful heat from one fuel.",

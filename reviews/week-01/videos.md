@@ -33,7 +33,7 @@ Transcript source for V01–V08 and V10–V14: public watch-page text reviewed 1
 - Listed duration 10:25. Player window 0–625 seconds.
 - Required: yes.
 - Objectives supported: see the section named in the table above.
-- Notes: Watch the full listed video. Use the generation, transmission, distribution, 60 Hz, and supply-must-meet-demand sections. The closing sponsor message is not part of the lesson.
+- Notes: Use the generation, transmission, and distribution overview. Corrections: 60 Hz means 60 complete cycles per second, not 60 direction changes; energy storage is possible, though ordinary wires do not provide bulk storage. The closing sponsor message is not part of the lesson.
 - Limitation: the `end` parameter is the listed full-video length. A tighter in-video timestamp was not available because timed captions were not retrieved.
 
 ### V02 — How Power Gets to Your Home: Crash Course Physics #35
