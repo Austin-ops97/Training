@@ -68,3 +68,5 @@ The final requested precision/clarity pass is recorded in `reviews/textbook/fina
 The cumulative review now contains 35 questions: the original first 15 plus all 20 adapted electrical-basics questions. The previous question 16 is removed from this review; its chapter exercise remains. Old answers are retained, and newly added questions must be answered before the expanded review is shown as submitted.
 
 Mobile navigation and settings use separate modal panels: the left menu contains Home, course destinations, progress, and chapters; the gear opens a standalone right panel with all display controls and profile/save/logout controls. Neither menu is nested inside the other.
+
+Mobile login uses a large centered wordmark and the sign-in card only, with surrounding introductory copy and footer hidden. A portrait version of the same monochrome neural network is more visible on mobile; desktop login is retained. Functional field labels, errors, and accessible card/profile names remain.

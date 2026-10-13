@@ -17,15 +17,17 @@ const edges=[
   [36,37],[37,38],
 ];
 
+function Network({portrait=false}:{portrait?:boolean}) {
+  const scale=portrait?1/3:1;
+  return <svg className={portrait?"neural-portrait":"neural-landscape"} viewBox={portrait?"0 0 480 900":"0 0 1440 900"} preserveAspectRatio="xMidYMid slice" focusable="false">
+    <g className="neural-connections" fill="none" stroke="currentColor" strokeWidth=".8">
+      {edges.map(([a,b])=><line key={`${a}-${b}`} x1={nodes[a][0]*scale} y1={nodes[a][1]} x2={nodes[b][0]*scale} y2={nodes[b][1]}/>)}
+    </g>
+    <g className="neural-nodes" fill="currentColor">
+      {nodes.map(([x,y],i)=><circle key={i} cx={x*scale} cy={y} r={i%5===0?3:1.7}/>)}
+    </g>
+  </svg>;
+}
 export function LoginNeuralBackground() {
-  return <div className="login-neural-background" aria-hidden="true">
-    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
-      <g className="neural-connections" fill="none" stroke="currentColor" strokeWidth=".8">
-        {edges.map(([a,b])=><line key={`${a}-${b}`} x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]}/>)}
-      </g>
-      <g className="neural-nodes" fill="currentColor">
-        {nodes.map(([x,y],i)=><circle key={i} cx={x} cy={y} r={i%5===0?3:1.7}/>)}
-      </g>
-    </svg>
-  </div>;
+  return <div className="login-neural-background" aria-hidden="true"><Network/><Network portrait/></div>;
 }
