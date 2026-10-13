@@ -2,6 +2,7 @@ import { foundations } from "./foundations";
 import { generationChapters } from "./generation";
 import { operationsChapters } from "./operations";
 import { industryChapters } from "./industry";
+import {electricalReview} from "./electrical-review";
 import type { Block } from "@/lib/types";
 import type { Chapter } from "./schema";
 
@@ -25,8 +26,8 @@ export const chapterIndex = chapters.map(({slug,number,unit,title,description,se
   sections: sections.map(({id,title}) => ({id,title})), terms,
 }));
 const reviewSelection = [0,1,0,0,0,0,1,0,0,1,0,1,1,0,1,0];
-export const finalReview = chapters.map((chapter,index) => {
+export const finalReview = [...chapters.slice(0,15).map((chapter,index) => {
   const q = chapter.questions[reviewSelection[index]];
   return {...q,revisit:"/learn/"+chapter.slug+"#"+q.revisit};
-});
+}),...electricalReview];
 export const courseTitle = "Power Plant Foundations";

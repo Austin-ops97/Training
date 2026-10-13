@@ -12,7 +12,7 @@ export type Chapter = {
 export const p = (text: string): Block => ({ type: "p", text });
 export const note = (title: string, text: string): Block => ({ type: "callout", tone: "note", title, text });
 export const example = (title: string, text: string): Block => ({ type: "callout", tone: "advanced", title, text });
-export const pm = (text: string): Block => ({ type: "callout", tone: "pm", title: "The project connection", text });
+export const pm = (text: string): Block => ({ type: "callout", tone: "pm", title: "What this means for a plant project", text });
 export const formula = (label: string, expression: string, explanation: string): Block => ({ type: "formula", label, expression, note: explanation });
 export const table = (caption: string, headers: string[], rows: string[][]): Block => ({ type: "table", caption, headers, rows });
 export const diagram = (name: Extract<Block, {type: "diagram"}>["diagram"]): Block => ({ type: "diagram", diagram: name });

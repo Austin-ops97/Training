@@ -63,6 +63,18 @@ describe("Textbook course",()=>{
     const frequency=chapters[3].questions[0];
     expect(frequency.choices[frequency.answer]).toBe("60 complete cycles per second");
   });
+  it("adds the 20 electrical questions without counting the retired cumulative question",()=>{
+    expect(finalReview).toHaveLength(35);
+    expect(new Set(finalReview.map(q=>q.id)).size).toBe(35);
+    expect(finalReview.some(q=>q.id==="c16a")).toBe(false);
+    expect(chapters[15].questions.some(q=>q.id==="c16a")).toBe(true);
+    const added=finalReview.filter(q=>q.id.startsWith("eb"));
+    expect(added).toHaveLength(20);
+    expect(added.map(q=>q.answer)).toEqual([2,2,2,2,2,1,1,2,1,2,2,1,2,1,1,0,2,1,2,2]);
+    const legacyAnswers=Object.fromEntries(finalReview.slice(0,15).map(q=>[q.id,q.answer]));
+    expect(scoreReview(finalReview,{...legacyAnswers,c16a:1})).toEqual({correct:15,total:35,complete:false});
+    expect(scoreReview(finalReview,Object.fromEntries(finalReview.map(q=>[q.id,q.answer])))).toEqual({correct:35,total:35,complete:true});
+  });
 });
 describe("Browser learning progress",()=>{
   it("recovers malformed or old data while preserving valid notes and scores",()=>{

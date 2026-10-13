@@ -2,6 +2,7 @@
 import {useEffect,useId,useRef,useState} from "react";
 import {APPEARANCE_KEY,DEFAULT_APPEARANCE,applyAppearance,readAppearance,saveAppearance} from "@/lib/appearance";
 import type {Appearance} from "@/lib/appearance";
+import {SettingsIcon} from "./SettingsIcon";
 export function useAppearance() {
   const [preferences,setPreferences]=useState<Appearance>(DEFAULT_APPEARANCE);
   useEffect(()=>{
@@ -24,7 +25,7 @@ export function AppearanceControls({embedded=false}:{embedded?:boolean}) {
   },[embedded]);
   function update(patch:Partial<Appearance>) {setMessage(saveAppearance(p=>({...p,...patch}))?"":"Applied for this visit. Device storage is unavailable.");}
   return <details className={"appearance-menu"+(embedded?" appearance-embedded":"")} ref={panel} open={embedded?true:undefined}>
-    <summary aria-label="Display and reading preferences"><span className="appearance-glyph" aria-hidden="true">Aa</span><span>Display</span></summary>
+    <summary aria-label="Display and reading preferences"><SettingsIcon/><span>Settings</span></summary>
     <div className="appearance-panel">
       <div className="appearance-heading"><strong>Make it yours</strong><span>Display & reading</span></div>
       <fieldset><legend>Theme</legend><div className="segmented"><button type="button" aria-pressed={preferences.theme==="light"} onClick={()=>update({theme:"light"})}>Day</button><button type="button" aria-pressed={preferences.theme==="dark"} onClick={()=>update({theme:"dark"})}>Dark</button></div></fieldset>

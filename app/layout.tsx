@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <footer className="site">
           NEURO · Power Plant Foundations · Technical understanding for project managers. Actual operation and hazardous work
-          require site-specific training and authorization. Viper Power is an inherited anonymized example.
+          require site-specific training and authorization. Viper Power is an anonymized plant case study.
         </footer>
       </body>
     </html>

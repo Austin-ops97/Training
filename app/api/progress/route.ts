@@ -9,6 +9,10 @@ const headers={"Cache-Control":"no-store"};
 const slugs=new Set(chapters.map(c=>c.slug));
 const reviewSlugs=new Set([...slugs,"final-review"]);
 const questions=new Map([...chapters.flatMap(c=>c.questions.map(q=>[c.slug+":"+q.id,q.choices.length] as const)),...finalReview.map(q=>["final-review:"+q.id,q.choices.length] as const)]);
+// Accept queued work from the previous 16-question review so one retired answer
+// or historical result cannot block otherwise valid profile saves.
+const retiredReviewQuestion=chapters.flatMap(c=>c.questions).find(q=>q.id==="c16a");
+if(retiredReviewQuestion) questions.set("final-review:c16a",retiredReviewQuestion.choices.length);
 function validatePatch(data:unknown):ProgressPatch|null {
   if(!data||typeof data!=="object"||Array.isArray(data)) return null;
   const patch=data as ProgressPatch;
@@ -26,7 +30,8 @@ function validatePatch(data:unknown):ProgressPatch|null {
         if(!reviewSlugs.has(id)||!value||typeof value!=="object") return null;
         const score=value as {correct:number;total:number};
         const total=id==="final-review"?finalReview.length:chapters.find(c=>c.slug===id)!.questions.length;
-        if(score.total!==total||!Number.isInteger(score.correct)||score.correct<0||score.correct>total) return null;
+        const historicalReview=id==="final-review"&&score.total===16;
+        if((score.total!==total&&!historicalReview)||!Number.isInteger(score.correct)||score.correct<0||score.correct>score.total) return null;
       }
     }
   }

@@ -47,7 +47,7 @@ export function ChapterReview({questions,slug,final=false}: {questions:ReviewQue
   const {ready,status}=useProfileState();
   const [answers,setAnswers]=useState<Record<string,number>>({}); const [submitted,setSubmitted]=useState(false); const [message,setMessage]=useState("");
   useEffect(()=>{
-    const sync=()=>{const p=readReadingProgress();setAnswers(Object.fromEntries(questions.flatMap(q=>p.answers[slug+":"+q.id]!==undefined?[[q.id,p.answers[slug+":"+q.id]]]:[])));setSubmitted(p.submitted[slug]??false);};
+    const sync=()=>{const p=readReadingProgress();const savedAnswers=Object.fromEntries(questions.flatMap(q=>p.answers[slug+":"+q.id]!==undefined?[[q.id,p.answers[slug+":"+q.id]]]:[]));setAnswers(savedAnswers);setSubmitted(Boolean(p.submitted[slug])&&scoreReview(questions,savedAnswers).complete);};
     sync();window.addEventListener("reading-progress",sync);window.addEventListener("storage",sync);
     return()=>{window.removeEventListener("reading-progress",sync);window.removeEventListener("storage",sync);};
   },[questions,slug]);

@@ -59,6 +59,17 @@ describe("Private durable course saves",()=>{
     const response=await PATCH(new Request("https://training.test/api/progress",{method:"PATCH",headers:{origin:"https://training.test","X-Training-Profile":"Austin"},body:JSON.stringify({notes:{"what-electricity-is":"Saved locally"}})}));
     expect(response.status).toBe(503);expect(mocked.put).not.toHaveBeenCalled();
   });
+  it("accepts old queued review work and new questions without blocking chapter saves",async()=>{
+    vi.stubEnv("BLOB_READ_WRITE_TOKEN","test-only-storage-token");
+    mocked.cookie.mockReturnValue({value:createSession("Austin")});
+    mocked.get.mockResolvedValue(null);mocked.put.mockResolvedValue({});
+    const request=(body:unknown)=>new Request("https://training.test/api/progress",{method:"PATCH",headers:{origin:"https://training.test","X-Training-Profile":"Austin"},body:JSON.stringify(body)});
+    const historical=await PATCH(request({answers:{"final-review:c16a":1},scores:{"final-review":{correct:12,total:16}},notes:{"what-electricity-is":"Keep this chapter answer"}}));
+    expect(historical.status).toBe(200);
+    const expanded=await PATCH(request({answers:{"final-review:eb20":2},scores:{"final-review":{correct:35,total:35}}}));
+    expect(expanded.status).toBe(200);
+    expect((await PATCH(request({answers:{"final-review:eb20":4}}))).status).toBe(400);
+  });
 });
 describe("Device saves and retry queue",()=>{
   it("keeps Austin's and Alex's answers separate and retains pending work when sync fails",async()=>{

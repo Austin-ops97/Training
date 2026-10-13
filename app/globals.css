@@ -635,10 +635,10 @@ button:disabled,textarea:disabled {opacity:.55;cursor:not-allowed;}
   --book-shadow:0 8px 28px #172e4805;
 }
 html[data-theme=dark] {
-  --neuro-action:#edf2f8;--neuro-action-text:#111925;--neuro-action-hover:#d3dfec;
-  --book-paper:#10151d;--book-surface:#151d28;--book-raised:#1b2533;
-  --book-ink:#e8edf5;--book-muted:#a6b3c7;--book-line:#2d3a4d;
-  --book-accent:#9ebfe3;--book-accent-hover:#c0d5ed;--book-tint:#1c2e43;
+  --neuro-action:#f5f5f7;--neuro-action-text:#111;--neuro-action-hover:#d1d1d6;
+  --book-paper:#000;--book-surface:#1c1c1e;--book-raised:#2c2c2e;
+  --book-ink:#f5f5f7;--book-muted:#aeaeb2;--book-line:#38383a;
+  --book-accent:#d1d1d6;--book-accent-hover:#fff;--book-tint:#28282a;
 }
 html[data-reading=true][data-theme=light] {--neuro-action:#353b2f;--neuro-action-hover:#4b5543;}
 html[data-reading=true][data-theme=dark] {--neuro-action:#dadccc;--neuro-action-text:#20251c;--neuro-action-hover:#e6e9da;}
@@ -936,3 +936,24 @@ html[data-theme=dark] .neural-nodes {opacity:.12;}
 @keyframes mobile-drawer-in {from{opacity:.8;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
 @media (prefers-reduced-motion:reduce) {.mobile-drawer[open] {animation:none;}}
 @media print {.mobile-navigation {display:none!important;}}
+
+.settings-icon,.theme-toggle svg {display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;}
+.theme-toggle {display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;padding:10px;background:transparent;border:0;border-radius:10px;color:var(--book-ink);cursor:pointer;}
+.theme-toggle:hover {background:var(--book-raised);}
+.theme-toggle:focus-visible {outline:2px solid var(--book-accent);outline-offset:2px;}
+.login-profile-choice {padding:0;margin:0;border:0;min-width:0;}
+.login-profile-choice legend {padding:0;margin:8px 0 10px;font-size:11px;color:var(--book-ink);}
+.login-profile-choice>div {display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.login-card .login-form .login-profile-choice label {position:relative;margin:0;cursor:pointer;}
+.login-profile-choice input {position:absolute;opacity:0;width:1px;height:1px;min-height:0!important;padding:0;}
+.login-profile-choice label>span {display:grid;place-items:center;min-height:46px;border:1px solid var(--book-line);border-radius:9px;background:var(--book-paper);font-size:13px;color:var(--book-muted);}
+.login-profile-choice input:checked+span {background:var(--book-tint);border-color:var(--book-accent);color:var(--book-ink);font-weight:600;}
+.login-profile-choice input:focus-visible+span {outline:2px solid var(--book-accent);outline-offset:3px;}
+.login-profile-choice:disabled label {opacity:.6;cursor:default;}
+@media(max-width:1023px) {
+  .mobile-header-row {grid-template-columns:44px minmax(0,1fr) auto;gap:8px;}
+  .mobile-quick-controls {display:flex;align-items:center;gap:0;}
+  .mobile-quick-controls .theme-toggle {width:44px;height:44px;}
+  .mobile-settings>summary>.settings-icon {width:18px;height:18px;color:var(--book-muted);}
+}
+@media(max-width:360px) {.mobile-brand .neuro-wordmark {width:116px;}}
