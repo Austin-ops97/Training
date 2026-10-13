@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {ProfileBridge} from "@/components/ProfileControls";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip" href="#main">
           Skip to content
         </a>
+        <ProfileBridge/>
         <SiteHeader />
         <main id="main">{children}</main>
         <footer className="site">

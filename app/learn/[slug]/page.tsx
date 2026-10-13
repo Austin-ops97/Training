@@ -6,6 +6,7 @@ import { sources } from "@/content/textbook/sources";
 import { BookBlock } from "@/components/BookBlocks";
 import { BookVideo } from "@/components/BookVideo";
 import { ChapterNotebook, ChapterReview, ReadingTools } from "@/components/ReadingTools";
+import {CourseNavigation} from "@/components/CourseNavigation";
 import { ChapterCompletion } from "@/components/ChapterCompletion";
 
 export function generateStaticParams() { return chapters.map(c=>({slug:c.slug})); }
@@ -16,8 +17,7 @@ export async function generateMetadata({params}: {params:Promise<{slug:string}>}
 export default async function ChapterPage({params}: {params:Promise<{slug:string}>}) {
   const {slug}=await params; const c=chapterBySlug(slug);if(!c) notFound();
   const previous=chapters[c.number-2];const next=chapters[c.number];
-  return <div className="book-shell">
-    <aside className="book-sidebar" aria-label="Course navigation"><Link href="/" className="book-back">← Course contents</Link><details open><summary>Chapters</summary><ol>{chapters.map(ch=><li key={ch.slug}><Link href={"/learn/"+ch.slug} aria-current={ch.slug===slug?"page":undefined}><span>{String(ch.number).padStart(2,"0")}</span>{ch.title}</Link></li>)}</ol></details><Link href="/learn/glossary">Glossary</Link><Link href="/learn/review">Cumulative review</Link></aside>
+  return <CourseNavigation entries={chapters.map(ch=>({slug:ch.slug,number:ch.number,title:ch.title}))} slug={slug}>
     <article className="book-reader">
       <header className="chapter-header"><p className="eyebrow">{c.unit}</p><p className="chapter-counter">Chapter {String(c.number).padStart(2,"0")} / 16 · about {Math.ceil(wordCount(c)/180)} minutes of reading</p><h1>{c.title}</h1><p className="chapter-description">{c.description}</p><div className="chapter-question">{c.question}</div><ReadingTools key={slug} slug={slug}/></header>
       <details className="chapter-roadmap"><summary>In this chapter</summary><ul>{c.objectives.map(o=><li key={o}>{o}</li>)}</ul><nav aria-label="Chapter sections">{c.sections.map((s,i)=><a key={s.id} href={"#"+s.id}>{c.number}.{i+1} {s.title}</a>)}<a href="#summary">Key ideas and terms</a><a href="#apply">Apply what you learned</a><a href="#review">Chapter review</a></nav>{c.prerequisites.length?<p>Builds on: {c.prerequisites.map((s,i)=><span key={s}>{i?", ":""}<Link href={"/learn/"+s}>{chapterBySlug(s)?.title}</Link></span>)}</p>:null}</details>
@@ -29,5 +29,5 @@ export default async function ChapterPage({params}: {params:Promise<{slug:string
       <ChapterCompletion key={slug+"-completion"} slug={slug}/>
       <nav className="chapter-pagination" aria-label="Adjacent chapters">{previous?<Link href={"/learn/"+previous.slug}><span>← Previous chapter</span><strong>{previous.title}</strong></Link>:<Link href="/"><span>← Course contents</span><strong>Return to the learning path</strong></Link>}{next?<Link href={"/learn/"+next.slug}><span>Next chapter →</span><strong>{next.title}</strong></Link>:<Link href="/learn/review"><span>Finish with the cumulative review →</span><strong>Connect the whole process</strong></Link>}</nav>
     </article>
-  </div>;
+  </CourseNavigation>;
 }

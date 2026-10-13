@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {ProfileControls} from "./ProfileControls";
 
 export function SiteHeader() {
   return (
@@ -12,6 +13,7 @@ export function SiteHeader() {
         <Link href="/learn/glossary">Glossary</Link>
         <Link href="/learn/review">Review</Link>
       </nav>
+      <ProfileControls/>
     </header>
   );
 }

@@ -2,10 +2,10 @@ import {describe,it,expect,vi,afterEach} from "vitest";
 import {renderToStaticMarkup} from "react-dom/server";
 import {chapters,finalReview,wordCount} from "@/content/textbook";
 import {sources} from "@/content/textbook/sources";
-import {videos} from "@/content/week-01/videos";
+import {textbookVideos as videos} from "@/content/textbook/videos";
 import {videoReview} from "@/content/textbook/video-review";
 import ChapterPage from "@/app/learn/[slug]/page";
-import {parseReadingProgress,readReadingProgress,saveReadingProgress,READING_KEY} from "@/lib/reading-progress";
+import {parseReadingProgress,readReadingProgress,saveReadingProgress,READING_KEY,initializeProfile} from "@/lib/reading-progress";
 import {scoreReview} from "@/lib/review-score";
 
 afterEach(()=>vi.unstubAllGlobals());
@@ -69,10 +69,11 @@ describe("Browser learning progress",()=>{
     const p=parseReadingProgress(JSON.stringify({version:1,completed:["a","a",8],notes:{a:"response",b:5},scores:{a:{correct:1,total:2},b:{correct:3,total:2}}}));
     expect(p.completed).toEqual(["a"]);expect(p.notes).toEqual({a:"response"});expect(p.scores).toEqual({a:{correct:1,total:2}});
   });
-  it("updates one field without overwriting notes, completion, or review results",()=>{
+  it("updates one field without overwriting notes, completion, or review results",async()=>{
     let raw=JSON.stringify({version:1,completed:["a"],notes:{a:"keep"},scores:{a:{correct:2,total:2}}});
     const event=vi.fn();
     vi.stubGlobal("window",{localStorage:{getItem:()=>raw,setItem:(key:string,value:string)=>{expect(key).toBe(READING_KEY);raw=value;}},dispatchEvent:event});
+    await initializeProfile(null);event.mockClear();
     expect(saveReadingProgress(p=>({...p,lastChapter:"b"}))).toBe(true);
     expect(readReadingProgress()).toMatchObject({completed:["a"],notes:{a:"keep"},scores:{a:{correct:2,total:2}},lastChapter:"b"});
     expect(event).toHaveBeenCalledOnce();
